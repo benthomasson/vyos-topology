@@ -1,27 +1,13 @@
-id: 64
+id: 2
 interfaces:
-- id: 175
-  local_port: 9013
+- id: 1
+  local_port: 9100
   name: swp1
-  network: 87
-  remote_device_name: Switch3
-  remote_interface_name: swp2
-  remote_port: 9012
-- id: 181
-  local_port: 9005
-  name: swp2
-  network: 90
-  remote_device_name: Switch5
-  remote_interface_name: swp2
-  remote_port: 9004
-- id: 186
-  local_port: 9006
-  name: swp3
-  network: 93
+  network: 215
   remote_device_name: Switch1
-  remote_interface_name: swp2
-  remote_port: 9007
+  remote_interface_name: swp1
+  remote_port: 9101
 name: Switch2
 type: switch
-x: -300
-y: 0
+x: 702
+y: 289
