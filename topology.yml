@@ -8,7 +8,7 @@ devices:
     remote_device_name: Switch2
     remote_interface_name: swp1
     remote_port: 9100
-  mgmt_ip: 192.168.121.107
+  mgmt_ip: 192.168.121.36
   mgmt_port: 22
   name: Switch1
   nat_ip: 10.17.161.200
@@ -25,7 +25,7 @@ devices:
     remote_device_name: Switch1
     remote_interface_name: swp1
     remote_port: 9101
-  mgmt_ip: 192.168.121.120
+  mgmt_ip: 192.168.121.11
   mgmt_port: 22
   name: Switch2
   nat_ip: 10.17.161.200
