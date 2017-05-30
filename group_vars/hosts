@@ -1,5 +1,12 @@
 devices:
-- id: 1
+- cli:
+    host: 192.168.121.150
+    port: '22'
+    ssh_keyfile:
+    - /home/ben/git/vyos-topology/.vagrant/machines/Switch1/libvirt/private_key
+    transport: cli
+    username: vagrant
+  id: 1
   interfaces:
   - id: 1
     local_port: 9101
@@ -16,7 +23,14 @@ devices:
   type: switch
   x: 402
   y: 282
-- id: 2
+- cli:
+    host: 192.168.121.133
+    port: '22'
+    ssh_keyfile:
+    - /home/ben/git/vyos-topology/.vagrant/machines/Switch2/libvirt/private_key
+    transport: cli
+    username: vagrant
+  id: 2
   interfaces:
   - id: 1
     local_port: 9100
