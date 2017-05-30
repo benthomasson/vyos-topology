@@ -6,6 +6,8 @@ Vagrant.configure("2") do |config|
     config.vm.define "{{device.name}}" do |device|
         device.vm.hostname = "{{device.name}}"
         device.vm.box ="{%if device.type == "switch"%}higebu/vyos{%endif%}{%if device.type == "host"%}ubuntu/xenial64{%endif%}"
+        device.vm.synced_folder ".", "/vagrant", disabled: true
+
         {%for interface in device.interfaces-%}
         {%-if interface.network %}
         # {{device.name}} {{interface.name}} to {{interface.remote_device_name}} {{interface.remote_interface_name}}

@@ -30,12 +30,21 @@
             ssh_config: ssh-config
             output: hosts
         run_once: true
+      - add_cli_connection:
+            ssh_config: ssh-config
+            input: topology.yml
+            output: topology.yml
+        run_once: true
       - add_mgmt_ip:
             ssh_config: ssh-config
             input: topology.yml
             output: topology.yml
             nat_ip: '10.17.161.200'
             port_range_start: 10100
+        run_once: true
+      - generate_host_vars:
+            host_vars_directory: host_vars
+            data: topology.yml
         run_once: true
       - jinja:
             template: templates/iptables.j2
