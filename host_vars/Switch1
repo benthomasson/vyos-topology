@@ -2,10 +2,10 @@ id: 1
 interfaces:
 - id: 1
   local_port: 9101
-  name: swp1
+  name: eth1
   network: 215
   remote_device_name: Switch2
-  remote_interface_name: swp1
+  remote_interface_name: eth1
   remote_port: 9100
 name: Switch1
 type: switch

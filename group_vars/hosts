@@ -3,12 +3,12 @@ devices:
   interfaces:
   - id: 1
     local_port: 9101
-    name: swp1
+    name: eth1
     network: 215
     remote_device_name: Switch2
-    remote_interface_name: swp1
+    remote_interface_name: eth1
     remote_port: 9100
-  mgmt_ip: 192.168.121.36
+  mgmt_ip: 192.168.121.167
   mgmt_port: 22
   name: Switch1
   nat_ip: 10.17.161.200
@@ -20,12 +20,12 @@ devices:
   interfaces:
   - id: 1
     local_port: 9100
-    name: swp1
+    name: eth1
     network: 215
     remote_device_name: Switch1
-    remote_interface_name: swp1
+    remote_interface_name: eth1
     remote_port: 9101
-  mgmt_ip: 192.168.121.11
+  mgmt_ip: 192.168.121.163
   mgmt_port: 22
   name: Switch2
   nat_ip: 10.17.161.200
@@ -36,13 +36,13 @@ devices:
 links:
 - from_device: Switch2
   from_device_id: 2
-  from_interface: swp1
+  from_interface: eth1
   from_interface_id: 1
   from_port: 9100
   network: 215
   to_device: Switch1
   to_device_id: 1
-  to_interface: swp1
+  to_interface: eth1
   to_interface_id: 1
   to_port: 9101
 name: topology
