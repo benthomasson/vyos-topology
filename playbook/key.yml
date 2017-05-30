@@ -1,0 +1,9 @@
+---
+- name: Add machine credentials
+  hosts: all
+  tasks:
+  - name: Add ssh pub key
+    authorized_key:
+        user: vagrant
+        state: present
+        key: "{{ lookup('file', lookup('env','HOME') + '/git/cumulus-topology/' + 'key.pub') }}"

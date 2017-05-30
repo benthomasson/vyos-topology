@@ -1,0 +1,4 @@
+[hosts]
+{%for device in devices%}
+{{device.name}} ansible_host={{device.nat_ip}} ansible_port={{device.nat_port}} ansible_user=vagrant
+{%endfor%}

@@ -1,0 +1,26 @@
+
+Vagrant.configure("2") do |config|
+
+{%for device in devices%}
+
+    config.vm.define "{{device.name}}" do |device|
+        device.vm.hostname = "{{device.name}}"
+        device.vm.box ="{%if device.type == "switch"%}higebu/vyos{%endif%}{%if device.type == "host"%}ubuntu/xenial64{%endif%}"
+        {%for interface in device.interfaces-%}
+        {%-if interface.network %}
+        # {{device.name}} {{interface.name}} to {{interface.remote_device_name}} {{interface.remote_interface_name}}
+        device.vm.network "private_network",
+             :libvirt__tunnel_type => 'udp',
+             :libvirt__tunnel_local_ip => '127.0.0.1',
+             :libvirt__tunnel_local_port => '{{interface.local_port}}',
+             :libvirt__tunnel_ip => '127.0.0.1',
+             :libvirt__tunnel_port => '{{interface.remote_port}}',
+             :libvirt__iface_name => '{{interface.name}}',
+             auto_config: false
+        {%-endif%}
+        {%-endfor%}
+    end # config.vm.define {{device.name}}
+
+{%endfor%}
+
+end  # Vagrant.configure

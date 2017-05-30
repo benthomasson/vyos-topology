@@ -1,0 +1,254 @@
+devices:
+- id: 65
+  interfaces:
+  - id: 177
+    local_port: 9009
+    name: swp1
+    network: 88
+    remote_device_name: Switch3
+    remote_interface_name: swp3
+    remote_port: 9008
+  - id: 187
+    local_port: 9007
+    name: swp2
+    network: 93
+    remote_device_name: Switch2
+    remote_interface_name: swp3
+    remote_port: 9006
+  - id: 185
+    local_port: 9001
+    name: swp3
+    network: 92
+    remote_device_name: Switch5
+    remote_interface_name: swp4
+    remote_port: 9000
+  mgmt_ip: 192.168.121.109
+  mgmt_port: 22
+  name: Switch1
+  nat_ip: 10.17.161.200
+  nat_port: 10000
+  type: switch
+  x: -228
+  y: -223
+- id: 64
+  interfaces:
+  - id: 175
+    local_port: 9013
+    name: swp1
+    network: 87
+    remote_device_name: Switch3
+    remote_interface_name: swp2
+    remote_port: 9012
+  - id: 181
+    local_port: 9005
+    name: swp2
+    network: 90
+    remote_device_name: Switch5
+    remote_interface_name: swp2
+    remote_port: 9004
+  - id: 186
+    local_port: 9006
+    name: swp3
+    network: 93
+    remote_device_name: Switch1
+    remote_interface_name: swp2
+    remote_port: 9007
+  mgmt_ip: 192.168.121.55
+  mgmt_port: 22
+  name: Switch2
+  nat_ip: 10.17.161.200
+  nat_port: 10001
+  type: switch
+  x: -300
+  y: 0
+- id: 62
+  interfaces:
+  - id: 172
+    local_port: 9014
+    name: swp1
+    network: 86
+    remote_device_name: Switch5
+    remote_interface_name: swp1
+    remote_port: 9015
+  - id: 174
+    local_port: 9012
+    name: swp2
+    network: 87
+    remote_device_name: Switch2
+    remote_interface_name: swp1
+    remote_port: 9013
+  - id: 176
+    local_port: 9008
+    name: swp3
+    network: 88
+    remote_device_name: Switch1
+    remote_interface_name: swp1
+    remote_port: 9009
+  - id: 178
+    local_port: 9010
+    name: swp4
+    network: 89
+    remote_device_name: Switch4
+    remote_interface_name: swp1
+    remote_port: 9011
+  mgmt_ip: 192.168.121.138
+  mgmt_port: 22
+  name: Switch3
+  nat_ip: 10.17.161.200
+  nat_port: 10002
+  type: switch
+  x: -100
+  y: 0
+- id: 66
+  interfaces:
+  - id: 179
+    local_port: 9011
+    name: swp1
+    network: 89
+    remote_device_name: Switch3
+    remote_interface_name: swp4
+    remote_port: 9010
+  - id: 183
+    local_port: 9003
+    name: swp2
+    network: 91
+    remote_device_name: Switch5
+    remote_interface_name: swp3
+    remote_port: 9002
+  mgmt_ip: 192.168.121.18
+  mgmt_port: 22
+  name: Switch4
+  nat_ip: 10.17.161.200
+  nat_port: 10003
+  type: switch
+  x: 100
+  y: 0
+- id: 63
+  interfaces:
+  - id: 173
+    local_port: 9015
+    name: swp1
+    network: 86
+    remote_device_name: Switch3
+    remote_interface_name: swp1
+    remote_port: 9014
+  - id: 180
+    local_port: 9004
+    name: swp2
+    network: 90
+    remote_device_name: Switch2
+    remote_interface_name: swp2
+    remote_port: 9005
+  - id: 182
+    local_port: 9002
+    name: swp3
+    network: 91
+    remote_device_name: Switch4
+    remote_interface_name: swp2
+    remote_port: 9003
+  - id: 184
+    local_port: 9000
+    name: swp4
+    network: 92
+    remote_device_name: Switch1
+    remote_interface_name: swp3
+    remote_port: 9001
+  mgmt_ip: 192.168.121.76
+  mgmt_port: 22
+  name: Switch5
+  nat_ip: 10.17.161.200
+  nat_port: 10004
+  type: switch
+  x: 31
+  y: -228
+links:
+- from_device: Switch5
+  from_device_id: 63
+  from_interface: swp4
+  from_interface_id: 184
+  from_port: 9000
+  network: 92
+  to_device: Switch1
+  to_device_id: 65
+  to_interface: swp3
+  to_interface_id: 185
+  to_port: 9001
+- from_device: Switch5
+  from_device_id: 63
+  from_interface: swp3
+  from_interface_id: 182
+  from_port: 9002
+  network: 91
+  to_device: Switch4
+  to_device_id: 66
+  to_interface: swp2
+  to_interface_id: 183
+  to_port: 9003
+- from_device: Switch5
+  from_device_id: 63
+  from_interface: swp2
+  from_interface_id: 180
+  from_port: 9004
+  network: 90
+  to_device: Switch2
+  to_device_id: 64
+  to_interface: swp2
+  to_interface_id: 181
+  to_port: 9005
+- from_device: Switch2
+  from_device_id: 64
+  from_interface: swp3
+  from_interface_id: 186
+  from_port: 9006
+  network: 93
+  to_device: Switch1
+  to_device_id: 65
+  to_interface: swp2
+  to_interface_id: 187
+  to_port: 9007
+- from_device: Switch3
+  from_device_id: 62
+  from_interface: swp3
+  from_interface_id: 176
+  from_port: 9008
+  network: 88
+  to_device: Switch1
+  to_device_id: 65
+  to_interface: swp1
+  to_interface_id: 177
+  to_port: 9009
+- from_device: Switch3
+  from_device_id: 62
+  from_interface: swp4
+  from_interface_id: 178
+  from_port: 9010
+  network: 89
+  to_device: Switch4
+  to_device_id: 66
+  to_interface: swp1
+  to_interface_id: 179
+  to_port: 9011
+- from_device: Switch3
+  from_device_id: 62
+  from_interface: swp2
+  from_interface_id: 174
+  from_port: 9012
+  network: 87
+  to_device: Switch2
+  to_device_id: 64
+  to_interface: swp1
+  to_interface_id: 175
+  to_port: 9013
+- from_device: Switch3
+  from_device_id: 62
+  from_interface: swp1
+  from_interface_id: 172
+  from_port: 9014
+  network: 86
+  to_device: Switch5
+  to_device_id: 63
+  to_interface: swp1
+  to_interface_id: 173
+  to_port: 9015
+name: topology
+topology_id: 143

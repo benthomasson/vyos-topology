@@ -1,0 +1,14 @@
+---
+- name: Turn off PTM
+  hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+  - name: Remove PTM Config
+    file:
+        path: /etc/ptm.d/topology.dot
+        state: absent
+  - name: Stop PTM
+    service:
+        name: ptmd
+        state: stopped

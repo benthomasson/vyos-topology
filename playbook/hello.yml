@@ -1,0 +1,6 @@
+---
+- name: Simple ping playbook
+  hosts: all
+  tasks:
+  - name: ping
+    ping:

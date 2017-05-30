@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+{%for device in devices %}
+    #{{device.name}} rules
+    sudo iptables -t nat -I PREROUTING 1 -d {{device.nat_ip}} -p tcp --dport {{device.nat_port}} -j DNAT --to-destination {{device.mgmt_ip}}:{{device.mgmt_port}}
+    sudo iptables -I FORWARD 1 -p tcp -d {{device.mgmt_ip}} --dport {{device.mgmt_port}} -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s {{device.mgmt_ip}} -j SNAT --to-source {{device.nat_ip}}
+{%endfor%}

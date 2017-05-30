@@ -1,0 +1,7 @@
+jinja2-cli
+pyyaml
+docopt
+paramiko
+websocket-client
+ansible
+requests

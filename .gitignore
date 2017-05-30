@@ -1,0 +1,9 @@
+/Vagrantfile
+/hosts
+/ssh-config
+/.vagrant
+*.pyc
+*.retry
+/facts/*
+/key
+/key.pub

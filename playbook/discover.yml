@@ -1,0 +1,7 @@
+---
+- name: Discover Topology Information
+  hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+   - setup:

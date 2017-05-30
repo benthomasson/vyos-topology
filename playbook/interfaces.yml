@@ -1,0 +1,58 @@
+---
+- name: Up all interfaces
+  hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+  - name: Add custom facts directory
+    file:
+        path: /etc/ansible/facts.d/
+        state: directory
+        mode: 0755
+  - name: Add custom facts lldp
+    template:
+        src: files/lldp.fact
+        dest: /etc/ansible/facts.d/
+        owner: root
+        group: root
+        mode: 0755
+  - name: Add custom facts ptm
+    template:
+        src: files/ptm.fact
+        dest: /etc/ansible/facts.d/
+        owner: root
+        group: root
+        mode: 0755
+  - name: Configure interfaces
+    template:
+        src: templates/etc_network_interfaces
+        dest: /etc/network/interfaces
+        owner: root
+        group: root
+  - name: Configure PTM
+    template:
+        src: templates/etc_ptmd_topology_dot
+        dest: /etc/ptm.d/topology.dot
+        owner: root
+        group: root
+  - name: Restart networking
+    service:
+        name: networking
+        state: restarted
+  - name: Restart PTM
+    service:
+        name: ptmd
+        state: restarted
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:
+  - setup:

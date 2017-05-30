@@ -1,0 +1,78 @@
+---
+- name: Create Topology Using Vagrant
+  hosts: localhost
+  gather_facts: false
+  tasks:
+      - requests_get:
+            url: http://meganuke:8013/network_ui/topology_yaml?topology_id=144
+            output: topology.yml
+        run_once: true
+      - add_ports:
+            range_start: 9100
+            input: topology.yml
+            output: topology.yml
+        run_once: true
+      - jinja:
+            template: templates/Vagrantfile.j2
+            context: topology.yml
+            output: Vagrantfile
+        run_once: true
+      - generate_host_vars:
+            data: topology.yml
+            host_vars_directory: host_vars
+        run_once: true
+      - vagrant_up:
+        run_once: true
+      - vagrant_ssh_config:
+            output: ssh-config
+        run_once: true
+      - convert_ssh_config_to_ansible_inventory:
+            ssh_config: ssh-config
+            output: hosts
+        run_once: true
+      - add_mgmt_ip:
+            ssh_config: ssh-config
+            input: topology.yml
+            output: topology.yml
+            nat_ip: '10.17.161.200'
+            port_range_start: 10100
+        run_once: true
+      - jinja:
+            template: templates/iptables.j2
+            context: topology.yml
+            output: iptables.rules
+        run_once: true
+      - jinja:
+            template: templates/iptables_remove.j2
+            context: topology.yml
+            output: iptables_remove.rules
+        run_once: true
+      - jinja:
+            template: templates/nat_hosts.j2
+            context: topology.yml
+            output: nat_hosts
+        run_once: true
+      - local_shell:
+            command: chmod +x iptables.rules
+        run_once: true
+      - local_shell:
+            command: chmod +x iptables_remove.rules
+        run_once: true
+      - local_shell:
+            command: ./iptables.rules
+        run_once: true
+      - local_shell:
+            command: cp topology.yml group_vars/hosts
+        run_once: true
+      - local_shell:
+            command: git add topology.yml host_vars group_vars iptables.rules iptables_remove.rules
+        run_once: true
+      - local_shell:
+            command: git commit -m "Update inventory"
+        run_once: true
+      - local_shell:
+            command: git push
+        run_once: true
+      - local_shell:
+            command: ansible-playbook -i hosts playbook/key.yml
+        run_once: true

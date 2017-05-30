@@ -1,0 +1,9 @@
+graph {{name}} {
+{%for device in devices%}
+{{device.name}};
+{%endfor%}
+{%for link in links%}
+{{link.from_device}}:{{link.from_interface}} -- {{link.to_device}}:{{link.to_interface}};
+{%endfor%}
+}
+

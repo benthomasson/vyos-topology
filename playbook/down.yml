@@ -1,0 +1,11 @@
+---
+- name: Destroy Topology Using Vagrant
+  hosts: localhost
+  gather_facts: false
+  tasks:
+      - local_shell:
+            command: ./iptables_remove.rules
+        run_once: true
+      - local_shell:
+            command: vagrant destroy -f
+        run_once: true
