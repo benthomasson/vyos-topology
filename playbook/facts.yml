@@ -1,5 +1,5 @@
 ---
-- name: Up all interfaces
+- name: Gather facts
   hosts: all
   become: false
   become_method: sudo
@@ -8,10 +8,6 @@
   tasks:
     - debug:
         msg: "{{cli}}"
-    - vyos_config:
-        lines:
-            - set service lldp
-        provider: "{{cli}}"
     - vyos_facts:
         gather_subset: all
         provider: "{{cli}}"

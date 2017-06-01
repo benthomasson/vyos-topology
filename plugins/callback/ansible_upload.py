@@ -52,7 +52,7 @@ class CallbackModule(CallbackBase):
 
     def __init__(self):
         super(CallbackModule, self).__init__()
-        self.ws = create_connection("ws://127.0.0.1:8013/network_ui/ansible?topology_id=143")
+        self.ws = create_connection("ws://127.0.0.1:8013/network_ui/ansible?topology_id=144")
         self.task = None
         self.play = None
         self.hosts = []

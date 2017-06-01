@@ -3,5 +3,5 @@ pyyaml
 docopt
 paramiko
 websocket-client
-ansible
+ansible>=2.3
 requests
