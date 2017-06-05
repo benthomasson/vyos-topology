@@ -31,7 +31,7 @@ mgmt_port: 22
 name: Leaf1
 nat_ip: 10.17.161.200
 nat_port: 10100
-router_id: 1.1.2.0/24
+router_id: 1.1.1.0
 type: switch
 x: 306
 y: 548
