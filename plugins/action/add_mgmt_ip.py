@@ -7,6 +7,8 @@ import paramiko.config
 
 class ActionModule(ActionBase):
 
+    BYPASS_HOST_LOOP = True
+
     def run(self, tmp=None, task_vars=None):
         if task_vars is None:
             task_vars = dict()
