@@ -1,0 +1,13 @@
+---
+- name: Up all interfaces
+  hosts: all
+  become: false
+  become_method: sudo
+  gather_facts: false
+  connection: local
+  tasks:
+      - vyos_command:
+          commands:
+             - "/bin/ping -c 1 {{item.remote_ip_address}}"
+          provider: "{{cli}}"
+        with_items: "{{interfaces}}"
