@@ -1,6 +1,6 @@
 devices:
 - cli:
-    host: 192.168.121.181
+    host: 192.168.121.99
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf1/libvirt/private_key
     transport: cli
@@ -27,7 +27,7 @@ devices:
     remote_ip_address: 192.168.0.13
     remote_port: 9106
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.181
+  mgmt_ip: 192.168.121.99
   mgmt_port: 22
   name: Leaf1
   nat_ip: 10.17.161.200
@@ -36,7 +36,7 @@ devices:
   x: 306
   y: 548
 - cli:
-    host: 192.168.121.51
+    host: 192.168.121.247
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf2/libvirt/private_key
     transport: cli
@@ -63,7 +63,7 @@ devices:
     remote_ip_address: 192.168.0.17
     remote_port: 9108
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.51
+  mgmt_ip: 192.168.121.247
   mgmt_port: 22
   name: Leaf2
   nat_ip: 10.17.161.200
@@ -72,7 +72,7 @@ devices:
   x: 569
   y: 549
 - cli:
-    host: 192.168.121.79
+    host: 192.168.121.128
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf3/libvirt/private_key
     transport: cli
@@ -99,7 +99,7 @@ devices:
     remote_ip_address: 192.168.0.21
     remote_port: 9110
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.79
+  mgmt_ip: 192.168.121.128
   mgmt_port: 22
   name: Leaf3
   nat_ip: 10.17.161.200
@@ -108,7 +108,7 @@ devices:
   x: 872
   y: 532
 - cli:
-    host: 192.168.121.168
+    host: 192.168.121.59
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine1/libvirt/private_key
     transport: cli
@@ -155,7 +155,7 @@ devices:
     remote_ip_address: 192.168.0.26
     remote_port: 9113
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.168
+  mgmt_ip: 192.168.121.59
   mgmt_port: 22
   name: Spine1
   nat_ip: 10.17.161.200
@@ -164,7 +164,7 @@ devices:
   x: 416
   y: 306
 - cli:
-    host: 192.168.121.16
+    host: 192.168.121.179
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine2/libvirt/private_key
     transport: cli
@@ -211,7 +211,7 @@ devices:
     remote_ip_address: 192.168.0.25
     remote_port: 9112
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.16
+  mgmt_ip: 192.168.121.179
   mgmt_port: 22
   name: Spine2
   nat_ip: 10.17.161.200
