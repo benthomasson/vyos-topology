@@ -1,0 +1,10 @@
+---
+- name: Assign IP addresses
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - add_ip_addresses:
+        supernet: 192.168.0.0/24
+        subnet_size: 30
+        input: topology.yml
+        output: topology2.yml

@@ -5,3 +5,4 @@ paramiko
 websocket-client
 ansible>=2.3
 requests
+netaddr
