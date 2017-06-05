@@ -12,6 +12,11 @@
         lines:
             - set service lldp
         provider: "{{cli}}"
+    - vyos_config:
+        lines:
+            - "set interfaces ethernet {{item.name}} address '{{item.ip_address}}/{{item.subnet_prefixlen}}'"
+        provider: "{{cli}}"
+      with_items: "{{interfaces}}"
     - vyos_facts:
         gather_subset: all
         provider: "{{cli}}"
