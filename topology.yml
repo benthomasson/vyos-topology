@@ -32,6 +32,7 @@ devices:
   name: Leaf1
   nat_ip: 10.17.161.200
   nat_port: 10100
+  router_id: 1.1.2.0/24
   type: switch
   x: 306
   y: 548
@@ -68,6 +69,7 @@ devices:
   name: Leaf2
   nat_ip: 10.17.161.200
   nat_port: 10101
+  router_id: 1.1.2.0/24
   type: switch
   x: 569
   y: 549
@@ -104,6 +106,7 @@ devices:
   name: Leaf3
   nat_ip: 10.17.161.200
   nat_port: 10102
+  router_id: 1.1.2.0/24
   type: switch
   x: 872
   y: 532
@@ -160,6 +163,7 @@ devices:
   name: Spine1
   nat_ip: 10.17.161.200
   nat_port: 10103
+  router_id: 1.1.2.0/24
   type: switch
   x: 416
   y: 306
@@ -216,6 +220,7 @@ devices:
   name: Spine2
   nat_ip: 10.17.161.200
   nat_port: 10104
+  router_id: 1.1.2.0/24
   type: switch
   x: 720
   y: 289

@@ -31,6 +31,7 @@ mgmt_port: 22
 name: Leaf3
 nat_ip: 10.17.161.200
 nat_port: 10102
+router_id: 1.1.2.0/24
 type: switch
 x: 872
 y: 532

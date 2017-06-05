@@ -51,6 +51,7 @@ mgmt_port: 22
 name: Spine2
 nat_ip: 10.17.161.200
 nat_port: 10104
+router_id: 1.1.2.0/24
 type: switch
 x: 720
 y: 289
