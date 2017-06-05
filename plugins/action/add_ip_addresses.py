@@ -1,8 +1,6 @@
 from ansible.plugins.action import ActionBase
 
 import yaml
-import itertools
-import paramiko.config
 from netaddr import IPNetwork
 
 
@@ -20,9 +18,6 @@ class ActionModule(ActionBase):
         input_file = self._task.args.get('input', None)
         output_file = self._task.args.get('output', None)
 
-        print supernet
-        print subnet_size
-
         with open(input_file) as f:
             data = yaml.load(f.read())
 
@@ -37,8 +32,6 @@ class ActionModule(ActionBase):
 
         for link in data['links']:
             subnet = next(subnets)
-            print subnet
-            addresses = list(subnet)
             link['subnet'] = str(subnet.network)
             link['subnet_prefixlen'] = subnet.prefixlen
             device_interfaces[(link['from_device_id'], link['from_interface_id'])]['ip_address'] = str(subnet[1])

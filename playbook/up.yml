@@ -38,6 +38,10 @@
             subnet_size: 30
             input: topology.yml
             output: topology.yml
+      - add_router_id:
+            input: topology.yml
+            output: topology.yml
+            router_id_range: 1.1.1.1/24
       - generate_host_vars:
             host_vars_directory: host_vars
             data: topology.yml
