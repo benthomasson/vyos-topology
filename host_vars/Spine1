@@ -1,5 +1,5 @@
 cli:
-  host: 192.168.121.208
+  host: 192.168.121.168
   port: 22
   ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine1/libvirt/private_key
   transport: cli
@@ -7,34 +7,46 @@ cli:
 id: 6
 interfaces:
 - id: 1
+  ip_address: 192.168.0.1
   local_port: 9100
   name: eth1
   network: 222
   remote_device_name: Leaf1
   remote_interface_name: eth1
+  remote_ip_address: 192.168.0.2
   remote_port: 9101
+  subnet_prefixlen: 30
 - id: 2
+  ip_address: 192.168.0.5
   local_port: 9102
   name: eth2
   network: 223
   remote_device_name: Leaf2
   remote_interface_name: eth1
+  remote_ip_address: 192.168.0.6
   remote_port: 9103
+  subnet_prefixlen: 30
 - id: 3
+  ip_address: 192.168.0.9
   local_port: 9104
   name: eth3
   network: 224
   remote_device_name: Leaf3
   remote_interface_name: eth1
+  remote_ip_address: 192.168.0.10
   remote_port: 9105
+  subnet_prefixlen: 30
 - id: 4
+  ip_address: 192.168.0.25
   local_port: 9112
   name: eth4
   network: 235
   remote_device_name: Spine2
   remote_interface_name: eth4
+  remote_ip_address: 192.168.0.26
   remote_port: 9113
-mgmt_ip: 192.168.121.208
+  subnet_prefixlen: 30
+mgmt_ip: 192.168.121.168
 mgmt_port: 22
 name: Spine1
 nat_ip: 10.17.161.200
