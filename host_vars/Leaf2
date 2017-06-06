@@ -10,6 +10,7 @@ interfaces:
   ip_address: 192.168.0.18
   local_port: 9109
   name: eth1
+  netmask: 255.255.255.0
   network: 223
   remote_device_name: Spine1
   remote_interface_name: eth2
@@ -20,6 +21,7 @@ interfaces:
   ip_address: 192.168.0.30
   local_port: 9115
   name: eth2
+  netmask: 255.255.255.0
   network: 226
   remote_device_name: Spine2
   remote_interface_name: eth2
@@ -30,6 +32,7 @@ interfaces:
   ip_address: 192.168.0.5
   local_port: 9102
   name: eth3
+  netmask: 255.255.255.0
   network: 245
   remote_device_name: Host2
   remote_interface_name: eth1

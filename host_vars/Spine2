@@ -10,6 +10,7 @@ interfaces:
   ip_address: 192.168.0.25
   local_port: 9112
   name: eth1
+  netmask: 255.255.255.0
   network: 225
   remote_device_name: Leaf1
   remote_interface_name: eth2
@@ -20,6 +21,7 @@ interfaces:
   ip_address: 192.168.0.29
   local_port: 9114
   name: eth2
+  netmask: 255.255.255.0
   network: 226
   remote_device_name: Leaf2
   remote_interface_name: eth2
@@ -30,6 +32,7 @@ interfaces:
   ip_address: 192.168.0.33
   local_port: 9116
   name: eth3
+  netmask: 255.255.255.0
   network: 227
   remote_device_name: Leaf3
   remote_interface_name: eth2
@@ -40,6 +43,7 @@ interfaces:
   ip_address: 192.168.0.38
   local_port: 9119
   name: eth4
+  netmask: 255.255.255.0
   network: 235
   remote_device_name: Spine1
   remote_interface_name: eth4

@@ -11,6 +11,7 @@ devices:
     ip_address: 192.168.0.2
     local_port: 9101
     name: eth1
+    netmask: 255.255.255.0
     network: 242
     remote_device_name: Leaf1
     remote_interface_name: eth3
@@ -55,6 +56,7 @@ devices:
     ip_address: 192.168.0.6
     local_port: 9103
     name: eth1
+    netmask: 255.255.255.0
     network: 245
     remote_device_name: Leaf2
     remote_interface_name: eth3
@@ -94,6 +96,7 @@ devices:
     ip_address: 192.168.0.10
     local_port: 9105
     name: eth1
+    netmask: 255.255.255.0
     network: 248
     remote_device_name: Leaf3
     remote_interface_name: eth3
@@ -133,6 +136,7 @@ devices:
     ip_address: 192.168.0.14
     local_port: 9107
     name: eth1
+    netmask: 255.255.255.0
     network: 222
     remote_device_name: Spine1
     remote_interface_name: eth1
@@ -143,6 +147,7 @@ devices:
     ip_address: 192.168.0.26
     local_port: 9113
     name: eth2
+    netmask: 255.255.255.0
     network: 225
     remote_device_name: Spine2
     remote_interface_name: eth1
@@ -153,6 +158,7 @@ devices:
     ip_address: 192.168.0.1
     local_port: 9100
     name: eth3
+    netmask: 255.255.255.0
     network: 242
     remote_device_name: Host1
     remote_interface_name: eth1
@@ -185,6 +191,7 @@ devices:
     ip_address: 192.168.0.18
     local_port: 9109
     name: eth1
+    netmask: 255.255.255.0
     network: 223
     remote_device_name: Spine1
     remote_interface_name: eth2
@@ -195,6 +202,7 @@ devices:
     ip_address: 192.168.0.30
     local_port: 9115
     name: eth2
+    netmask: 255.255.255.0
     network: 226
     remote_device_name: Spine2
     remote_interface_name: eth2
@@ -205,6 +213,7 @@ devices:
     ip_address: 192.168.0.5
     local_port: 9102
     name: eth3
+    netmask: 255.255.255.0
     network: 245
     remote_device_name: Host2
     remote_interface_name: eth1
@@ -232,6 +241,7 @@ devices:
     ip_address: 192.168.0.22
     local_port: 9111
     name: eth1
+    netmask: 255.255.255.0
     network: 224
     remote_device_name: Spine1
     remote_interface_name: eth3
@@ -242,6 +252,7 @@ devices:
     ip_address: 192.168.0.34
     local_port: 9117
     name: eth2
+    netmask: 255.255.255.0
     network: 227
     remote_device_name: Spine2
     remote_interface_name: eth3
@@ -252,6 +263,7 @@ devices:
     ip_address: 192.168.0.9
     local_port: 9104
     name: eth3
+    netmask: 255.255.255.0
     network: 248
     remote_device_name: Host3
     remote_interface_name: eth1
@@ -279,6 +291,7 @@ devices:
     ip_address: 192.168.0.13
     local_port: 9106
     name: eth1
+    netmask: 255.255.255.0
     network: 222
     remote_device_name: Leaf1
     remote_interface_name: eth1
@@ -289,6 +302,7 @@ devices:
     ip_address: 192.168.0.17
     local_port: 9108
     name: eth2
+    netmask: 255.255.255.0
     network: 223
     remote_device_name: Leaf2
     remote_interface_name: eth1
@@ -299,6 +313,7 @@ devices:
     ip_address: 192.168.0.21
     local_port: 9110
     name: eth3
+    netmask: 255.255.255.0
     network: 224
     remote_device_name: Leaf3
     remote_interface_name: eth1
@@ -309,6 +324,7 @@ devices:
     ip_address: 192.168.0.37
     local_port: 9118
     name: eth4
+    netmask: 255.255.255.0
     network: 235
     remote_device_name: Spine2
     remote_interface_name: eth4
@@ -336,6 +352,7 @@ devices:
     ip_address: 192.168.0.25
     local_port: 9112
     name: eth1
+    netmask: 255.255.255.0
     network: 225
     remote_device_name: Leaf1
     remote_interface_name: eth2
@@ -346,6 +363,7 @@ devices:
     ip_address: 192.168.0.29
     local_port: 9114
     name: eth2
+    netmask: 255.255.255.0
     network: 226
     remote_device_name: Leaf2
     remote_interface_name: eth2
@@ -356,6 +374,7 @@ devices:
     ip_address: 192.168.0.33
     local_port: 9116
     name: eth3
+    netmask: 255.255.255.0
     network: 227
     remote_device_name: Leaf3
     remote_interface_name: eth2
@@ -366,6 +385,7 @@ devices:
     ip_address: 192.168.0.38
     local_port: 9119
     name: eth4
+    netmask: 255.255.255.0
     network: 235
     remote_device_name: Spine1
     remote_interface_name: eth4
