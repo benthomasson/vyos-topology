@@ -1,6 +1,6 @@
 ---
 - name: Up all interfaces
-  hosts: all
+  hosts: switch
   become: false
   become_method: sudo
   gather_facts: false
@@ -15,6 +15,7 @@
             - "set interfaces ethernet {{item.name}} address '{{item.ip_address}}/{{item.subnet_prefixlen}}'"
         provider: "{{cli}}"
       with_items: "{{interfaces}}"
+      when: item.ip_address is defined
     - vyos_facts:
         gather_subset: all
         provider: "{{cli}}"
@@ -22,4 +23,8 @@
         commands:
            - "/bin/ping -c 1 {{item.remote_ip_address}}"
         provider: "{{cli}}"
+        wait_for:
+            - "result[0] contains '1 packets transmitted, 1 received, 0% packet loss'"
+        retries: 1
       with_items: "{{interfaces}}"
+      when: item.remote_ip_address is defined

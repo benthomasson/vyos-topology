@@ -1,6 +1,6 @@
 ---
 - name: Configure OSPF
-  hosts: all
+  hosts: switch
   become: false
   become_method: sudo
   gather_facts: false
