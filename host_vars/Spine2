@@ -1,5 +1,5 @@
 cli:
-  host: 192.168.121.4
+  host: 192.168.121.205
   port: 22
   ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine2/libvirt/private_key
   transport: cli
@@ -46,7 +46,7 @@ interfaces:
   remote_ip_address: 192.168.0.37
   remote_port: 9118
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.4
+mgmt_ip: 192.168.121.205
 mgmt_port: 22
 name: Spine2
 nat_ip: 10.17.161.200

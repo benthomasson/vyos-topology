@@ -1,5 +1,5 @@
 cli:
-  host: 192.168.121.111
+  host: 192.168.121.100
   port: 22
   ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host3/libvirt/private_key
   transport: cli
@@ -16,7 +16,7 @@ interfaces:
   remote_ip_address: 192.168.0.2
   remote_port: 9101
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.111
+mgmt_ip: 192.168.121.100
 mgmt_port: 22
 name: Host3
 nat_ip: 10.17.161.200
