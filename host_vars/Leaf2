@@ -1,5 +1,5 @@
 cli:
-  host: 192.168.121.242
+  host: 192.168.121.23
   port: 22
   ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf2/libvirt/private_key
   transport: cli
@@ -36,12 +36,12 @@ interfaces:
   remote_ip_address: 192.168.0.6
   remote_port: 9103
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.242
+mgmt_ip: 192.168.121.23
 mgmt_port: 22
 name: Leaf2
 nat_ip: 10.17.161.200
 nat_port: 10104
 router_id: 1.1.1.5
 type: switch
-x: 569
-y: 549
+x: 585
+y: 550
