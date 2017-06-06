@@ -1,23 +1,40 @@
 devices:
 - cli:
-    host: 192.168.121.56
+    host: 192.168.121.181
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host1/libvirt/private_key
     transport: cli
     username: vagrant
   id: 8
   interfaces:
-  - id: 1
-    ip_address: 192.168.0.10
-    local_port: 9105
+  - id: 4
+    ip_address: 192.168.0.2
+    local_port: 9101
     name: eth1
-    network: 238
+    network: 242
     remote_device_name: Leaf1
     remote_interface_name: eth3
-    remote_ip_address: 192.168.0.9
-    remote_port: 9104
+    remote_ip_address: 192.168.0.1
+    remote_port: 9100
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.56
+  - id: 1
+    local_port: 9101
+    name: eth1
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+    remote_port: 9100
+  - id: 2
+    name: swp2
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+  - id: 3
+    name: swp3
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+  mgmt_ip: 192.168.121.181
   mgmt_port: 22
   name: Host1
   nat_ip: 10.17.161.200
@@ -27,24 +44,36 @@ devices:
   x: 302
   y: 691
 - cli:
-    host: 192.168.121.196
+    host: 192.168.121.45
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host2/libvirt/private_key
     transport: cli
     username: vagrant
   id: 9
   interfaces:
-  - id: 1
+  - id: 3
     ip_address: 192.168.0.6
     local_port: 9103
     name: eth1
-    network: 237
+    network: 245
     remote_device_name: Leaf2
     remote_interface_name: eth3
     remote_ip_address: 192.168.0.5
     remote_port: 9102
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.196
+  - id: 1
+    local_port: 9103
+    name: eth1
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+    remote_port: 9102
+  - id: 2
+    name: swp2
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+  mgmt_ip: 192.168.121.45
   mgmt_port: 22
   name: Host2
   nat_ip: 10.17.161.200
@@ -54,24 +83,36 @@ devices:
   x: 570
   y: 690
 - cli:
-    host: 192.168.121.100
+    host: 192.168.121.2
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host3/libvirt/private_key
     transport: cli
     username: vagrant
   id: 10
   interfaces:
-  - id: 1
-    ip_address: 192.168.0.1
-    local_port: 9100
+  - id: 3
+    ip_address: 192.168.0.10
+    local_port: 9105
     name: eth1
-    network: 236
+    network: 248
     remote_device_name: Leaf3
     remote_interface_name: eth3
-    remote_ip_address: 192.168.0.2
-    remote_port: 9101
+    remote_ip_address: 192.168.0.9
+    remote_port: 9104
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.100
+  - id: 1
+    local_port: 9105
+    name: eth1
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+    remote_port: 9104
+  - id: 2
+    name: swp2
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+  mgmt_ip: 192.168.121.2
   mgmt_port: 22
   name: Host3
   nat_ip: 10.17.161.200
@@ -81,13 +122,23 @@ devices:
   x: 871
   y: 685
 - cli:
-    host: 192.168.121.16
+    host: 192.168.121.199
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf1/libvirt/private_key
     transport: cli
     username: vagrant
   id: 3
   interfaces:
+  - id: 1
+    ip_address: 192.168.0.14
+    local_port: 9107
+    name: eth1
+    network: 222
+    remote_device_name: Spine1
+    remote_interface_name: eth1
+    remote_ip_address: 192.168.0.13
+    remote_port: 9106
+    subnet_prefixlen: 30
   - id: 2
     ip_address: 192.168.0.26
     local_port: 9113
@@ -98,17 +149,22 @@ devices:
     remote_ip_address: 192.168.0.25
     remote_port: 9112
     subnet_prefixlen: 30
-  - id: 1
-    ip_address: 192.168.0.14
-    local_port: 9107
+  - id: 4
+    ip_address: 192.168.0.1
+    local_port: 9100
     name: eth3
-    network: 238
+    network: 242
     remote_device_name: Host1
     remote_interface_name: eth1
-    remote_ip_address: 192.168.0.13
-    remote_port: 9106
+    remote_ip_address: 192.168.0.2
+    remote_port: 9101
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.16
+  - id: 3
+    name: swp3
+    network: null
+    remote_device_name: null
+    remote_interface_name: null
+  mgmt_ip: 192.168.121.199
   mgmt_port: 22
   name: Leaf1
   nat_ip: 10.17.161.200
@@ -118,13 +174,23 @@ devices:
   x: 306
   y: 548
 - cli:
-    host: 192.168.121.95
+    host: 192.168.121.242
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf2/libvirt/private_key
     transport: cli
     username: vagrant
   id: 4
   interfaces:
+  - id: 1
+    ip_address: 192.168.0.18
+    local_port: 9109
+    name: eth1
+    network: 223
+    remote_device_name: Spine1
+    remote_interface_name: eth2
+    remote_ip_address: 192.168.0.17
+    remote_port: 9108
+    subnet_prefixlen: 30
   - id: 2
     ip_address: 192.168.0.30
     local_port: 9115
@@ -135,17 +201,17 @@ devices:
     remote_ip_address: 192.168.0.29
     remote_port: 9114
     subnet_prefixlen: 30
-  - id: 1
-    ip_address: 192.168.0.18
-    local_port: 9109
+  - id: 3
+    ip_address: 192.168.0.5
+    local_port: 9102
     name: eth3
-    network: 237
+    network: 245
     remote_device_name: Host2
     remote_interface_name: eth1
-    remote_ip_address: 192.168.0.17
-    remote_port: 9108
+    remote_ip_address: 192.168.0.6
+    remote_port: 9103
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.95
+  mgmt_ip: 192.168.121.242
   mgmt_port: 22
   name: Leaf2
   nat_ip: 10.17.161.200
@@ -155,13 +221,23 @@ devices:
   x: 569
   y: 549
 - cli:
-    host: 192.168.121.174
+    host: 192.168.121.173
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf3/libvirt/private_key
     transport: cli
     username: vagrant
   id: 5
   interfaces:
+  - id: 1
+    ip_address: 192.168.0.22
+    local_port: 9111
+    name: eth1
+    network: 224
+    remote_device_name: Spine1
+    remote_interface_name: eth3
+    remote_ip_address: 192.168.0.21
+    remote_port: 9110
+    subnet_prefixlen: 30
   - id: 2
     ip_address: 192.168.0.34
     local_port: 9117
@@ -172,24 +248,17 @@ devices:
     remote_ip_address: 192.168.0.33
     remote_port: 9116
     subnet_prefixlen: 30
-  - id: 1
-    local_port: 9111
+  - id: 3
+    ip_address: 192.168.0.9
+    local_port: 9104
     name: eth3
-    network: 236
+    network: 248
     remote_device_name: Host3
     remote_interface_name: eth1
-    remote_port: 9110
-  - id: 1
-    ip_address: 192.168.0.22
-    local_port: 9111
-    name: eth3
-    network: 224
-    remote_device_name: Spine1
-    remote_interface_name: eth3
-    remote_ip_address: 192.168.0.21
-    remote_port: 9110
+    remote_ip_address: 192.168.0.10
+    remote_port: 9105
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.174
+  mgmt_ip: 192.168.121.173
   mgmt_port: 22
   name: Leaf3
   nat_ip: 10.17.161.200
@@ -199,7 +268,7 @@ devices:
   x: 872
   y: 550
 - cli:
-    host: 192.168.121.203
+    host: 192.168.121.215
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine1/libvirt/private_key
     transport: cli
@@ -212,7 +281,7 @@ devices:
     name: eth1
     network: 222
     remote_device_name: Leaf1
-    remote_interface_name: eth3
+    remote_interface_name: eth1
     remote_ip_address: 192.168.0.14
     remote_port: 9107
     subnet_prefixlen: 30
@@ -222,7 +291,7 @@ devices:
     name: eth2
     network: 223
     remote_device_name: Leaf2
-    remote_interface_name: eth3
+    remote_interface_name: eth1
     remote_ip_address: 192.168.0.18
     remote_port: 9109
     subnet_prefixlen: 30
@@ -232,7 +301,7 @@ devices:
     name: eth3
     network: 224
     remote_device_name: Leaf3
-    remote_interface_name: eth3
+    remote_interface_name: eth1
     remote_ip_address: 192.168.0.22
     remote_port: 9111
     subnet_prefixlen: 30
@@ -246,7 +315,7 @@ devices:
     remote_ip_address: 192.168.0.38
     remote_port: 9119
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.203
+  mgmt_ip: 192.168.121.215
   mgmt_port: 22
   name: Spine1
   nat_ip: 10.17.161.200
@@ -256,7 +325,7 @@ devices:
   x: 416
   y: 306
 - cli:
-    host: 192.168.121.205
+    host: 192.168.121.190
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine2/libvirt/private_key
     transport: cli
@@ -303,7 +372,7 @@ devices:
     remote_ip_address: 192.168.0.37
     remote_port: 9118
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.205
+  mgmt_ip: 192.168.121.190
   mgmt_port: 22
   name: Spine2
   nat_ip: 10.17.161.200
@@ -313,44 +382,44 @@ devices:
   x: 720
   y: 289
 links:
-- from_device: Host3
-  from_device_id: 10
-  from_interface: eth1
-  from_interface_id: 1
+- from_device: Leaf1
+  from_device_id: 3
+  from_interface: eth3
+  from_interface_id: 4
   from_port: 9100
-  network: 236
+  network: 242
   subnet: 192.168.0.0
   subnet_prefixlen: 30
-  to_device: Leaf3
-  to_device_id: 5
-  to_interface: eth3
-  to_interface_id: 1
+  to_device: Host1
+  to_device_id: 8
+  to_interface: eth1
+  to_interface_id: 4
   to_port: 9101
 - from_device: Leaf2
   from_device_id: 4
   from_interface: eth3
-  from_interface_id: 1
+  from_interface_id: 3
   from_port: 9102
-  network: 237
+  network: 245
   subnet: 192.168.0.4
   subnet_prefixlen: 30
   to_device: Host2
   to_device_id: 9
   to_interface: eth1
-  to_interface_id: 1
+  to_interface_id: 3
   to_port: 9103
-- from_device: Leaf1
-  from_device_id: 3
+- from_device: Leaf3
+  from_device_id: 5
   from_interface: eth3
-  from_interface_id: 1
+  from_interface_id: 3
   from_port: 9104
-  network: 238
+  network: 248
   subnet: 192.168.0.8
   subnet_prefixlen: 30
-  to_device: Host1
-  to_device_id: 8
+  to_device: Host3
+  to_device_id: 10
   to_interface: eth1
-  to_interface_id: 1
+  to_interface_id: 3
   to_port: 9105
 - from_device: Spine1
   from_device_id: 6
@@ -362,7 +431,7 @@ links:
   subnet_prefixlen: 30
   to_device: Leaf1
   to_device_id: 3
-  to_interface: eth3
+  to_interface: eth1
   to_interface_id: 1
   to_port: 9107
 - from_device: Spine1
@@ -375,7 +444,7 @@ links:
   subnet_prefixlen: 30
   to_device: Leaf2
   to_device_id: 4
-  to_interface: eth3
+  to_interface: eth1
   to_interface_id: 1
   to_port: 9109
 - from_device: Spine1
@@ -388,7 +457,7 @@ links:
   subnet_prefixlen: 30
   to_device: Leaf3
   to_device_id: 5
-  to_interface: eth3
+  to_interface: eth1
   to_interface_id: 1
   to_port: 9111
 - from_device: Spine2
