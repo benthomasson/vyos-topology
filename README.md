@@ -19,6 +19,17 @@ Start
     ansible-playbook playbook/up.yml
 
 
+Configure
+---------
+
+    ansible-playbook -i hosts playbook/interfaces.yml
+    ansible-playbook -i hosts playbook/routing.yml
+
+Verify
+---------
+
+    ansible-playbook -i hosts playbook/ping_interfaces.yml
+
 
 Tear down
 ---------

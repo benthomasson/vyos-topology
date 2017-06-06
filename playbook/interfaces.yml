@@ -6,8 +6,6 @@
   gather_facts: false
   connection: local
   tasks:
-    - debug:
-        msg: "{{cli}}"
     - vyos_config:
         lines:
             - set service lldp
