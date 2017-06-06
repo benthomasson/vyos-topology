@@ -19,10 +19,11 @@ class ActionModule(ActionBase):
             data = yaml.load(f.read())
 
         with open('devices.csv', 'w') as f:
-            devices_csv = csv.DictWriter(f, fieldnames=['device', 'mgmt_ip', 'mgmt_port'])
+            devices_csv = csv.DictWriter(f, fieldnames=['device', 'router_id', 'mgmt_ip', 'mgmt_port'])
             devices_csv.writeheader()
             for device in data['devices']:
                 devices_csv.writerow(dict(device=device['name'],
+                                          router_id=device.get('router_id', ''),
                                           mgmt_ip=device.get('mgmt_ip', ''),
                                           mgmt_port=device.get('mgmt_port', '')))
 
@@ -35,5 +36,4 @@ class ActionModule(ActionBase):
                                               interface=interface['name'],
                                               ip_address=interface.get('ip_address', '')))
 
-        
         return result
