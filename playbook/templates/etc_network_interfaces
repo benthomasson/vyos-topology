@@ -5,9 +5,14 @@ iface lo inet loopback
 # The primary network interface
 auto eth0
 iface eth0 inet dhcp
+pre-up sleep 2
 
 {% for interface in interfaces %}
 auto {{interface.name}}
-iface {{interface.name}}
+iface {{interface.name}} inet static
+    {%if interface.ip_address is defined %}
+	address {{interface.ip_address}}
+	netmask {{interface.netmask}}
+    {%endif%}
 
 {%endfor%}
