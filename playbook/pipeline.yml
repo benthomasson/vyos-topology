@@ -1,0 +1,13 @@
+---
+- name: Install pipeline demo application
+  hosts: host
+  become: true
+  become_method: sudo
+  gather_facts: false
+  tasks:
+      - copy:
+          src: files/ez_setup.py
+          dest: /home/vagrant/ez_setup.py
+      - shell: python /home/vagrant/ez_setup.py
+      - shell: easy_install pip
+      - shell: pip install -i http://192.168.121.1:3040/ben/dev --trusted-host 192.168.121.1 zero_pipeline

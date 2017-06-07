@@ -29,6 +29,13 @@ Verify
 ---------
 
     ansible-playbook -i hosts playbook/ping_interfaces.yml
+    ansible-playbook -i hosts playbook/ping_reachable.yml
+
+
+Deploy Pipeline
+---------------
+
+    ansible-playbook -i hosts playbook/pipeline.yml
 
 
 Tear down
