@@ -14,5 +14,10 @@ iface {{interface.name}} inet static
 	address {{interface.ip_address}}
 	netmask {{interface.netmask}}
     {%endif%}
+    {%if interface.remote_ip_address is defined %}
+    post-up route add -net 192.168.0.0 netmask 255.255.255.0 gw {{interface.remote_ip_address}}
+    pre-down route del -net 192.168.0.0 netmask 255.255.255.0 gw {{interface.remote_ip_address}}
+    {%endif%}
+
 
 {%endfor%}
