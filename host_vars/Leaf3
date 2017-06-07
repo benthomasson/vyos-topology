@@ -1,5 +1,5 @@
 cli:
-  host: 192.168.121.85
+  host: 192.168.121.106
   port: 22
   ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf3/libvirt/private_key
   transport: cli
@@ -10,7 +10,7 @@ interfaces:
   ip_address: 192.168.0.22
   local_port: 9111
   name: eth1
-  netmask: 255.255.255.0
+  netmask: 255.255.255.252
   network: 224
   remote_device_name: Spine1
   remote_interface_name: eth3
@@ -21,7 +21,7 @@ interfaces:
   ip_address: 192.168.0.34
   local_port: 9117
   name: eth2
-  netmask: 255.255.255.0
+  netmask: 255.255.255.252
   network: 227
   remote_device_name: Spine2
   remote_interface_name: eth3
@@ -32,14 +32,14 @@ interfaces:
   ip_address: 192.168.0.9
   local_port: 9104
   name: eth3
-  netmask: 255.255.255.0
+  netmask: 255.255.255.252
   network: 248
   remote_device_name: Host3
   remote_interface_name: eth1
   remote_ip_address: 192.168.0.10
   remote_port: 9105
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.85
+mgmt_ip: 192.168.121.106
 mgmt_port: 22
 name: Leaf3
 nat_ip: 10.17.161.200

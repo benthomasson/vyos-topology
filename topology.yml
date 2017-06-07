@@ -1,6 +1,6 @@
 devices:
 - cli:
-    host: 192.168.121.56
+    host: 192.168.121.2
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host1/libvirt/private_key
     transport: cli
@@ -11,7 +11,7 @@ devices:
     ip_address: 192.168.0.2
     local_port: 9101
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 242
     remote_device_name: Leaf1
     remote_interface_name: eth3
@@ -35,7 +35,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.56
+  mgmt_ip: 192.168.121.2
   mgmt_port: 22
   name: Host1
   nat_ip: 10.17.161.200
@@ -45,7 +45,7 @@ devices:
   x: 302
   y: 691
 - cli:
-    host: 192.168.121.230
+    host: 192.168.121.188
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host2/libvirt/private_key
     transport: cli
@@ -56,7 +56,7 @@ devices:
     ip_address: 192.168.0.6
     local_port: 9103
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 245
     remote_device_name: Leaf2
     remote_interface_name: eth3
@@ -75,7 +75,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.230
+  mgmt_ip: 192.168.121.188
   mgmt_port: 22
   name: Host2
   nat_ip: 10.17.161.200
@@ -85,7 +85,7 @@ devices:
   x: 592
   y: 689
 - cli:
-    host: 192.168.121.203
+    host: 192.168.121.251
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host3/libvirt/private_key
     transport: cli
@@ -96,7 +96,7 @@ devices:
     ip_address: 192.168.0.10
     local_port: 9105
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 248
     remote_device_name: Leaf3
     remote_interface_name: eth3
@@ -115,7 +115,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.203
+  mgmt_ip: 192.168.121.251
   mgmt_port: 22
   name: Host3
   nat_ip: 10.17.161.200
@@ -125,7 +125,7 @@ devices:
   x: 880
   y: 683
 - cli:
-    host: 192.168.121.187
+    host: 192.168.121.113
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf1/libvirt/private_key
     transport: cli
@@ -136,7 +136,7 @@ devices:
     ip_address: 192.168.0.14
     local_port: 9107
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 222
     remote_device_name: Spine1
     remote_interface_name: eth1
@@ -147,7 +147,7 @@ devices:
     ip_address: 192.168.0.26
     local_port: 9113
     name: eth2
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 225
     remote_device_name: Spine2
     remote_interface_name: eth1
@@ -158,7 +158,7 @@ devices:
     ip_address: 192.168.0.1
     local_port: 9100
     name: eth3
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 242
     remote_device_name: Host1
     remote_interface_name: eth1
@@ -170,7 +170,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.187
+  mgmt_ip: 192.168.121.113
   mgmt_port: 22
   name: Leaf1
   nat_ip: 10.17.161.200
@@ -180,7 +180,7 @@ devices:
   x: 306
   y: 548
 - cli:
-    host: 192.168.121.108
+    host: 192.168.121.98
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf2/libvirt/private_key
     transport: cli
@@ -191,7 +191,7 @@ devices:
     ip_address: 192.168.0.18
     local_port: 9109
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 223
     remote_device_name: Spine1
     remote_interface_name: eth2
@@ -202,7 +202,7 @@ devices:
     ip_address: 192.168.0.30
     local_port: 9115
     name: eth2
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 226
     remote_device_name: Spine2
     remote_interface_name: eth2
@@ -213,14 +213,14 @@ devices:
     ip_address: 192.168.0.5
     local_port: 9102
     name: eth3
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 245
     remote_device_name: Host2
     remote_interface_name: eth1
     remote_ip_address: 192.168.0.6
     remote_port: 9103
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.108
+  mgmt_ip: 192.168.121.98
   mgmt_port: 22
   name: Leaf2
   nat_ip: 10.17.161.200
@@ -230,7 +230,7 @@ devices:
   x: 585
   y: 550
 - cli:
-    host: 192.168.121.85
+    host: 192.168.121.106
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf3/libvirt/private_key
     transport: cli
@@ -241,7 +241,7 @@ devices:
     ip_address: 192.168.0.22
     local_port: 9111
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 224
     remote_device_name: Spine1
     remote_interface_name: eth3
@@ -252,7 +252,7 @@ devices:
     ip_address: 192.168.0.34
     local_port: 9117
     name: eth2
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 227
     remote_device_name: Spine2
     remote_interface_name: eth3
@@ -263,14 +263,14 @@ devices:
     ip_address: 192.168.0.9
     local_port: 9104
     name: eth3
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 248
     remote_device_name: Host3
     remote_interface_name: eth1
     remote_ip_address: 192.168.0.10
     remote_port: 9105
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.85
+  mgmt_ip: 192.168.121.106
   mgmt_port: 22
   name: Leaf3
   nat_ip: 10.17.161.200
@@ -280,7 +280,7 @@ devices:
   x: 870
   y: 535
 - cli:
-    host: 192.168.121.12
+    host: 192.168.121.204
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine1/libvirt/private_key
     transport: cli
@@ -291,7 +291,7 @@ devices:
     ip_address: 192.168.0.13
     local_port: 9106
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 222
     remote_device_name: Leaf1
     remote_interface_name: eth1
@@ -302,7 +302,7 @@ devices:
     ip_address: 192.168.0.17
     local_port: 9108
     name: eth2
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 223
     remote_device_name: Leaf2
     remote_interface_name: eth1
@@ -313,7 +313,7 @@ devices:
     ip_address: 192.168.0.21
     local_port: 9110
     name: eth3
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 224
     remote_device_name: Leaf3
     remote_interface_name: eth1
@@ -324,14 +324,14 @@ devices:
     ip_address: 192.168.0.37
     local_port: 9118
     name: eth4
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 235
     remote_device_name: Spine2
     remote_interface_name: eth4
     remote_ip_address: 192.168.0.38
     remote_port: 9119
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.12
+  mgmt_ip: 192.168.121.204
   mgmt_port: 22
   name: Spine1
   nat_ip: 10.17.161.200
@@ -341,7 +341,7 @@ devices:
   x: 416
   y: 306
 - cli:
-    host: 192.168.121.164
+    host: 192.168.121.27
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine2/libvirt/private_key
     transport: cli
@@ -352,7 +352,7 @@ devices:
     ip_address: 192.168.0.25
     local_port: 9112
     name: eth1
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 225
     remote_device_name: Leaf1
     remote_interface_name: eth2
@@ -363,7 +363,7 @@ devices:
     ip_address: 192.168.0.29
     local_port: 9114
     name: eth2
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 226
     remote_device_name: Leaf2
     remote_interface_name: eth2
@@ -374,7 +374,7 @@ devices:
     ip_address: 192.168.0.33
     local_port: 9116
     name: eth3
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 227
     remote_device_name: Leaf3
     remote_interface_name: eth2
@@ -385,14 +385,14 @@ devices:
     ip_address: 192.168.0.38
     local_port: 9119
     name: eth4
-    netmask: 255.255.255.0
+    netmask: 255.255.255.252
     network: 235
     remote_device_name: Spine1
     remote_interface_name: eth4
     remote_ip_address: 192.168.0.37
     remote_port: 9118
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.164
+  mgmt_ip: 192.168.121.27
   mgmt_port: 22
   name: Spine2
   nat_ip: 10.17.161.200
