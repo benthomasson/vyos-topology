@@ -1,41 +1,41 @@
 #!/bin/bash -ex
 
     #Host1 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10100 -j DNAT --to-destination 192.168.121.2:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.2 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.2 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10100 -j DNAT --to-destination 192.168.121.148:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.148 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.148 -j SNAT --to-source 10.17.161.200
 
     #Host2 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10101 -j DNAT --to-destination 192.168.121.188:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.188 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.188 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10101 -j DNAT --to-destination 192.168.121.233:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.233 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.233 -j SNAT --to-source 10.17.161.200
 
     #Host3 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10102 -j DNAT --to-destination 192.168.121.251:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.251 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.251 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10102 -j DNAT --to-destination 192.168.121.234:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.234 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.234 -j SNAT --to-source 10.17.161.200
 
     #Leaf1 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10103 -j DNAT --to-destination 192.168.121.113:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.113 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.113 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10103 -j DNAT --to-destination 192.168.121.93:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.93 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.93 -j SNAT --to-source 10.17.161.200
 
     #Leaf2 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10104 -j DNAT --to-destination 192.168.121.98:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.98 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.98 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10104 -j DNAT --to-destination 192.168.121.196:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.196 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.196 -j SNAT --to-source 10.17.161.200
 
     #Leaf3 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10105 -j DNAT --to-destination 192.168.121.106:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.106 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.106 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10105 -j DNAT --to-destination 192.168.121.75:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.75 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.75 -j SNAT --to-source 10.17.161.200
 
     #Spine1 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10106 -j DNAT --to-destination 192.168.121.204:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.204 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.204 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10106 -j DNAT --to-destination 192.168.121.143:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.143 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.143 -j SNAT --to-source 10.17.161.200
 
     #Spine2 rules
-    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10107 -j DNAT --to-destination 192.168.121.27:22
-    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.27 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.27 -j SNAT --to-source 10.17.161.200
+    sudo iptables -t nat -I PREROUTING 1 -d 10.17.161.200 -p tcp --dport 10107 -j DNAT --to-destination 192.168.121.206:22
+    sudo iptables -I FORWARD 1 -p tcp -d 192.168.121.206 --dport 22 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -I POSTROUTING 1 -s 192.168.121.206 -j SNAT --to-source 10.17.161.200
