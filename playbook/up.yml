@@ -40,6 +40,9 @@
             subnet_size: 30
             input: topology.yml
             output: topology.yml
+      - generate_reachable:
+            input: topology.yml
+            output: ip_addresses.yml
       - add_router_id:
             input: topology.yml
             output: topology.yml
