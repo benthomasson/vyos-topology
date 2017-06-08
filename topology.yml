@@ -1,6 +1,6 @@
 devices:
 - cli:
-    host: 192.168.121.97
+    host: 192.168.121.63
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host1/libvirt/private_key
     transport: cli
@@ -35,7 +35,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.97
+  mgmt_ip: 192.168.121.63
   mgmt_port: 22
   name: Host1
   nat_ip: 10.17.161.200
@@ -45,7 +45,7 @@ devices:
   x: 302
   y: 691
 - cli:
-    host: 192.168.121.61
+    host: 192.168.121.242
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host2/libvirt/private_key
     transport: cli
@@ -75,7 +75,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.61
+  mgmt_ip: 192.168.121.242
   mgmt_port: 22
   name: Host2
   nat_ip: 10.17.161.200
@@ -85,7 +85,7 @@ devices:
   x: 592
   y: 689
 - cli:
-    host: 192.168.121.193
+    host: 192.168.121.90
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host3/libvirt/private_key
     transport: cli
@@ -115,7 +115,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.193
+  mgmt_ip: 192.168.121.90
   mgmt_port: 22
   name: Host3
   nat_ip: 10.17.161.200
@@ -125,7 +125,7 @@ devices:
   x: 880
   y: 683
 - cli:
-    host: 192.168.121.230
+    host: 192.168.121.215
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf1/libvirt/private_key
     transport: cli
@@ -170,7 +170,7 @@ devices:
     network: null
     remote_device_name: null
     remote_interface_name: null
-  mgmt_ip: 192.168.121.230
+  mgmt_ip: 192.168.121.215
   mgmt_port: 22
   name: Leaf1
   nat_ip: 10.17.161.200
@@ -180,7 +180,7 @@ devices:
   x: 306
   y: 548
 - cli:
-    host: 192.168.121.214
+    host: 192.168.121.190
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf2/libvirt/private_key
     transport: cli
@@ -220,7 +220,7 @@ devices:
     remote_ip_address: 192.168.0.6
     remote_port: 9103
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.214
+  mgmt_ip: 192.168.121.190
   mgmt_port: 22
   name: Leaf2
   nat_ip: 10.17.161.200
@@ -230,7 +230,7 @@ devices:
   x: 585
   y: 550
 - cli:
-    host: 192.168.121.229
+    host: 192.168.121.15
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf3/libvirt/private_key
     transport: cli
@@ -270,7 +270,7 @@ devices:
     remote_ip_address: 192.168.0.10
     remote_port: 9105
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.229
+  mgmt_ip: 192.168.121.15
   mgmt_port: 22
   name: Leaf3
   nat_ip: 10.17.161.200
@@ -280,7 +280,7 @@ devices:
   x: 870
   y: 535
 - cli:
-    host: 192.168.121.134
+    host: 192.168.121.116
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine1/libvirt/private_key
     transport: cli
@@ -331,7 +331,7 @@ devices:
     remote_ip_address: 192.168.0.38
     remote_port: 9119
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.134
+  mgmt_ip: 192.168.121.116
   mgmt_port: 22
   name: Spine1
   nat_ip: 10.17.161.200
@@ -341,7 +341,7 @@ devices:
   x: 416
   y: 306
 - cli:
-    host: 192.168.121.203
+    host: 192.168.121.180
     port: 22
     ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine2/libvirt/private_key
     transport: cli
@@ -392,7 +392,7 @@ devices:
     remote_ip_address: 192.168.0.37
     remote_port: 9118
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.203
+  mgmt_ip: 192.168.121.180
   mgmt_port: 22
   name: Spine2
   nat_ip: 10.17.161.200

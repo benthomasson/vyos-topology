@@ -1,5 +1,5 @@
 cli:
-  host: 192.168.121.61
+  host: 192.168.121.242
   port: 22
   ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host2/libvirt/private_key
   transport: cli
@@ -29,7 +29,7 @@ interfaces:
   network: null
   remote_device_name: null
   remote_interface_name: null
-mgmt_ip: 192.168.121.61
+mgmt_ip: 192.168.121.242
 mgmt_port: 22
 name: Host2
 nat_ip: 10.17.161.200
