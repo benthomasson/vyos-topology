@@ -6,8 +6,29 @@
   gather_facts: false
   tasks:
       - copy:
+          src: files/pip.conf
+          dest: /etc/pip.conf
+      - copy:
           src: files/ez_setup.py
           dest: /home/vagrant/ez_setup.py
       - shell: python /home/vagrant/ez_setup.py
       - shell: easy_install pip
       - shell: pip install -i http://192.168.121.1:3040/ben/dev --trusted-host 192.168.121.1 zero_pipeline
+- name: Start pipeline host1
+  hosts: Host1
+  tasks:
+      - copy:
+          src: files/host1.yml
+          dest: /home/vagrant/zero_pipeline.yml
+- name: Start pipeline host2
+  hosts: Host2
+  tasks:
+      - copy:
+          src: files/host2.yml
+          dest: /home/vagrant/zero_pipeline.yml
+- name: Start pipeline host3
+  hosts: Host3
+  tasks:
+      - copy:
+          src: files/host3.yml
+          dest: /home/vagrant/zero_pipeline.yml
