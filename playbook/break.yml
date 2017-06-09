@@ -1,0 +1,12 @@
+---
+- name: Break OSPF
+  hosts: Spine2
+  become: false
+  become_method: sudo
+  gather_facts: false
+  connection: local
+  tasks:
+    - vyos_config:
+        lines:
+            - "delete protocols ospf"
+        provider: "{{cli}}"

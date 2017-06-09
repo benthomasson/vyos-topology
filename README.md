@@ -38,6 +38,14 @@ Deploy Pipeline
     ansible-playbook -i hosts playbook/pipeline.yml
 
 
+Break Networking
+----------------
+
+    ansible-playbook -i hosts playbook/break.yml
+    ansible-playbook -i hosts playbook/no_routing.yml
+
+
+
 Tear down
 ---------
 
