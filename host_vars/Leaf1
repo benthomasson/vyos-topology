@@ -1,7 +1,7 @@
 cli:
-  host: 192.168.121.13
-  port: 22
-  ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf1/libvirt/private_key
+  host: 10.17.161.200
+  port: 10103
+  ssh_keyfile: ''
   transport: cli
   username: vagrant
 id: 3

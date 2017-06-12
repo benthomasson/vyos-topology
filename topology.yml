@@ -1,8 +1,8 @@
 devices:
 - cli:
-    host: 192.168.121.21
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host1/libvirt/private_key
+    host: 10.17.161.200
+    port: 10100
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 8
@@ -45,9 +45,9 @@ devices:
   x: 302
   y: 691
 - cli:
-    host: 192.168.121.153
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host2/libvirt/private_key
+    host: 10.17.161.200
+    port: 10101
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 9
@@ -85,9 +85,9 @@ devices:
   x: 592
   y: 689
 - cli:
-    host: 192.168.121.184
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Host3/libvirt/private_key
+    host: 10.17.161.200
+    port: 10102
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 10
@@ -125,9 +125,9 @@ devices:
   x: 880
   y: 683
 - cli:
-    host: 192.168.121.13
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf1/libvirt/private_key
+    host: 10.17.161.200
+    port: 10103
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 3
@@ -180,9 +180,9 @@ devices:
   x: 306
   y: 548
 - cli:
-    host: 192.168.121.103
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf2/libvirt/private_key
+    host: 10.17.161.200
+    port: 10104
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 4
@@ -230,9 +230,9 @@ devices:
   x: 585
   y: 550
 - cli:
-    host: 192.168.121.42
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Leaf3/libvirt/private_key
+    host: 10.17.161.200
+    port: 10105
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 5
@@ -280,9 +280,9 @@ devices:
   x: 870
   y: 535
 - cli:
-    host: 192.168.121.118
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine1/libvirt/private_key
+    host: 10.17.161.200
+    port: 10106
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 6
@@ -341,9 +341,9 @@ devices:
   x: 416
   y: 306
 - cli:
-    host: 192.168.121.117
-    port: 22
-    ssh_keyfile: /home/ben/git/vyos-topology/.vagrant/machines/Spine2/libvirt/private_key
+    host: 10.17.161.200
+    port: 10107
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 7
