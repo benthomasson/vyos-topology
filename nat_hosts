@@ -1,11 +1,17 @@
 [hosts]
 
-Leaf1 ansible_host=10.17.161.200 ansible_port=10100 ansible_user=vagrant
+Host1 ansible_host=10.17.161.200 ansible_port=10100 ansible_user=vagrant
 
-Leaf2 ansible_host=10.17.161.200 ansible_port=10101 ansible_user=vagrant
+Host2 ansible_host=10.17.161.200 ansible_port=10101 ansible_user=vagrant
 
-Leaf3 ansible_host=10.17.161.200 ansible_port=10102 ansible_user=vagrant
+Host3 ansible_host=10.17.161.200 ansible_port=10102 ansible_user=vagrant
 
-Spine1 ansible_host=10.17.161.200 ansible_port=10103 ansible_user=vagrant
+Leaf1 ansible_host=10.17.161.200 ansible_port=10103 ansible_user=vagrant
 
-Spine2 ansible_host=10.17.161.200 ansible_port=10104 ansible_user=vagrant
+Leaf2 ansible_host=10.17.161.200 ansible_port=10104 ansible_user=vagrant
+
+Leaf3 ansible_host=10.17.161.200 ansible_port=10105 ansible_user=vagrant
+
+Spine1 ansible_host=10.17.161.200 ansible_port=10106 ansible_user=vagrant
+
+Spine2 ansible_host=10.17.161.200 ansible_port=10107 ansible_user=vagrant
