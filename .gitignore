@@ -1,6 +1,4 @@
 /Vagrantfile
-/hosts
-/ssh-config
 /.vagrant
 *.pyc
 *.retry
