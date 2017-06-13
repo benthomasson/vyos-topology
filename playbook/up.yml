@@ -25,16 +25,18 @@
             ssh_config: ssh-config
             groups: switch,host
             output: hosts
-      - add_cli_connection:
-            ssh_config: ssh-config
-            input: topology.yml
-            output: topology.yml
       - add_mgmt_ip:
             ssh_config: ssh-config
             input: topology.yml
             output: topology.yml
             nat_ip: '10.17.161.200'
             port_range_start: 10100
+      - add_cli_connection:
+            ssh_config: ssh-config
+            input: topology.yml
+            output: topology.yml
+            use_nat: true
+            ssh_key: key
       - add_ip_addresses:
             supernet: 192.168.0.0/24
             subnet_size: 30
