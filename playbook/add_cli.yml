@@ -1,0 +1,18 @@
+---
+- name: Create Topology Using Vagrant
+  hosts: localhost
+  gather_facts: false
+  tasks:
+      - add_cli_connection:
+            ssh_config: ssh-config
+            input: topology.yml
+            output: topology.yml
+            use_nat: false
+            ssh_key: 'key'
+      - generate_host_vars:
+            host_vars_directory: host_vars
+            data: topology.yml
+      - generate_csvs:
+            data: topology.yml
+      - local_shell:
+            command: cp topology.yml group_vars/all
