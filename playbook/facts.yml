@@ -1,13 +1,10 @@
 ---
 - name: Gather facts
-  hosts: all
+  hosts: switch
   become: false
   become_method: sudo
   gather_facts: false
   connection: local
   tasks:
-    - debug:
-        msg: "{{cli}}"
     - vyos_facts:
         gather_subset: all
-        provider: "{{cli}}"
