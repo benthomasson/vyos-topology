@@ -2,7 +2,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10100
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 8
@@ -47,7 +47,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10101
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 9
@@ -87,7 +87,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10102
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 10
@@ -127,7 +127,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10103
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 3
@@ -182,7 +182,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10104
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 4
@@ -232,7 +232,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10105
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 5
@@ -282,7 +282,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10106
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 6
@@ -343,7 +343,7 @@ devices:
 - cli:
     host: 10.17.161.200
     port: 10107
-    ssh_keyfile: key
+    ssh_keyfile: ''
     transport: cli
     username: vagrant
   id: 7
