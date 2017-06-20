@@ -3,5 +3,3 @@
 *.pyc
 *.retry
 /facts/*
-/key
-/key.pub
