@@ -50,7 +50,7 @@ interfaces:
   remote_ip_address: 192.168.0.37
   remote_port: 9118
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.117
+mgmt_ip: 192.168.121.153
 mgmt_port: 22
 name: Spine2
 nat_ip: 10.17.161.200
@@ -58,4 +58,4 @@ nat_port: 10107
 router_id: 1.1.1.8
 type: switch
 x: 720
-y: 289
+y: 310
