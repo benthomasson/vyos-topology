@@ -12,6 +12,16 @@ Requirements
 
 
 
+Remote Start
+-------------
+
+    ansible-playbook -i hypervisor playbook/start_vms.yml
+
+Remote Destroy
+-------------
+
+    ansible-playbook -i hypervisor playbook/destroy_vms.yml
+
 
 Start
 -----

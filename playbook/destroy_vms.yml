@@ -1,0 +1,10 @@
+---
+- name: Destroy VMs on hypervisor
+  hosts: hypervisor
+  gather_facts: false
+  tasks:
+      - ping:
+      - name: Destroy VMs
+        shell: /home/ben/env/vyos-topology/bin/ansible-playbook playbook/down.yml
+        args:
+          chdir: /home/ben/git/vyos-topology
