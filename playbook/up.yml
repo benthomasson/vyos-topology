@@ -31,6 +31,14 @@
             output: topology.yml
             nat_ip: '10.17.161.200'
             port_range_start: 10100
+      - add_nat:
+            ssh_config: ssh-config
+            input: topology.yml
+            output: topology.yml
+            nat_ip: '10.17.161.200'
+            port: 8080
+            nat_port: 8080
+            host: Host1
       - add_cli_connection:
             ssh_config: ssh-config
             input: topology.yml
