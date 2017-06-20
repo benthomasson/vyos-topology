@@ -28,8 +28,8 @@ class ActionModule(ActionBase):
         for device in data['devices']:
             host_data = ssh_config.lookup(device['name'])
             if use_nat:
-                device['cli'] = dict(host=device['nat_ip'],
-                                     port=device['nat_port'],
+                device['cli'] = dict(host=device['mgmt_nat_ip'],
+                                     port=device['mgmt_nat_port'],
                                      ssh_keyfile=str(ssh_key),
                                      transport='cli',
                                      username=host_data['user'])

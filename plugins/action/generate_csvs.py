@@ -24,8 +24,8 @@ class ActionModule(ActionBase):
             for device in data['devices']:
                 devices_csv.writerow(dict(device=device['name'],
                                           router_id=device.get('router_id', ''),
-                                          mgmt_ip=device.get('mgmt_ip', ''),
-                                          mgmt_port=device.get('mgmt_port', '')))
+                                          mgmt_ip=device.get('mgmt_nat_ip', ''),
+                                          mgmt_port=device.get('mgmt_nat_port', '')))
 
         with open('interfaces.csv', 'w') as f:
             devices_csv = csv.DictWriter(f, fieldnames=['device', 'interface', 'ip_address'])

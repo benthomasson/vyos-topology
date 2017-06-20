@@ -1,7 +1,9 @@
 #!/bin/bash -ex
 {%for device in devices %}
     #{{device.name}} removal rules
-    sudo iptables -t nat -D PREROUTING -d {{device.nat_ip}} -p tcp --dport {{device.nat_port}} -j DNAT --to-destination {{device.mgmt_ip}}:{{device.mgmt_port}}
-    sudo iptables -D FORWARD -p tcp -d {{device.mgmt_ip}} --dport {{device.mgmt_port}} -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
-    sudo iptables -t nat -D POSTROUTING -s {{device.mgmt_ip}} -j SNAT --to-source {{device.nat_ip}}
+    {%for nat in device.nats%}
+    sudo iptables -t nat -D PREROUTING -d {{nat.nat_ip}} -p tcp --dport {{nat.nat_port}} -j DNAT --to-destination {{nat.ip}}:{{nat.port}}
+    sudo iptables -D FORWARD -p tcp -d {{nat.ip}} --dport {{nat.port}} -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+    sudo iptables -t nat -D POSTROUTING -s {{nat.ip}} -j SNAT --to-source {{nat.nat_ip}}
+    {%endfor%}
 {%endfor%}

@@ -33,8 +33,16 @@ class ActionModule(ActionBase):
             device_data = ssh_config.lookup(device['name'])
             device['mgmt_ip'] = device_data['hostname']
             device['mgmt_port'] = int(device_data['port'])
-            device['nat_ip'] = str(nat_ip)
-            device['nat_port'] = next(port_range)
+            device['mgmt_nat_ip'] = str(nat_ip)
+            device['mgmt_nat_port'] = next(port_range)
+            nats = device.get('nats', [])
+            device['nats'] = nats
+            nat = dict()
+            nats.append(nat)
+            nat['ip'] = device_data['hostname']
+            nat['port'] = int(device_data['port'])
+            nat['nat_ip'] = str(nat_ip)
+            nat['nat_port'] = device['mgmt_nat_port']
 
         with open(output_file, 'w') as f:
             f.write(yaml.safe_dump(data, default_flow_style=False))
