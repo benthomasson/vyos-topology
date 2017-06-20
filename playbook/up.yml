@@ -74,11 +74,3 @@
             command: ./iptables.rules
       - local_shell:
             command: cp topology.yml group_vars/all
-      - local_shell:
-            command: git add topology.yml host_vars group_vars iptables.rules iptables_remove.rules
-      - local_shell:
-            command: git commit -m "Update inventory"
-      - local_shell:
-            command: git push
-      - local_shell:
-            command: ansible-playbook -i hosts playbook/key.yml
