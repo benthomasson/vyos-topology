@@ -13,15 +13,15 @@
         args:
           chdir: /home/ben/git/vyos-topology
       - fetch:
-          src: /home/ben/env/vyos-topology/nat_hosts
+          src: /home/ben/git/vyos-topology/nat_hosts
           dest: nat_hosts
       - synchronize:
           mode: pull
-          src: /home/ben/env/vyos-topology/host_vars
+          src: /home/ben/git/vyos-topology/host_vars
           dest: host_vars
       - synchronize:
           mode: pull
-          src: /home/ben/env/vyos-topology/group_vars
+          src: /home/ben/git/vyos-topology/group_vars
           dest: group_vars
       - local_shell:
           command: tower-manage inventory_import --source=nat_hosts --inventory-id=2
