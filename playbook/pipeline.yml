@@ -20,7 +20,7 @@
       - copy:
           src: files/host1.yml
           dest: /home/vagrant/zero_pipeline.yml
-      - shell: zero_pipeline reciever --daemonize
+      - shell: zero_pipeline receiver --daemonize
         args:
             chdir: /home/vagrant/
 - name: Start pipeline host2
