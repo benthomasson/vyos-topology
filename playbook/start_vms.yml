@@ -1,0 +1,14 @@
+---
+- name: Start VMs on hypervisor
+  hosts: hypervisor
+  gather_facts: false
+  tasks:
+      - ping:
+      - name: Start VMs
+        shell: /home/ben/env/vyos-topology/bin/ansible-playbook playbook/up.yml
+        args:
+          chdir: /home/ben/git/vyos-topology
+      - name: Install SSH Credentials
+        shell: /home/ben/env/vyos-topology/bin/ansible-playbook -i hosts playbook/key.yml
+        args:
+          chdir: /home/ben/git/vyos-topology
