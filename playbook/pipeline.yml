@@ -20,15 +20,25 @@
       - copy:
           src: files/host1.yml
           dest: /home/vagrant/zero_pipeline.yml
+      - shell: zero_pipeline reciever --daemonize
+        args:
+            chdir: /home/vagrant/
 - name: Start pipeline host2
   hosts: Host2
   tasks:
       - copy:
           src: files/host2.yml
           dest: /home/vagrant/zero_pipeline.yml
+      - shell: zero_pipeline processor --daemonize
+        args:
+            chdir: /home/vagrant/
 - name: Start pipeline host3
   hosts: Host3
   tasks:
       - copy:
           src: files/host3.yml
           dest: /home/vagrant/zero_pipeline.yml
+      - shell: zero_pipeline generator --daemonize
+        args:
+            chdir: /home/vagrant/
+
