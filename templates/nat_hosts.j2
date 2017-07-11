@@ -1,12 +1,12 @@
 [switch]
 {%for device in devices%}
 {%if device.type == "switch" -%}
-{{device.name}} ansible_host={{device.nat_ip}} ansible_port={{device.nat_port}} ansible_user=vagrant
+{{device.name}} ansible_host={{device.nats[0].nat_ip}} ansible_port={{device.nats[0].nat_port}} ansible_user=vagrant
 {%-endif%}
 {%endfor%}
 [host]
 {%for device in devices%}
 {%if device.type == "host"-%}
-{{device.name}} ansible_host={{device.nat_ip}} ansible_port={{device.nat_port}} ansible_user=vagrant
+{{device.name}} ansible_host={{device.nats.[0].nat_ip}} ansible_port={{device.nats[0].nat_port}} ansible_user=vagrant
 {%-endif%}
 {%endfor%}
