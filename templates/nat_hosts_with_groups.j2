@@ -1,0 +1,8 @@
+{%for group in groups%}
+[{{group.name}}]
+{%for device in devices%}
+{%if device.name in group.members -%}
+{{device.name}} ansible_host={{device.nat_ip}} ansible_port={{device.nat_port}} ansible_user=vagrant
+{%-endif%}
+{%endfor%}
+{%endfor%}

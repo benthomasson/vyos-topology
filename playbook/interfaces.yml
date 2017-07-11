@@ -1,6 +1,6 @@
 ---
 - name: Up all interfaces on switches
-  hosts: switch
+  hosts: Switches
   become: false
   become_method: sudo
   gather_facts: false
@@ -17,7 +17,7 @@
     - vyos_facts:
         gather_subset: all
 - name: Up all interfaces on hosts
-  hosts: host
+  hosts: Hosts
   become: true
   become_method: sudo
   gather_facts: false

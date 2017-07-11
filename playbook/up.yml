@@ -20,10 +20,9 @@
       - vagrant_up:
       - vagrant_ssh_config:
             output: ssh-config
-      - convert_ssh_config_to_ansible_inventory:
+      - convert_ssh_config_to_ansible_inventory2:
             data: topology.yml
             ssh_config: ssh-config
-            groups: switch,host
             output: hosts
       - add_mgmt_ip:
             ssh_config: ssh-config
@@ -71,7 +70,7 @@
             context: topology.yml
             output: iptables_remove.rules
       - jinja:
-            template: templates/nat_hosts.j2
+            template: templates/nat_hosts_with_groups.j2
             context: topology.yml
             output: nat_hosts
       - local_shell:

@@ -1,6 +1,6 @@
 ---
 - name: Up all interfaces
-  hosts: switch
+  hosts: Switches
   become: false
   become_method: sudo
   gather_facts: false

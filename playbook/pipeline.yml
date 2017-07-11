@@ -1,6 +1,6 @@
 ---
 - name: Install pipeline demo application
-  hosts: host
+  hosts: Hosts
   become: true
   become_method: sudo
   gather_facts: false
@@ -14,8 +14,8 @@
       - shell: python /home/vagrant/ez_setup.py
       - shell: easy_install pip
       - shell: pip install -i http://192.168.121.1:3040/ben/dev --trusted-host 192.168.121.1 zero_pipeline
-- name: Start pipeline host1
-  hosts: Host1
+- name: Start pipeline receivers
+  hosts: Receivers
   tasks:
       - copy:
           src: files/host1.yml
@@ -23,8 +23,8 @@
       - shell: zero_pipeline receiver --daemonize
         args:
             chdir: /home/vagrant/
-- name: Start pipeline host2
-  hosts: Host2
+- name: Start pipeline processors
+  hosts: Processors
   tasks:
       - copy:
           src: files/host2.yml
@@ -32,8 +32,8 @@
       - shell: zero_pipeline processor --daemonize
         args:
             chdir: /home/vagrant/
-- name: Start pipeline host3
-  hosts: Host3
+- name: Start pipeline generators
+  hosts: Generators
   tasks:
       - copy:
           src: files/host3.yml
