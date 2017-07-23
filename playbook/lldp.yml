@@ -1,0 +1,11 @@
+- name: Enable LLDP on hosts
+  hosts: Hosts
+  become: true
+  become_method: sudo
+  gather_facts: false
+  tasks:
+      - apt:
+          name: lldp
+          state: present
+          update_cache: yes
+
