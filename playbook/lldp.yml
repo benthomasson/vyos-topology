@@ -5,7 +5,8 @@
   gather_facts: false
   tasks:
       - apt:
-          name: lldp
-          state: present
           update_cache: yes
+      - apt:
+          name: lldpd
+          state: present
 
