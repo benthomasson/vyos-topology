@@ -1,5 +1,5 @@
 Host Host1
-  HostName 192.168.121.79
+  HostName 192.168.121.74
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
@@ -10,7 +10,7 @@ Host Host1
   LogLevel FATAL
 
 Host Host2
-  HostName 192.168.121.34
+  HostName 192.168.121.229
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
@@ -21,7 +21,7 @@ Host Host2
   LogLevel FATAL
 
 Host Host3
-  HostName 192.168.121.176
+  HostName 192.168.121.153
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
@@ -32,7 +32,7 @@ Host Host3
   LogLevel FATAL
 
 Host Leaf1
-  HostName 192.168.121.35
+  HostName 192.168.121.31
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
@@ -43,7 +43,7 @@ Host Leaf1
   LogLevel FATAL
 
 Host Leaf2
-  HostName 192.168.121.23
+  HostName 192.168.121.166
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
@@ -54,7 +54,7 @@ Host Leaf2
   LogLevel FATAL
 
 Host Leaf3
-  HostName 192.168.121.145
+  HostName 192.168.121.165
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
@@ -65,7 +65,7 @@ Host Leaf3
   LogLevel FATAL
 
 Host Spine1
-  HostName 192.168.121.82
+  HostName 192.168.121.176
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
@@ -76,7 +76,7 @@ Host Spine1
   LogLevel FATAL
 
 Host Spine2
-  HostName 192.168.121.153
+  HostName 192.168.121.38
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null

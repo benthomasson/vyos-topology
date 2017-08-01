@@ -4,47 +4,55 @@ cli:
   ssh_keyfile: key
   transport: cli
   username: vagrant
-id: 5
+groups:
+- Switches
+- OSPF_0
+id: 44
 interfaces:
 - id: 1
-  ip_address: 192.168.0.22
-  local_port: 9111
+  ip_address: 192.168.0.14
+  local_port: 9107
   name: eth1
   netmask: 255.255.255.252
-  network: 224
+  network: 385
   remote_device_name: Spine1
   remote_interface_name: eth3
-  remote_ip_address: 192.168.0.21
-  remote_port: 9110
+  remote_ip_address: 192.168.0.13
+  remote_port: 9106
   subnet_prefixlen: 30
 - id: 2
-  ip_address: 192.168.0.34
-  local_port: 9117
+  ip_address: 192.168.0.26
+  local_port: 9113
   name: eth2
   netmask: 255.255.255.252
-  network: 227
+  network: 388
   remote_device_name: Spine2
   remote_interface_name: eth3
-  remote_ip_address: 192.168.0.33
-  remote_port: 9116
+  remote_ip_address: 192.168.0.25
+  remote_port: 9112
   subnet_prefixlen: 30
 - id: 3
-  ip_address: 192.168.0.9
-  local_port: 9104
+  ip_address: 192.168.0.37
+  local_port: 9118
   name: eth3
   netmask: 255.255.255.252
-  network: 248
+  network: 392
   remote_device_name: Host3
   remote_interface_name: eth1
-  remote_ip_address: 192.168.0.10
-  remote_port: 9105
+  remote_ip_address: 192.168.0.38
+  remote_port: 9119
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.145
+mgmt_ip: 192.168.121.165
+mgmt_nat_ip: 10.17.161.200
+mgmt_nat_port: 10105
 mgmt_port: 22
 name: Leaf3
-nat_ip: 10.17.161.200
-nat_port: 10105
+nats:
+- ip: 192.168.121.165
+  nat_ip: 10.17.161.200
+  nat_port: 10105
+  port: 22
 router_id: 1.1.1.6
 type: switch
-x: 870
-y: 535
+x: 880
+y: 425

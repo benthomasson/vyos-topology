@@ -4,58 +4,66 @@ cli:
   ssh_keyfile: key
   transport: cli
   username: vagrant
-id: 6
+groups:
+- OSPF_0
+- Switches
+id: 40
 interfaces:
 - id: 1
-  ip_address: 192.168.0.13
-  local_port: 9106
+  ip_address: 192.168.0.5
+  local_port: 9102
   name: eth1
   netmask: 255.255.255.252
-  network: 222
+  network: 383
   remote_device_name: Leaf1
+  remote_interface_name: eth1
+  remote_ip_address: 192.168.0.6
+  remote_port: 9103
+  subnet_prefixlen: 30
+- id: 2
+  ip_address: 192.168.0.9
+  local_port: 9104
+  name: eth2
+  netmask: 255.255.255.252
+  network: 384
+  remote_device_name: Leaf2
+  remote_interface_name: eth1
+  remote_ip_address: 192.168.0.10
+  remote_port: 9105
+  subnet_prefixlen: 30
+- id: 3
+  ip_address: 192.168.0.13
+  local_port: 9106
+  name: eth3
+  netmask: 255.255.255.252
+  network: 385
+  remote_device_name: Leaf3
   remote_interface_name: eth1
   remote_ip_address: 192.168.0.14
   remote_port: 9107
   subnet_prefixlen: 30
-- id: 2
-  ip_address: 192.168.0.17
-  local_port: 9108
-  name: eth2
-  netmask: 255.255.255.252
-  network: 223
-  remote_device_name: Leaf2
-  remote_interface_name: eth1
-  remote_ip_address: 192.168.0.18
-  remote_port: 9109
-  subnet_prefixlen: 30
-- id: 3
-  ip_address: 192.168.0.21
-  local_port: 9110
-  name: eth3
-  netmask: 255.255.255.252
-  network: 224
-  remote_device_name: Leaf3
-  remote_interface_name: eth1
-  remote_ip_address: 192.168.0.22
-  remote_port: 9111
-  subnet_prefixlen: 30
 - id: 4
-  ip_address: 192.168.0.37
-  local_port: 9118
+  ip_address: 192.168.0.29
+  local_port: 9114
   name: eth4
   netmask: 255.255.255.252
-  network: 235
+  network: 389
   remote_device_name: Spine2
   remote_interface_name: eth4
-  remote_ip_address: 192.168.0.38
-  remote_port: 9119
+  remote_ip_address: 192.168.0.30
+  remote_port: 9115
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.82
+mgmt_ip: 192.168.121.176
+mgmt_nat_ip: 10.17.161.200
+mgmt_nat_port: 10106
 mgmt_port: 22
 name: Spine1
-nat_ip: 10.17.161.200
-nat_port: 10106
+nats:
+- ip: 192.168.121.176
+  nat_ip: 10.17.161.200
+  nat_port: 10106
+  port: 22
 router_id: 1.1.1.7
 type: switch
-x: 416
-y: 306
+x: 492
+y: 204
