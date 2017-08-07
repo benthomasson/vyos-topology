@@ -8,7 +8,7 @@ Requirements
 
     pip install -r requirements.txt
 
-    ssh-keygen -T key
+    ssh-keygen -f key -t rsa -N ''
 
 
 
@@ -27,6 +27,7 @@ Start
 -----
 
     ansible-playbook playbook/up.yml
+    ansible-playbook -i hosts playbook/key.yml
 
 
 Configure
