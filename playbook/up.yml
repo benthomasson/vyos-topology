@@ -3,11 +3,15 @@
   hosts: localhost
   gather_facts: false
   tasks:
+      - include_vars:
+            file: vars/hypervisor.yml
+      - include_vars:
+            file: vars/provision.yml
       - requests_get:
-            url: http://meganuke:8013/network_ui/topology_yaml?topology_id=144
+            url: "http://meganuke:8013/network_ui/topology_yaml?topology_id={{topology_id}}"
             output: topology.yml
       - add_ports:
-            range_start: 9100
+            range_start: "{{udp_port_range_start}}"
             input: topology.yml
             output: topology.yml
       - jinja:
@@ -24,19 +28,22 @@
             data: topology.yml
             ssh_config: ssh-config
             output: hosts
+      - clear_nats:
+            input: topology.yml
+            output: topology.yml
       - add_mgmt_ip:
             ssh_config: ssh-config
             input: topology.yml
             output: topology.yml
-            nat_ip: '147.75.90.183'
-            port_range_start: 10100
+            nat_ip: "{{nat_ip}}"
+            port_range_start: "{{mgmt_port_range_start}}"
       - add_nat:
             ssh_config: ssh-config
             input: topology.yml
             output: topology.yml
-            nat_ip: '147.75.90.183'
-            port: 8080
-            nat_port: 8080
+            nat_ip: "{{nat_ip}}"
+            port: "{{web_port}}"
+            nat_port: "{{web_port}}"
             host: Host1
       - add_cli_connection:
             ssh_config: ssh-config
@@ -45,8 +52,8 @@
             use_nat: true
             ssh_key: key
       - add_ip_addresses:
-            supernet: 192.168.0.0/24
-            subnet_size: 30
+            supernet: "{{supernet}}"
+            subnet_size: "{{subnet_size}}"
             input: topology.yml
             output: topology.yml
       - generate_reachable:
@@ -55,7 +62,7 @@
       - add_router_id:
             input: topology.yml
             output: topology.yml
-            router_id_range: 1.1.1.1/24
+            router_id_range: "{{router_id_range}}"
       - generate_host_vars:
             host_vars_directory: host_vars
             data: topology.yml
