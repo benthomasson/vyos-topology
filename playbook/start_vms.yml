@@ -14,16 +14,16 @@
           chdir: /home/ben/git/vyos-topology
       - synchronize:
           mode: pull
-          src: /home/ben/git/vyos-topology/nat_hosts
-          dest: nat_hosts
-      - synchronize:
-          mode: pull
           src: /home/ben/git/vyos-topology/host_vars
           dest: .
       - synchronize:
           mode: pull
           src: /home/ben/git/vyos-topology/group_vars
           dest: .
+      - synchronize:
+          mode: pull
+          src: /home/ben/git/vyos-topology/nat_hosts
+          dest: files/
       - local_shell:
           command: "awx-manage inventory_import --source=./nat_hosts --inventory-id={{inventory_id}}"
           chdir: "playbook"
