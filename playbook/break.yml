@@ -9,4 +9,3 @@
     - vyos_config:
         lines:
             - "delete protocols ospf"
-        provider: "{{cli}}"
