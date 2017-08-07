@@ -24,6 +24,10 @@
           mode: pull
           src: /home/ben/git/vyos-topology/nat_hosts
           dest: files/
+      - synchronize:
+          mode: pull
+          src: /home/ben/git/vyos-topology/ip_address.yml
+          dest: files/
       - local_shell:
           command: "awx-manage inventory_import --source=./files/nat_hosts --inventory-id={{inventory_id}}"
           chdir: "playbook"

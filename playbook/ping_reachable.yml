@@ -6,7 +6,7 @@
   gather_facts: false
   tasks:
       - include_vars:
-          file: ../ip_addresses.yml
+          file: files/ip_addresses.yml
           name: reachable
       - debug:
           msg: "{{reachable.devices}}"
