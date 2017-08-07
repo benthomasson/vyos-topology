@@ -26,7 +26,7 @@
           dest: files/
       - synchronize:
           mode: pull
-          src: /home/ben/git/vyos-topology/ip_address.yml
+          src: /home/ben/git/vyos-topology/ip_addresses.yml
           dest: files/
       - local_shell:
           command: "awx-manage inventory_import --source=./files/nat_hosts --inventory-id={{inventory_id}}"
