@@ -1,6 +1,7 @@
 from ansible.plugins.action import ActionBase
 
 import subprocess
+import os
 
 
 class ActionModule(ActionBase):
@@ -12,7 +13,8 @@ class ActionModule(ActionBase):
             task_vars = dict()
         result = super(ActionModule, self).run(tmp, task_vars)
         command = self._task.args.get('command', None)
-        subprocess.check_call(command, shell=True)
+        chdir = self._task.args.get('chdir', None)
+        subprocess.check_call(command, shell=True, cwd=os.path.abspath(os.path.join(os.getcwd(), chdir)))
         return result
 
 

@@ -26,3 +26,4 @@
           dest: group_vars
       - local_shell:
           command: "awx-manage inventory_import --source=./nat_hosts --inventory-id={{inventory_id}}"
+          chdir: "playbook"
