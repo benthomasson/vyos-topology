@@ -12,7 +12,7 @@
         shell: /home/ben/env/vyos-topology/bin/ansible-playbook -i hosts playbook/key.yml
         args:
           chdir: /home/ben/git/vyos-topology
-      - fetch:
+      - synchronize:
           src: /home/ben/git/vyos-topology/nat_hosts
           dest: nat_hosts
       - synchronize:
@@ -24,4 +24,4 @@
           src: /home/ben/git/vyos-topology/group_vars
           dest: group_vars
       - local_shell:
-          command: "awx-manage inventory_import --source=./playbook/nat_hosts/Hypervisor/home/ben/git/vyos-topology/nat_hosts --inventory-id={{inventory_id}}"
+          command: "awx-manage inventory_import --source=./nat_hosts --inventory-id={{inventory_id}}"
