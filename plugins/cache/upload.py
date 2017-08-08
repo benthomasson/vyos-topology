@@ -10,6 +10,7 @@ class CacheModule(BaseCacheModule):
 
     def __init__(self, *args, **kwargs):
         self.create_connection()
+        self.cache = {}
 
     def create_connection(self):
         try:
@@ -19,10 +20,10 @@ class CacheModule(BaseCacheModule):
             print (traceback.format_exc())
 
     def get(self, key):
-        pass
+        return self.cache[key]
 
     def set(self, key, value):
-
+        self.cache[key] = value
         def send():
             if self.ws is None:
                 print ("Fact upload disabled")
