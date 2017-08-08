@@ -5,7 +5,7 @@
   tasks:
       - ping:
       - name: Start VMs
-        shell: "/home/ben/env/vyos-topology/bin/ansible-playbook playbook/up.yml --extra-vars topology_id={{topology_id}}"
+        shell: "/home/ben/env/vyos-topology/bin/ansible-playbook playbook/up.yml --extra-vars \"topology_id={{topology_id}} server={{server}}\""
         args:
           chdir: /home/ben/git/vyos-topology
       - name: Install SSH Credentials

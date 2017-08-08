@@ -8,7 +8,7 @@
       - include_vars:
             file: vars/provision.yml
       - requests_get:
-            url: "http://network-ui-demo:8013/network_ui/topology_yaml?topology_id={{topology_id}}"
+            url: "http://{{server}}/network_ui/topology_yaml?topology_id={{topology_id}}"
             output: topology.yml
       - add_ports:
             range_start: "{{udp_port_range_start}}"
