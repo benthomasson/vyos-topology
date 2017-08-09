@@ -56,6 +56,16 @@
             subnet_size: "{{subnet_size}}"
             input: topology.yml
             output: topology.yml
+      - lookup_set_value:
+            input: topology.yml
+            output: topology.yml
+            lookup_path: Host2.eth1.ip_address
+            set_path: processor
+      - lookup_set_value:
+            input: topology.yml
+            output: topology.yml
+            lookup_path: Host3.eth1.ip_address
+            set_path: generator
       - generate_reachable:
             input: topology.yml
             output: ip_addresses.yml

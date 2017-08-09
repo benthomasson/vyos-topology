@@ -1,3 +1,3 @@
-address: 192.168.0.30
+address: {{processor}}
 max_rate: 70850711
 
