@@ -1,5 +1,7 @@
 
 
+from ansible import constants as C
+
 from ansible.plugins.cache.base import BaseCacheModule
 from websocket import create_connection
 import json
@@ -15,7 +17,8 @@ class CacheModule(BaseCacheModule):
     def create_connection(self):
         try:
             self.ws = None
-            self.ws = create_connection("ws://127.0.0.1:8013/network_ui/ansible?topology_id=6")
+            if self.ws:
+                self.ws = create_connection(C.CACHE_PLUGIN_CONNECTION))
         except BaseException:
             print (traceback.format_exc())
 
