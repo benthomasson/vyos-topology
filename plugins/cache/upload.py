@@ -1,4 +1,4 @@
-
+from __future__ import print_function
 
 from ansible import constants as C
 
@@ -17,6 +17,7 @@ class CacheModule(BaseCacheModule):
     def create_connection(self):
         try:
             self.ws = None
+            print ("Connect to", C.CACHE_PLUGIN_CONNECTION)
             self.ws = create_connection(C.CACHE_PLUGIN_CONNECTION)
         except BaseException:
             print (traceback.format_exc())
@@ -29,8 +30,10 @@ class CacheModule(BaseCacheModule):
         def send():
             if self.ws is None:
                 print ("Fact upload disabled")
-            self.ws.send(json.dumps(['Facts', dict(key=key,
-                                                   value=value)]))
+            else:
+                print ("Sending facts")
+                self.ws.send(json.dumps(['Facts', dict(key=key,
+                                                       value=value)]))
         try:
             send()
         except BaseException:
