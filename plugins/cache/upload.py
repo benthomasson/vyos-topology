@@ -31,7 +31,8 @@ class CacheModule(BaseCacheModule):
             if self.ws is None:
                 print ("Fact upload disabled")
             else:
-                print ("Sending facts")
+                print ("Sending facts", json.dumps(['Facts', dict(key=key,
+                                                             value=value)]))
                 self.ws.send(json.dumps(['Facts', dict(key=key,
                                                        value=value)]))
         try:
