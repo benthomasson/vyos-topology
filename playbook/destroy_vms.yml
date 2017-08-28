@@ -5,6 +5,6 @@
   tasks:
       - ping:
       - name: Destroy VMs
-        shell: "{{workspace}}/bin/ansible-playbook playbook/down.yml"
+        shell: "{{virtualenv}}/bin/ansible-playbook playbook/down.yml"
         args:
           chdir: "{{workspace}}"
