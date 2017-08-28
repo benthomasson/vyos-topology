@@ -1,0 +1,18 @@
+---
+- vyos_config:
+    lines:
+        - "set interfaces loopback lo address {{router_id}}/32"
+- vyos_config:
+    lines:
+        - set policy route-map CONNECT rule 10 action permit
+        - set policy route-map CONNECT rule 10 match interface lo
+- vyos_config:
+    lines:
+        - "set protocols ospf area 0 network 192.168.0.0/24"
+        - set protocols ospf default-information originate always
+        - set protocols ospf default-information originate metric 10
+        - set protocols ospf default-information originate metric-type 2
+        - set protocols ospf log-adjacency-changes
+        - "set protocols ospf parameters router-id {{router_id}}"
+        - set protocols ospf redistribute connected metric-type 2
+        - set protocols ospf redistribute connected route-map CONNECT
