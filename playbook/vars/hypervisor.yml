@@ -1,5 +1,5 @@
 
-udp_port_range_start: 9100
+udp_port_range_start: 9200
 nat_ip: '147.75.90.183'
-mgmt_port_range_start: 10100
+mgmt_port_range_start: 10200
 web_port: 8080
