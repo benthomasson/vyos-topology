@@ -5,6 +5,6 @@
   tasks:
       - ping:
       - name: Destroy VMs
-        shell: /home/ben/env/vyos-topology/bin/ansible-playbook playbook/down.yml
+        shell: "{{workspace}}/bin/ansible-playbook playbook/down.yml"
         args:
-          chdir: /home/ben/git/vyos-topology
+          chdir: "{{workspace}}"

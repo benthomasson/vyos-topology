@@ -7,4 +7,4 @@
     authorized_key:
         user: vagrant
         state: present
-        key: "{{ lookup('file', lookup('env','HOME') + '/git/vyos-topology/' + 'key.pub') }}"
+        key: "{{ lookup('file', workspace + '/key.pub') }}"
