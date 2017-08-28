@@ -5,28 +5,28 @@
   tasks:
       - ping:
       - name: Start VMs
-        shell: "/home/ben/env/vyos-topology/bin/ansible-playbook playbook/up.yml --extra-vars \"topology_id={{topology_id}} server={{server}}\""
+        shell: "{{workspace}}/bin/ansible-playbook playbook/up.yml --extra-vars \"topology_id={{topology_id}} server={{server}}\""
         args:
-          chdir: /home/ben/git/vyos-topology
+          chdir: "{{workspace}}"
       - name: Install SSH Credentials
-        shell: /home/ben/env/vyos-topology/bin/ansible-playbook -i hosts playbook/key.yml
+        shell: "{{workspace}}/bin/ansible-playbook -i hosts playbook/key.yml"
         args:
-          chdir: /home/ben/git/vyos-topology
+          chdir: "{{workspace}}"
       - synchronize:
           mode: pull
-          src: /home/ben/git/vyos-topology/host_vars
+          src: "{{workspace}}/host_vars"
           dest: .
       - synchronize:
           mode: pull
-          src: /home/ben/git/vyos-topology/group_vars
+          src: "{{workspace}}/group_vars"
           dest: .
       - synchronize:
           mode: pull
-          src: /home/ben/git/vyos-topology/nat_hosts
+          src: "{{workspace}}/nat_hosts"
           dest: files/
       - synchronize:
           mode: pull
-          src: /home/ben/git/vyos-topology/ip_addresses.yml
+          src: "{{workspace}}/ip_addresses.yml"
           dest: files/
       - local_shell:
           command: "awx-manage inventory_import --source=./files/nat_hosts --inventory-id={{inventory_id}}"
