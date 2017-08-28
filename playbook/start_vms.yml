@@ -9,7 +9,7 @@
         args:
           chdir: "{{workspace}}"
       - name: Install SSH Credentials
-        shell: "{{virtualenv}}/bin/ansible-playbook -i hosts playbook/key.yml"
+        shell: "{{virtualenv}}/bin/ansible-playbook -i hosts playbook/key.yml --extra-vars \"workspace={{workspace}}\""
         args:
           chdir: "{{workspace}}"
       - synchronize:
