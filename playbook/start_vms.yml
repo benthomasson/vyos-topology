@@ -5,11 +5,11 @@
   tasks:
       - ping:
       - name: Start VMs
-        shell: "{{workspace}}/bin/ansible-playbook playbook/up.yml --extra-vars \"topology_id={{topology_id}} server={{server}}\""
+        shell: "{{virtualenv}}/bin/ansible-playbook playbook/up.yml --extra-vars \"topology_id={{topology_id}} server={{server}}\""
         args:
           chdir: "{{workspace}}"
       - name: Install SSH Credentials
-        shell: "{{workspace}}/bin/ansible-playbook -i hosts playbook/key.yml"
+        shell: "{{virtualenv}}/bin/ansible-playbook -i hosts playbook/key.yml"
         args:
           chdir: "{{workspace}}"
       - synchronize:
