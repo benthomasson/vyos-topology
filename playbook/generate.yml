@@ -42,7 +42,7 @@
       - generate_csvs:
             data: topology.yml
       - jinja:
-            template: templates/nat_hosts_with_groups.j2
+            template: templates/nat_hosts_groups_only.j2
             context: topology.yml
             output: nat_hosts
       - local_shell:
