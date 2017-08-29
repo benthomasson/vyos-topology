@@ -11,9 +11,8 @@
             - set service lldp
     - vyos_config:
         lines:
-            - "set interfaces ethernet {{item.name}} address '{{item.ip_address}}/{{item.subnet_prefixlen}}'"
+            - "set interfaces ethernet {{item.name}}"
       with_items: "{{interfaces}}"
-      when: item.ip_address is defined
     - vyos_facts:
         gather_subset: all
 - name: Up all interfaces on hosts
@@ -23,7 +22,7 @@
   gather_facts: false
   tasks:
       - template:
-          src: templates/etc_network_interfaces
+          src: templates/etc_network_interfaces1
           dest: /etc/network/interfaces
           owner: root
           group: root
