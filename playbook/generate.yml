@@ -41,5 +41,9 @@
             data: topology.yml
       - generate_csvs:
             data: topology.yml
+      - jinja:
+            template: templates/nat_hosts_with_groups.j2
+            context: topology.yml
+            output: nat_hosts
       - local_shell:
             command: cp topology.yml group_vars/all
