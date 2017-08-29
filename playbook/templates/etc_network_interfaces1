@@ -9,7 +9,10 @@ pre-up sleep 2
 
 {% for interface in interfaces %}
 auto {{interface.name}}
-iface {{interface.name}} inet static
+iface {{interface.name}} inet manual
+     pre-up ifconfig $IFACE up
+     post-down ifconfig $IFACE down
+
 
 
 {%endfor%}
