@@ -55,7 +55,7 @@
             context: topology.yml
             output: iptables_remove.rules
       - jinja:
-            template: templates/nat_hosts_with_groups.j2
+            template: templates/nat_hosts.j2
             context: topology.yml
             output: nat_hosts
       - local_shell:
