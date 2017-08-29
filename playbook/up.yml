@@ -5,8 +5,6 @@
   tasks:
       - include_vars:
             file: vars/hypervisor.yml
-      - include_vars:
-            file: vars/provision.yml
       - requests_get:
             url: "http://{{server}}/network_ui/topology_yaml?topology_id={{topology_id}}"
             output: topology.yml
@@ -18,9 +16,6 @@
             template: templates/Vagrantfile.j2
             context: topology.yml
             output: Vagrantfile
-      - generate_host_vars:
-            data: topology.yml
-            host_vars_directory: host_vars
       - vagrant_up:
       - vagrant_ssh_config:
             output: ssh-config
@@ -51,33 +46,6 @@
             output: topology.yml
             use_nat: true
             ssh_key: key
-      - add_ip_addresses:
-            supernet: "{{supernet}}"
-            subnet_size: "{{subnet_size}}"
-            input: topology.yml
-            output: topology.yml
-      - lookup_set_value:
-            input: topology.yml
-            output: topology.yml
-            lookup_path: Host2.eth1.ip_address
-            set_path: processor
-      - lookup_set_value:
-            input: topology.yml
-            output: topology.yml
-            lookup_path: Host3.eth1.ip_address
-            set_path: generator
-      - generate_reachable:
-            input: topology.yml
-            output: ip_addresses.yml
-      - add_router_id:
-            input: topology.yml
-            output: topology.yml
-            router_id_range: "{{router_id_range}}"
-      - generate_host_vars:
-            host_vars_directory: host_vars
-            data: topology.yml
-      - generate_csvs:
-            data: topology.yml
       - jinja:
             template: templates/iptables.j2
             context: topology.yml
