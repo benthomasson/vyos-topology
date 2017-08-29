@@ -1,0 +1,36 @@
+---
+- name: Up all interfaces on switches
+  hosts: Switches
+  become: false
+  become_method: sudo
+  gather_facts: false
+  connection: local
+  tasks:
+    - vyos_config:
+        lines:
+            - set service lldp
+    - vyos_config:
+        lines:
+            - "set interfaces ethernet {{item.name}} address '{{item.ip_address}}/{{item.subnet_prefixlen}}'"
+      with_items: "{{interfaces}}"
+      when: item.ip_address is defined
+    - vyos_facts:
+        gather_subset: all
+- name: Up all interfaces on hosts
+  hosts: Hosts
+  become: true
+  become_method: sudo
+  gather_facts: false
+  tasks:
+      - shell: "ifdown {{item.name}}"
+        with_items: "{{interfaces}}"
+      - template:
+          src: templates/etc_network_interfaces
+          dest: /etc/network/interfaces
+          owner: root
+          group: root
+          mode: '0600'
+      - shell: "ifup {{item.name}}"
+        with_items: "{{interfaces}}"
+
+
