@@ -8,7 +8,7 @@
         - set policy route-map CONNECT rule 10 match interface lo
 - vyos_config:
     lines:
-        - "set protocols ospf area 0 network 192.168.0.0/24"
+        - "set protocols ospf area {{ospf_area}} network {{supernet}}"
         - set protocols ospf default-information originate always
         - set protocols ospf default-information originate metric 10
         - set protocols ospf default-information originate metric-type 2
