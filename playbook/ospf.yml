@@ -1,12 +1,15 @@
 ---
-- vyos_config:
+- name: Add loopback interface
+  vyos_config:
     lines:
         - "set interfaces loopback lo address {{router_id}}/32"
-- vyos_config:
+- name: Add route-map for loopback lo
+  vyos_config:
     lines:
         - set policy route-map CONNECT rule 10 action permit
         - set policy route-map CONNECT rule 10 match interface lo
-- vyos_config:
+- name: Configure OSPF area and router-id
+  vyos_config:
     lines:
         - "set protocols ospf area {{ospf_area}} network {{supernet}}"
         - set protocols ospf default-information originate always
