@@ -6,6 +6,10 @@
   gather_facts: false
   connection: local
   tasks:
-    - include: ospf.yml
+    - name: Load static variables
+      include_vars:
+        file: vars/provision.yml
+    - name: Include OSPF if enabled
+      include: ospf.yml
       with_items: "{{processes}}"
       when: item.name == 'OSPF'
