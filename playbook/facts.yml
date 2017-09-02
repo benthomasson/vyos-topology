@@ -6,5 +6,6 @@
   gather_facts: false
   connection: local
   tasks:
-    - vyos_facts:
+    - name: Discover link connections
+      vyos_facts:
         gather_subset: all
