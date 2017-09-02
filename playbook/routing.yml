@@ -10,6 +10,6 @@
       include_vars:
         file: vars/provision.yml
     - name: Include OSPF if enabled
-      include: ospf.yml
+      include_tasks: ospf.yml
       with_items: "{{processes}}"
       when: item.name == 'OSPF'
