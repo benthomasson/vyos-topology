@@ -5,40 +5,51 @@
   become_method: sudo
   gather_facts: false
   tasks:
-      - copy:
+      - name: Configure PIP for local devpi
+        copy:
           src: files/pip.conf
           dest: /etc/pip.conf
-      - copy:
+      - name: Bootstrap python with ez_setup
+        copy:
           src: files/ez_setup.py
           dest: /home/vagrant/ez_setup.py
-      - shell: python /home/vagrant/ez_setup.py
-      - shell: easy_install pip
-      - shell: pip install -i http://192.168.121.1:3040/ben/dev --trusted-host 192.168.121.1 zero_pipeline
+      - name: Run ez_setup
+        shell: python /home/vagrant/ez_setup.py
+      - name: Install pip
+        shell: easy_install pip
+      - name: Install Zero Pipeline
+        shell: pip install -i http://192.168.121.1:3040/ben/dev --trusted-host 192.168.121.1 zero_pipeline
 - name: Start pipeline receivers
   hosts: Receivers
   tasks:
-      - template:
+      - name: Configure Zero Pipeline Receiver
+        template:
           src: files/host1.yml
           dest: /home/vagrant/zero_pipeline.yml
-      - shell: zero_pipeline receiver --daemonize
+      - name: Start Zero Pipeline Receiver as a daemon
+        shell: zero_pipeline receiver --daemonize
         args:
             chdir: /home/vagrant/
 - name: Start pipeline processors
   hosts: Processors
   tasks:
-      - template:
+      - name: Configure Zero Pipeline Processor
+        template:
           src: files/host2.yml
           dest: /home/vagrant/zero_pipeline.yml
-      - shell: zero_pipeline processor --daemonize
+      - name: Start Zero Pipeline Processor as a daemon
+        shell: zero_pipeline processor --daemonize
         args:
             chdir: /home/vagrant/
 - name: Start pipeline generators
   hosts: Generators
   tasks:
-      - template:
+      - name: Configure Zero Pipeline Generator
+        template:
           src: files/host3.yml
           dest: /home/vagrant/zero_pipeline.yml
-      - shell: zero_pipeline generator --daemonize
+      - name: Start Zero Pipeline Generator as a daemon
+        shell: zero_pipeline generator --daemonize
         args:
             chdir: /home/vagrant/
 
