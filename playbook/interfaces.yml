@@ -16,7 +16,7 @@
             - "set interfaces ethernet {{item.name}} address '{{item.ip_address}}/{{item.subnet_prefixlen}}'"
       with_items: "{{interfaces}}"
       when: item.ip_address is defined
-    - name: Verify connectivity
+    - name: Gather connectivity information
       vyos_facts:
         gather_subset: all
 - name: Configure all interfaces on hosts
