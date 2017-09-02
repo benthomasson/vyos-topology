@@ -17,7 +17,6 @@ class CacheModule(BaseCacheModule):
     def create_connection(self):
         try:
             self.ws = None
-            print ("Connect to", C.CACHE_PLUGIN_CONNECTION)
             self.ws = create_connection(C.CACHE_PLUGIN_CONNECTION)
         except BaseException:
             print (traceback.format_exc())
