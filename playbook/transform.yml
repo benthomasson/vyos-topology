@@ -1,29 +1,33 @@
 ---
 - name: Transform topology data into host vars and group vars
-  hosts: hypervisor
+  hosts: controller
   gather_facts: false
   tasks:
-      - ping:
       - name: Generate host vars and group vars
         shell: "{{virtualenv}}/bin/ansible-playbook playbook/generate.yml --extra-vars \"topology_id={{topology_id}} server={{server}}\""
         args:
           chdir: "{{workspace}}"
-      - synchronize:
+      - name: Copy generate host vars
+        synchronize:
           mode: pull
           src: "{{workspace}}/host_vars"
           dest: .
-      - synchronize:
+      - name: Copy generate group vars
+        synchronize:
           mode: pull
           src: "{{workspace}}/group_vars"
           dest: .
-      - synchronize:
+      - name: Copy generated inventory file
+        synchronize:
           mode: pull
           src: "{{workspace}}/nat_hosts"
           dest: files/
-      - synchronize:
+      - name: Copy generated IP addresses
+        synchronize:
           mode: pull
           src: "{{workspace}}/ip_addresses.yml"
           dest: files/
-      - local_shell:
+      - name: Import generated host vars and group vars
+        local_shell:
           command: "awx-manage inventory_import --source=./files/nat_hosts --inventory-id={{inventory_id}}"
           chdir: "playbook"
