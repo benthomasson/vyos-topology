@@ -1,34 +1,39 @@
 ---
-- name: Up all interfaces on switches
+- name: Configure all interfaces on switches
   hosts: Switches
   become: false
   become_method: sudo
   gather_facts: false
   connection: local
   tasks:
-    - vyos_config:
+    - name: Enable LLDP
+      vyos_config:
         lines:
             - set service lldp
-    - vyos_config:
+    - name: Configure interface with IP address
+      vyos_config:
         lines:
             - "set interfaces ethernet {{item.name}} address '{{item.ip_address}}/{{item.subnet_prefixlen}}'"
       with_items: "{{interfaces}}"
       when: item.ip_address is defined
-    - vyos_facts:
+    - name: Verify connectivity
+      vyos_facts:
         gather_subset: all
-- name: Up all interfaces on hosts
+- name: Configure all interfaces on hosts
   hosts: Hosts
   become: true
   become_method: sudo
   gather_facts: false
   tasks:
-      - template:
+      - name: Configure interface with IP address and default route
+        template:
           src: templates/etc_network_interfaces
           dest: /etc/network/interfaces
           owner: root
           group: root
           mode: '0600'
-      - shell: "ifup {{item.name}}"
+      - name: Up interface
+        shell: "ifup {{item.name}}"
         with_items: "{{interfaces}}"
 
 
