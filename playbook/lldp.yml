@@ -4,9 +4,11 @@
   become_method: sudo
   gather_facts: false
   tasks:
-      - apt:
+      - name: Update package cache
+        apt:
           update_cache: yes
-      - apt:
+      - name: Install lldpd
+        apt:
           name: lldpd
           state: present
 
