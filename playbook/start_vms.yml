@@ -3,7 +3,6 @@
   hosts: hypervisor
   gather_facts: false
   tasks:
-      - ping:
       - name: Start VMs
         shell: "{{virtualenv}}/bin/ansible-playbook playbook/up.yml --extra-vars \"topology_id={{topology_id}} server={{server}}\""
         args:
@@ -12,22 +11,27 @@
         shell: "{{virtualenv}}/bin/ansible-playbook -i hosts playbook/key.yml --extra-vars \"workspace={{workspace}}\""
         args:
           chdir: "{{workspace}}"
-      - synchronize:
+      - name: Copy generated host vars
+        synchronize:
           mode: pull
           src: "{{workspace}}/host_vars"
           dest: .
-      - synchronize:
+      - name: Copy generated group vars
+        synchronize:
           mode: pull
           src: "{{workspace}}/group_vars"
           dest: .
-      - synchronize:
+      - name: Copy generated inventory
+        synchronize:
           mode: pull
           src: "{{workspace}}/nat_hosts"
           dest: files/
-      - synchronize:
+      - name: Copy generated IP addresses
+        synchronize:
           mode: pull
           src: "{{workspace}}/ip_addresses.yml"
           dest: files/
-      - local_shell:
+      - name: Import generated inventory, host vars, and group vars
+        local_shell:
           command: "awx-manage inventory_import --source=./files/nat_hosts --inventory-id={{inventory_id}}"
           chdir: "playbook"
