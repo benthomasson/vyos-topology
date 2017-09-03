@@ -21,7 +21,7 @@ __metaclass__ = type
 from ansible.plugins.callback import CallbackBase
 from websocket import create_connection
 import json
-from pprint import pprint
+import traceback
 
 from functools import wraps
 
@@ -126,13 +126,18 @@ class CallbackModule(CallbackBase):
 
     @debug
     def v2_playbook_on_stats(self, stats):
-        hosts = sorted(stats.processed.keys())
-	summary = {}
-        for host in self.hosts:
-            s = stats.summarize(host.get_name())
-            status = "pass"
-            status = "fail" if s['failures'] > 0 else status
-            status = "fail" if s['unreachable'] > 0 else status
-            self.ws.send(json.dumps(['DeviceStatus', dict(name=host.get_name(),
-                                                          working=False,
-                                                          status=status)]))
+        try:
+            hosts = sorted(stats.processed.keys())
+            print (hosts)
+            for host in self.hosts:
+                print (host)
+                print (host.get_name())
+                s = stats.summarize(host.get_name())
+                status = "pass"
+                status = "fail" if s['failures'] > 0 else status
+                status = "fail" if s['unreachable'] > 0 else status
+                self.ws.send(json.dumps(['DeviceStatus', dict(name=host.get_name(),
+                                                              working=False,
+                                                              status=status)]))
+        except BaseException, e:
+            print (e, traceback.format_exc())
