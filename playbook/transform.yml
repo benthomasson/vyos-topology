@@ -1,6 +1,6 @@
 ---
 - name: Transform topology data into host vars and group vars
-  hosts: controller
+  hosts: hypervisor
   gather_facts: false
   tasks:
       - name: Generate host vars and group vars
