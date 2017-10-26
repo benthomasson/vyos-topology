@@ -24,10 +24,6 @@
           mode: pull
           src: "{{workspace}}/nat_hosts"
           dest: files/
-      - synchronize:
-          mode: pull
-          src: "{{workspace}}/ip_addresses.yml"
-          dest: files/
       - local_shell:
           command: "awx-manage inventory_import --source=./files/nat_hosts --inventory-id={{inventory_id}}"
           chdir: "playbook"
