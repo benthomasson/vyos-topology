@@ -1,0 +1,5 @@
+[Switches]
+an-vyos-04 ansible_host=10.8.38.42 ansible_port=22 ansible_user=ansible
+an-vyos-05 ansible_host=10.8.38.43 ansible_port=22 ansible_user=ansible
+
+
