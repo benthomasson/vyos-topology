@@ -42,13 +42,17 @@ interfaces:
   remote_ip_address: 192.168.0.38
   remote_port: 9119
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.165
+mgmt_ip: 192.168.121.186
 mgmt_nat_ip: 10.17.161.200
 mgmt_nat_port: 10105
 mgmt_port: 22
 name: Leaf3
 nats:
 - ip: 192.168.121.165
+  nat_ip: 10.17.161.200
+  nat_port: 10105
+  port: 22
+- ip: 192.168.121.186
   nat_ip: 10.17.161.200
   nat_port: 10105
   port: 22

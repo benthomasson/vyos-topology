@@ -21,7 +21,7 @@ devices:
     remote_ip_address: 192.168.0.45
     remote_port: 9122
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.74
+  mgmt_ip: 192.168.121.119
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10100
   mgmt_port: 22
@@ -32,6 +32,14 @@ devices:
     nat_port: 10100
     port: 22
   - ip: 192.168.121.74
+    nat_ip: 10.17.161.200
+    nat_port: 8080
+    port: 8080
+  - ip: 192.168.121.119
+    nat_ip: 10.17.161.200
+    nat_port: 10100
+    port: 22
+  - ip: 192.168.121.119
     nat_ip: 10.17.161.200
     nat_port: 8080
     port: 8080
@@ -61,13 +69,17 @@ devices:
     remote_ip_address: 192.168.0.33
     remote_port: 9116
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.229
+  mgmt_ip: 192.168.121.50
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10101
   mgmt_port: 22
   name: Host2
   nats:
   - ip: 192.168.121.229
+    nat_ip: 10.17.161.200
+    nat_port: 10101
+    port: 22
+  - ip: 192.168.121.50
     nat_ip: 10.17.161.200
     nat_port: 10101
     port: 22
@@ -97,13 +109,17 @@ devices:
     remote_ip_address: 192.168.0.37
     remote_port: 9118
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.153
+  mgmt_ip: 192.168.121.71
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10102
   mgmt_port: 22
   name: Host3
   nats:
   - ip: 192.168.121.153
+    nat_ip: 10.17.161.200
+    nat_port: 10102
+    port: 22
+  - ip: 192.168.121.71
     nat_ip: 10.17.161.200
     nat_port: 10102
     port: 22
@@ -177,13 +193,17 @@ devices:
     remote_ip_address: 192.168.0.42
     remote_port: 9121
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.31
+  mgmt_ip: 192.168.121.143
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10103
   mgmt_port: 22
   name: Leaf1
   nats:
   - ip: 192.168.121.31
+    nat_ip: 10.17.161.200
+    nat_port: 10103
+    port: 22
+  - ip: 192.168.121.143
     nat_ip: 10.17.161.200
     nat_port: 10103
     port: 22
@@ -257,13 +277,17 @@ devices:
     remote_ip_address: 192.168.0.2
     remote_port: 9101
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.166
+  mgmt_ip: 192.168.121.10
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10104
   mgmt_port: 22
   name: Leaf2
   nats:
   - ip: 192.168.121.166
+    nat_ip: 10.17.161.200
+    nat_port: 10104
+    port: 22
+  - ip: 192.168.121.10
     nat_ip: 10.17.161.200
     nat_port: 10104
     port: 22
@@ -315,13 +339,17 @@ devices:
     remote_ip_address: 192.168.0.38
     remote_port: 9119
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.165
+  mgmt_ip: 192.168.121.186
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10105
   mgmt_port: 22
   name: Leaf3
   nats:
   - ip: 192.168.121.165
+    nat_ip: 10.17.161.200
+    nat_port: 10105
+    port: 22
+  - ip: 192.168.121.186
     nat_ip: 10.17.161.200
     nat_port: 10105
     port: 22
@@ -384,13 +412,17 @@ devices:
     remote_ip_address: 192.168.0.30
     remote_port: 9115
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.176
+  mgmt_ip: 192.168.121.185
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10106
   mgmt_port: 22
   name: Spine1
   nats:
   - ip: 192.168.121.176
+    nat_ip: 10.17.161.200
+    nat_port: 10106
+    port: 22
+  - ip: 192.168.121.185
     nat_ip: 10.17.161.200
     nat_port: 10106
     port: 22
@@ -453,13 +485,17 @@ devices:
     remote_ip_address: 192.168.0.29
     remote_port: 9114
     subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.38
+  mgmt_ip: 192.168.121.128
   mgmt_nat_ip: 10.17.161.200
   mgmt_nat_port: 10107
   mgmt_port: 22
   name: Spine2
   nats:
   - ip: 192.168.121.38
+    nat_ip: 10.17.161.200
+    nat_port: 10107
+    port: 22
+  - ip: 192.168.121.128
     nat_ip: 10.17.161.200
     nat_port: 10107
     port: 22

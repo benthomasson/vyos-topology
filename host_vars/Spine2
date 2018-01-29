@@ -53,13 +53,17 @@ interfaces:
   remote_ip_address: 192.168.0.29
   remote_port: 9114
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.38
+mgmt_ip: 192.168.121.128
 mgmt_nat_ip: 10.17.161.200
 mgmt_nat_port: 10107
 mgmt_port: 22
 name: Spine2
 nats:
 - ip: 192.168.121.38
+  nat_ip: 10.17.161.200
+  nat_port: 10107
+  port: 22
+- ip: 192.168.121.128
   nat_ip: 10.17.161.200
   nat_port: 10107
   port: 22

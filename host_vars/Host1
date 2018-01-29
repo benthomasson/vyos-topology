@@ -20,7 +20,7 @@ interfaces:
   remote_ip_address: 192.168.0.45
   remote_port: 9122
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.74
+mgmt_ip: 192.168.121.119
 mgmt_nat_ip: 10.17.161.200
 mgmt_nat_port: 10100
 mgmt_port: 22
@@ -31,6 +31,14 @@ nats:
   nat_port: 10100
   port: 22
 - ip: 192.168.121.74
+  nat_ip: 10.17.161.200
+  nat_port: 8080
+  port: 8080
+- ip: 192.168.121.119
+  nat_ip: 10.17.161.200
+  nat_port: 10100
+  port: 22
+- ip: 192.168.121.119
   nat_ip: 10.17.161.200
   nat_port: 8080
   port: 8080

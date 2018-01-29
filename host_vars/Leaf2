@@ -64,13 +64,17 @@ interfaces:
   remote_ip_address: 192.168.0.2
   remote_port: 9101
   subnet_prefixlen: 30
-mgmt_ip: 192.168.121.166
+mgmt_ip: 192.168.121.10
 mgmt_nat_ip: 10.17.161.200
 mgmt_nat_port: 10104
 mgmt_port: 22
 name: Leaf2
 nats:
 - ip: 192.168.121.166
+  nat_ip: 10.17.161.200
+  nat_port: 10104
+  port: 22
+- ip: 192.168.121.10
   nat_ip: 10.17.161.200
   nat_port: 10104
   port: 22
