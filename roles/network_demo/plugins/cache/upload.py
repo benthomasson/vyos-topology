@@ -14,7 +14,7 @@ class CacheModule(BaseCacheModule):
     def create_connection(self):
         try:
             self.ws = None
-            self.ws = create_connection("ws://127.0.0.1:8013/network_ui/ansible?topology_id=144")
+            self.ws = create_connection("wss://127.0.0.1:8043/network_ui/ansible?topology_id=144")
         except BaseException:
             print (traceback.format_exc())
 
