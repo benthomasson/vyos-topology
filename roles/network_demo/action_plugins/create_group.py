@@ -1,4 +1,4 @@
-#---- create_device
+#---- create_group
 
 from ansible.plugins.action import ActionBase
 
@@ -22,28 +22,26 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
 
-        topology = self._task.args.get('topology', None)
-        name = self._task.args.get('name', None)
-        x = self._task.args.get('x', None)
-        y = self._task.args.get('y', None)
         id = self._task.args.get('id', None)
+        name = self._task.args.get('name', None)
+        x1 = self._task.args.get('x1', None)
+        y1 = self._task.args.get('y1', None)
+        x2 = self._task.args.get('x2', None)
+        y2 = self._task.args.get('y2', None)
+        topology = self._task.args.get('topology', None)
         type = self._task.args.get('type', None)
 
-        interface_id_seq = self._task.args.get('interface_id_seq', 0)
-        process_id_seq = self._task.args.get('process_id_seq', 0)
-        host_id = self._task.args.get('host_id', 0)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/'
+        url = server + NETWORKING_API + API_VERSION + '/group/'
         headers = {'content-type': 'application/json'}
-        response = requests.post(url, data=json.dumps(dict(topology=topology,
+        response = requests.post(url, data=json.dumps(dict(id=id,
                                                            name=name,
-                                                           x=x,
-                                                           y=y,
-                                                           id=id,
+                                                           x1=x1,
+                                                           y1=y1,
+                                                           x2=x2,
+                                                           y2=y2,
+                                                           topology=topology,
                                                            type=type,
-                                                           interface_id_seq=interface_id_seq,
-                                                           process_id_seq=process_id_seq,
-                                                           host_id=host_id,
                                                            )),
                                  verify=False,
                                  auth=(user, password),

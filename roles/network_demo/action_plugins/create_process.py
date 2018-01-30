@@ -1,4 +1,4 @@
-#---- create_device
+#---- create_process
 
 from ansible.plugins.action import ActionBase
 
@@ -22,28 +22,18 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
 
-        topology = self._task.args.get('topology', None)
+        device = self._task.args.get('device', None)
         name = self._task.args.get('name', None)
-        x = self._task.args.get('x', None)
-        y = self._task.args.get('y', None)
-        id = self._task.args.get('id', None)
         type = self._task.args.get('type', None)
 
-        interface_id_seq = self._task.args.get('interface_id_seq', 0)
-        process_id_seq = self._task.args.get('process_id_seq', 0)
-        host_id = self._task.args.get('host_id', 0)
+        id = self._task.args.get('id', 0)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/'
+        url = server + NETWORKING_API + API_VERSION + '/process/'
         headers = {'content-type': 'application/json'}
-        response = requests.post(url, data=json.dumps(dict(topology=topology,
+        response = requests.post(url, data=json.dumps(dict(device=device,
                                                            name=name,
-                                                           x=x,
-                                                           y=y,
-                                                           id=id,
                                                            type=type,
-                                                           interface_id_seq=interface_id_seq,
-                                                           process_id_seq=process_id_seq,
-                                                           host_id=host_id,
+                                                           id=id,
                                                            )),
                                  verify=False,
                                  auth=(user, password),
