@@ -1,4 +1,4 @@
-#---- get_device
+#---- get_toolbox
 
 from ansible.plugins.action import ActionBase
 
@@ -22,9 +22,9 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
 
-        device_id = self._task.args.get('device_id', None)
+        toolbox_id = self._task.args.get('toolbox_id', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/' + str(device_id) + '/'
+        url = server + NETWORKING_API + API_VERSION + '/toolbox/' + str(toolbox_id) + '/'
         response = requests.get(url,
                                 verify=False,
                                 auth=(user, password))

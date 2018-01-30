@@ -1,4 +1,4 @@
-#---- get_device
+#---- get_groupdevice
 
 from ansible.plugins.action import ActionBase
 
@@ -22,13 +22,16 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
 
-        device_id = self._task.args.get('device_id', None)
+        group_device_id = self._task.args.get('group_device_id', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/' + str(device_id) + '/'
+        url = server + NETWORKING_API + API_VERSION + '/groupdevice/' + str(group_device_id) + '/'
         response = requests.get(url,
                                 verify=False,
                                 auth=(user, password))
         result['ansible_facts'] = {var: response.json()}
         return result
+
+
+
 
 
