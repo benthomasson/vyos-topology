@@ -1,0 +1,49 @@
+---
+- name: Get a device using the tower network ui api
+  hosts: localhost
+  gather_facts: false
+  roles:
+      - network_demo
+  tasks:
+    - include_vars: tower.yml
+    - get_device:
+        server: "{{server}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        device_id: 307
+        var: device1
+    - debug:
+        msg: "device1 {{device1}}"
+    - debug:
+        msg: "device1.name {{device1.name}}"
+    - list_device:
+        server: "{{server}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        var: devices
+    - debug:
+        msg: "devices {{devices}}"
+    - create_device:
+        server: "{{server}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        topology: 21
+        name: playbook_created
+        x: 0
+        y: 0
+        id: 78
+        type: router
+        var: new_device
+    - debug:
+        msg: "new_device {{new_device}}"
+    - update_device:
+        server: "{{server}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        device_id: "{{new_device.device_id}}"
+        x: 1000
+        y: 1000
+        var: new_device2
+    - debug:
+        msg: "new_device2 {{new_device2}}"
+
