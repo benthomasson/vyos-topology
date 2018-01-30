@@ -1,4 +1,4 @@
-#---- update_device
+#---- update_toolboxitem
 
 from ansible.plugins.action import ActionBase
 
@@ -22,28 +22,14 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
 
-        device_id = self._task.args.get('device_id', None)
-        topology = self._task.args.get('topology', None)
-        name = self._task.args.get('name', None)
-        x = self._task.args.get('x', None)
-        y = self._task.args.get('y', None)
-        id = self._task.args.get('id', None)
-        type = self._task.args.get('type', None)
-        interface_id_seq = self._task.args.get('interface_id_seq', None)
-        process_id_seq = self._task.args.get('process_id_seq', None)
-        host_id = self._task.args.get('host_id', None)
+        toolbox_item_id = self._task.args.get('toolbox_item_id', None)
+        toolbox = self._task.args.get('toolbox', None)
+        data = self._task.args.get('data', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/' + str(device_id) + '/'
+        url = server + NETWORKING_API + API_VERSION + '/toolboxitem/' + str(toolbox_item_id) + '/'
         headers = {'content-type': 'application/json'}
-        data=dict(topology=topology,
-                  name=name,
-                  x=x,
-                  y=y,
-                  id=id,
-                  type=type,
-                  interface_id_seq=interface_id_seq,
-                  process_id_seq=process_id_seq,
-                  host_id=host_id,
+        data=dict(toolbox=toolbox,
+                  data=data,
                   )
         data={x:y for x,y in data.iteritems() if y is not None}
         response = requests.patch(url,
@@ -53,5 +39,6 @@ class ActionModule(ActionBase):
                                   headers=headers)
         result['ansible_facts'] = {var: response.json()}
         return result
+
 
 

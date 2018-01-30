@@ -1,4 +1,4 @@
-#---- update_device
+#---- update_link
 
 from ansible.plugins.action import ActionBase
 
@@ -22,28 +22,22 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
 
-        device_id = self._task.args.get('device_id', None)
-        topology = self._task.args.get('topology', None)
-        name = self._task.args.get('name', None)
-        x = self._task.args.get('x', None)
-        y = self._task.args.get('y', None)
+        link_id = self._task.args.get('link_id', None)
+        from_device = self._task.args.get('from_device', None)
+        to_device = self._task.args.get('to_device', None)
+        from_interface = self._task.args.get('from_interface', None)
+        to_interface = self._task.args.get('to_interface', None)
         id = self._task.args.get('id', None)
-        type = self._task.args.get('type', None)
-        interface_id_seq = self._task.args.get('interface_id_seq', None)
-        process_id_seq = self._task.args.get('process_id_seq', None)
-        host_id = self._task.args.get('host_id', None)
+        name = self._task.args.get('name', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/' + str(device_id) + '/'
+        url = server + NETWORKING_API + API_VERSION + '/link/' + str(link_id) + '/'
         headers = {'content-type': 'application/json'}
-        data=dict(topology=topology,
-                  name=name,
-                  x=x,
-                  y=y,
+        data=dict(from_device=from_device,
+                  to_device=to_device,
+                  from_interface=from_interface,
+                  to_interface=to_interface,
                   id=id,
-                  type=type,
-                  interface_id_seq=interface_id_seq,
-                  process_id_seq=process_id_seq,
-                  host_id=host_id,
+                  name=name,
                   )
         data={x:y for x,y in data.iteritems() if y is not None}
         response = requests.patch(url,

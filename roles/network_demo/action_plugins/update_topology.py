@@ -1,4 +1,4 @@
-#---- update_device
+#---- update_topology
 
 from ansible.plugins.action import ActionBase
 
@@ -22,28 +22,26 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
 
-        device_id = self._task.args.get('device_id', None)
-        topology = self._task.args.get('topology', None)
+        topology_id = self._task.args.get('topology_id', None)
         name = self._task.args.get('name', None)
-        x = self._task.args.get('x', None)
-        y = self._task.args.get('y', None)
-        id = self._task.args.get('id', None)
-        type = self._task.args.get('type', None)
-        interface_id_seq = self._task.args.get('interface_id_seq', None)
-        process_id_seq = self._task.args.get('process_id_seq', None)
-        host_id = self._task.args.get('host_id', None)
+        scale = self._task.args.get('scale', None)
+        panX = self._task.args.get('panX', None)
+        panY = self._task.args.get('panY', None)
+        device_id_seq = self._task.args.get('device_id_seq', None)
+        link_id_seq = self._task.args.get('link_id_seq', None)
+        group_id_seq = self._task.args.get('group_id_seq', None)
+        stream_id_seq = self._task.args.get('stream_id_seq', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/' + str(device_id) + '/'
+        url = server + NETWORKING_API + API_VERSION + '/topology/' + str(topology_id) + '/'
         headers = {'content-type': 'application/json'}
-        data=dict(topology=topology,
-                  name=name,
-                  x=x,
-                  y=y,
-                  id=id,
-                  type=type,
-                  interface_id_seq=interface_id_seq,
-                  process_id_seq=process_id_seq,
-                  host_id=host_id,
+        data=dict(name=name,
+                  scale=scale,
+                  panX=panX,
+                  panY=panY,
+                  device_id_seq=device_id_seq,
+                  link_id_seq=link_id_seq,
+                  group_id_seq=group_id_seq,
+                  stream_id_seq=stream_id_seq,
                   )
         data={x:y for x,y in data.iteritems() if y is not None}
         response = requests.patch(url,
@@ -53,5 +51,8 @@ class ActionModule(ActionBase):
                                   headers=headers)
         result['ansible_facts'] = {var: response.json()}
         return result
+
+
+
 
 
