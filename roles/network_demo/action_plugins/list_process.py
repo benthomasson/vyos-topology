@@ -1,4 +1,4 @@
-#---- list_device
+#---- list_process
 
 from ansible.plugins.action import ActionBase
 
@@ -22,31 +22,21 @@ class ActionModule(ActionBase):
         var = self._task.args.get('var', None)
 
 
-        device_id = self._task.args.get('device_id', None)
-        topology = self._task.args.get('topology', None)
+        process_id = self._task.args.get('process_id', None)
+        device = self._task.args.get('device', None)
         name = self._task.args.get('name', None)
-        x = self._task.args.get('x', None)
-        y = self._task.args.get('y', None)
-        id = self._task.args.get('id', None)
         type = self._task.args.get('type', None)
-        interface_id_seq = self._task.args.get('interface_id_seq', None)
-        process_id_seq = self._task.args.get('process_id_seq', None)
-        host_id = self._task.args.get('host_id', None)
+        id = self._task.args.get('id', None)
 
-        filter_data=dict(device_id=device_id,
-                         topology=topology,
+        filter_data=dict(process_id=process_id,
+                         device=device,
                          name=name,
-                         x=x,
-                         y=y,
-                         id=id,
                          type=type,
-                         interface_id_seq=interface_id_seq,
-                         process_id_seq=process_id_seq,
-                         host_id=host_id,
+                         id=id,
                          )
         filter_data={x:y for x,y in filter_data.iteritems() if y is not None}
 
-        url = NETWORKING_API + API_VERSION + '/device/'
+        url = NETWORKING_API + API_VERSION + '/process/'
         results = []
         while url is not None:
             url = server + url
