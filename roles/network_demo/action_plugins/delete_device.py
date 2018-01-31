@@ -3,7 +3,6 @@
 from ansible.plugins.action import ActionBase
 
 import requests
-import json
 
 NETWORKING_API = '/network_ui/api/'
 API_VERSION = 'v1'
@@ -17,9 +16,12 @@ class ActionModule(ActionBase):
         if task_vars is None:
             task_vars = dict()
         result = super(ActionModule, self).run(tmp, task_vars)
-        server = self._task.args.get('server', None)
-        user = self._task.args.get('user', None)
-        password = self._task.args.get('password', None)
+
+        server = self._task.args.get('server',
+                                     "{0}:{1}".format(self._play_context.remote_addr,
+                                                      self._play_context.port))
+        user = self._task.args.get('user', self._play_context.remote_user)
+        password = self._task.args.get('password', self._play_context.password)
 
         device_id = self._task.args.get('device_id', None)
 
@@ -28,5 +30,3 @@ class ActionModule(ActionBase):
                                    verify=False,
                                    auth=(user, password))
         return result
-
-

@@ -16,11 +16,14 @@ class ActionModule(ActionBase):
         if task_vars is None:
             task_vars = dict()
         result = super(ActionModule, self).run(tmp, task_vars)
-        server = self._task.args.get('server', None)
-        user = self._task.args.get('user', None)
-        password = self._task.args.get('password', None)
-        var = self._task.args.get('var', None)
 
+        server = self._task.args.get('server',
+                                     "{0}:{1}".format(self._play_context.remote_addr,
+                                                      self._play_context.port))
+        user = self._task.args.get('user', self._play_context.remote_user)
+        password = self._task.args.get('password', self._play_context.password)
+
+        var = self._task.args.get('var', None)
 
         group_id = self._task.args.get('group_id', None)
         id = self._task.args.get('id', None)
@@ -32,17 +35,17 @@ class ActionModule(ActionBase):
         topology = self._task.args.get('topology', None)
         type = self._task.args.get('type', None)
 
-        filter_data=dict(group_id=group_id,
-                         id=id,
-                         name=name,
-                         x1=x1,
-                         y1=y1,
-                         x2=x2,
-                         y2=y2,
-                         topology=topology,
-                         type=type,
-                         )
-        filter_data={x:y for x,y in filter_data.iteritems() if y is not None}
+        filter_data = dict(group_id=group_id,
+                           id=id,
+                           name=name,
+                           x1=x1,
+                           y1=y1,
+                           x2=x2,
+                           y2=y2,
+                           topology=topology,
+                           type=type,
+                           )
+        filter_data = {x: y for x, y in filter_data.iteritems() if y is not None}
 
         url = NETWORKING_API + API_VERSION + '/group/'
         results = []
@@ -53,5 +56,3 @@ class ActionModule(ActionBase):
             url = data.get('next', None)
         result['ansible_facts'] = {var: results}
         return result
-
-

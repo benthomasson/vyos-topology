@@ -16,19 +16,22 @@ class ActionModule(ActionBase):
         if task_vars is None:
             task_vars = dict()
         result = super(ActionModule, self).run(tmp, task_vars)
-        server = self._task.args.get('server', None)
-        user = self._task.args.get('user', None)
-        password = self._task.args.get('password', None)
-        var = self._task.args.get('var', None)
 
+        server = self._task.args.get('server',
+                                     "{0}:{1}".format(self._play_context.remote_addr,
+                                                      self._play_context.port))
+        user = self._task.args.get('user', self._play_context.remote_user)
+        password = self._task.args.get('password', self._play_context.password)
+
+        var = self._task.args.get('var', None)
 
         toolbox_id = self._task.args.get('toolbox_id', None)
         name = self._task.args.get('name', None)
 
-        filter_data=dict(toolbox_id=toolbox_id,
-                         name=name,
-                         )
-        filter_data={x:y for x,y in filter_data.iteritems() if y is not None}
+        filter_data = dict(toolbox_id=toolbox_id,
+                           name=name,
+                           )
+        filter_data = {x: y for x, y in filter_data.iteritems() if y is not None}
 
         url = NETWORKING_API + API_VERSION + '/toolbox/'
         results = []
@@ -39,5 +42,3 @@ class ActionModule(ActionBase):
             url = data.get('next', None)
         result['ansible_facts'] = {var: results}
         return result
-
-

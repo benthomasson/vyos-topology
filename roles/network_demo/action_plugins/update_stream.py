@@ -17,9 +17,13 @@ class ActionModule(ActionBase):
         if task_vars is None:
             task_vars = dict()
         result = super(ActionModule, self).run(tmp, task_vars)
-        server = self._task.args.get('server', None)
-        user = self._task.args.get('user', None)
-        password = self._task.args.get('password', None)
+
+        server = self._task.args.get('server',
+                                     "{0}:{1}".format(self._play_context.remote_addr,
+                                                      self._play_context.port))
+        user = self._task.args.get('user', self._play_context.remote_user)
+        password = self._task.args.get('password', self._play_context.password)
+
         var = self._task.args.get('var', None)
 
         stream_id = self._task.args.get('stream_id', None)
@@ -30,12 +34,12 @@ class ActionModule(ActionBase):
 
         url = server + NETWORKING_API + API_VERSION + '/stream/' + str(stream_id) + '/'
         headers = {'content-type': 'application/json'}
-        data=dict(from_device=from_device,
-                  to_device=to_device,
-                  label=label,
-                  id=id,
-                  )
-        data={x:y for x,y in data.iteritems() if y is not None}
+        data = dict(from_device=from_device,
+                    to_device=to_device,
+                    label=label,
+                    id=id,
+                    )
+        data = {x: y for x, y in data.iteritems() if y is not None}
         response = requests.patch(url,
                                   data=json.dumps(data),
                                   verify=False,
@@ -43,5 +47,3 @@ class ActionModule(ActionBase):
                                   headers=headers)
         result['ansible_facts'] = {var: response.json()}
         return result
-
-
