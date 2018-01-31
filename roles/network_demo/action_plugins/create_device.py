@@ -5,7 +5,7 @@ from ansible.plugins.action import ActionBase
 import requests
 import json
 
-NETWORKING_API = 'network_ui/api/'
+NETWORKING_API = '/network_ui/api/'
 API_VERSION = 'v1'
 
 

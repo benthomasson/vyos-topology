@@ -1,4 +1,4 @@
-#---- get_groupdevice
+#---- delete_process
 
 from ansible.plugins.action import ActionBase
 
@@ -20,18 +20,13 @@ class ActionModule(ActionBase):
         server = self._task.args.get('server', None)
         user = self._task.args.get('user', None)
         password = self._task.args.get('password', None)
-        var = self._task.args.get('var', None)
 
-        group_device_id = self._task.args.get('group_device_id', None)
+        process_id = self._task.args.get('process_id', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/groupdevice/' + str(group_device_id) + '/'
-        response = requests.get(url,
-                                verify=False,
-                                auth=(user, password))
-        result['ansible_facts'] = {var: response.json()}
+        url = server + NETWORKING_API + API_VERSION + '/process/' + str(process_id) + '/'
+        response = requests.delete(url,
+                                   verify=False,
+                                   auth=(user, password))
         return result
-
-
-
 
 

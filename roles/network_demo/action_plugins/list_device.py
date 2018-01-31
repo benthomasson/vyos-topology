@@ -3,7 +3,7 @@ from ansible.plugins.action import ActionBase
 import requests
 from pprint import pprint
 
-NETWORKING_API = 'network_ui/api/'
+NETWORKING_API = '/network_ui/api/'
 API_VERSION = 'v1'
 
 
@@ -19,8 +19,15 @@ class ActionModule(ActionBase):
         user = self._task.args.get('user', None)
         password = self._task.args.get('password', None)
         var = self._task.args.get('var', None)
-        url = server + NETWORKING_API + API_VERSION + '/device/'
-        data = requests.get(url, verify=False, auth=(user, password)).json()
-        result['ansible_facts'] = {var: data}
+        url = NETWORKING_API + API_VERSION + '/device/'
+        results = []
+        while url is not None:
+            url = server + url
+            print ("Fetching ", url)
+            data = requests.get(url, verify=False, auth=(user, password)).json()
+            print ("Got ", data)
+            results.extend(data.get('results', []))
+            url = data.get('next', None)
+        result['ansible_facts'] = {var: results}
         return result
 
