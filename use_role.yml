@@ -3,7 +3,7 @@
   hosts: tower
   gather_facts: false
   roles:
-      - network_demo
+      - tower_network
   tasks:
     - get_device:
         device_id: 307
@@ -14,6 +14,8 @@
         msg: "device1.name {{device1.name}}"
     - list_device:
         var: devices
+        name: api_created
+        topology: 21
     - debug:
         msg: "devices {{devices}}"
     - create_device:

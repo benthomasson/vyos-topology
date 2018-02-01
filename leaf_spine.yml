@@ -3,7 +3,7 @@
   hosts: tower
   gather_facts: false
   roles:
-      - network_demo
+      - tower_network
   tasks:
     - range:
         start: 0
