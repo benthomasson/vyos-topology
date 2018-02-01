@@ -1,0 +1,43 @@
+---
+- name: Get a device using the tower network ui api
+  hosts: tower
+  gather_facts: false
+  roles:
+      - network_demo
+  tasks:
+    - range:
+        start: 0
+        end: 2000
+        increment: 200
+        var: leaf_range
+    - range:
+        start: 500
+        end: 1500
+        increment: 200
+        var: spine_range
+    - enumerate:
+        list: "{{leaf_range}}"
+        var: leaf_range2
+    - enumerate:
+        list: "{{spine_range}}"
+        var: spine_range2
+    - create_device:
+        topology: 1
+        name: "Leaf{{item.0}}"
+        x: "{{item.1}}"
+        y: 1000
+        id: "{{item.1}}"
+        type: switch
+        var: new_Device
+      with_items:
+          - "{{leaf_range2}}"
+    - create_device:
+        topology: 1
+        name: "Spine{{item.0}}"
+        x: "{{item.1}}"
+        y: 500
+        id: "{{item.1}}"
+        type: switch
+        var: new_Device
+      with_items:
+          - "{{spine_range2}}"

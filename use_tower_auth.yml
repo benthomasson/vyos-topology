@@ -1,0 +1,12 @@
+---
+- name: Get a device using the tower network ui api
+  hosts: tower
+  gather_facts: false
+  roles:
+      - network_demo
+  tasks:
+    - get_device:
+        device_id: 307
+        var: device1
+    - debug:
+        msg: "device1 {{device1}}"

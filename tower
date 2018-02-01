@@ -1,0 +1,2 @@
+[Tower]
+tower ansible_host=https://meganuke ansible_port=8043 ansible_user=ben
