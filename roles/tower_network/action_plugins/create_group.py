@@ -25,6 +25,8 @@ class ActionModule(ActionBase):
         password = self._task.args.get('password', self._play_context.password)
 
         var = self._task.args.get('var', None)
+        the_list = self._task.args.get('list', None)
+        list_var = self._task.args.get('list_var', None)
 
         id = self._task.args.get('id', None)
         name = self._task.args.get('name', None)
@@ -49,5 +51,11 @@ class ActionModule(ActionBase):
                                  verify=False,
                                  auth=(user, password),
                                  headers=headers)
-        result['ansible_facts'] = {var: response.json()}
+        if var is not None:
+            result['ansible_facts'] = {var: response.json()}
+        elif list_var is not None:
+            if the_list is None:
+                the_list = []
+            the_list.append(response.json())
+            result['ansible_facts'] = {list_var: the_list}
         return result

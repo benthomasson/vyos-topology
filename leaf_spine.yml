@@ -17,10 +17,10 @@
         var: spine_range
     - enumerate:
         list: "{{leaf_range}}"
-        var: leaf_range2
+        var: leaf_range
     - enumerate:
         list: "{{spine_range}}"
-        var: spine_range2
+        var: spine_range
     - create_device:
         topology: 1
         name: "Leaf{{item.0}}"
@@ -28,9 +28,10 @@
         y: 1000
         id: "{{item.1}}"
         type: switch
-        var: new_Device
+        var: new_device
       with_items:
-          - "{{leaf_range2}}"
+          - "{{leaf_range}}"
+      register: leaves
     - create_device:
         topology: 1
         name: "Spine{{item.0}}"
@@ -38,6 +39,19 @@
         y: 500
         id: "{{item.1}}"
         type: switch
-        var: new_Device
+        var: new_device
       with_items:
-          - "{{spine_range2}}"
+          - "{{spine_range}}"
+      register: spines
+    - map:
+        list: "{{leaves.results}}"
+        attribute: ansible_facts/new_device
+        var: leaves2
+    - map:
+        list: "{{spines.results}}"
+        attribute: ansible_facts/new_device
+        var: spines2
+    - debug:
+        msg: "leaves {{leaves2}}"
+    - debug:
+        msg: "spines {{spines2}}"
