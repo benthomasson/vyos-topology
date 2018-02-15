@@ -5,9 +5,6 @@ from ansible.plugins.action import ActionBase
 import requests
 import json
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -38,7 +35,7 @@ class ActionModule(ActionBase):
         group_id_seq = self._task.args.get('group_id_seq', 0)
         stream_id_seq = self._task.args.get('stream_id_seq', 0)
 
-        url = server + NETWORKING_API + API_VERSION + '/topology/'
+        url = server + '/api/v2/canvas/topology/'
         headers = {'content-type': 'application/json'}
         response = requests.post(url, data=json.dumps(dict(name=name,
                                                            scale=scale,

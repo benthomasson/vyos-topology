@@ -5,9 +5,6 @@ from ansible.plugins.action import ActionBase
 import requests
 import json
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -34,7 +31,7 @@ class ActionModule(ActionBase):
 
         id = self._task.args.get('id', 0)
 
-        url = server + NETWORKING_API + API_VERSION + '/process/'
+        url = server + '/api/v2/canvas/process/'
         headers = {'content-type': 'application/json'}
         response = requests.post(url, data=json.dumps(dict(device=device,
                                                            name=name,

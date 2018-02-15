@@ -4,9 +4,6 @@ from ansible.plugins.action import ActionBase
 
 import requests
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -25,7 +22,7 @@ class ActionModule(ActionBase):
 
         interface_id = self._task.args.get('interface_id', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/interface/' + str(interface_id) + '/'
+        url = server + '/api/v2/canvas/interface/' + str(interface_id) + '/'
         response = requests.delete(url,
                                    verify=False,
                                    auth=(user, password))

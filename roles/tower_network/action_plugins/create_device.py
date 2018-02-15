@@ -5,9 +5,6 @@ from ansible.plugins.action import ActionBase
 import requests
 import json
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -39,7 +36,7 @@ class ActionModule(ActionBase):
         process_id_seq = self._task.args.get('process_id_seq', 0)
         host_id = self._task.args.get('host_id', 0)
 
-        url = server + NETWORKING_API + API_VERSION + '/device/'
+        url = server + '/api/v2/canvas/device/'
         headers = {'content-type': 'application/json'}
         response = requests.post(url, data=json.dumps(dict(topology=topology,
                                                            name=name,
@@ -57,10 +54,8 @@ class ActionModule(ActionBase):
         if var is not None:
             result['ansible_facts'] = {var: response.json()}
         elif list_var is not None:
-            print (the_list)
             if the_list is None:
                 the_list = []
             the_list.append(response.json())
-            print (the_list)
             result['ansible_facts'] = {list_var: the_list}
         return result

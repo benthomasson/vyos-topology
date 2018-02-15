@@ -4,9 +4,6 @@ from ansible.plugins.action import ActionBase
 
 import requests
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -25,7 +22,7 @@ class ActionModule(ActionBase):
 
         topology_inventory_id = self._task.args.get('topology_inventory_id', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/topologyinventory/' + str(topology_inventory_id) + '/'
+        url = server + '/api/v2/canvas/topologyinventory/' + str(topology_inventory_id) + '/'
         response = requests.delete(url,
                                    verify=False,
                                    auth=(user, password))

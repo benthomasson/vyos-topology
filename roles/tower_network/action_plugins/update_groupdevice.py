@@ -5,9 +5,6 @@ from ansible.plugins.action import ActionBase
 import requests
 import json
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -30,7 +27,7 @@ class ActionModule(ActionBase):
         group = self._task.args.get('group', None)
         device = self._task.args.get('device', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/groupdevice/' + str(group_device_id) + '/'
+        url = server + '/api/v2/canvas/groupdevice/' + str(group_device_id) + '/'
         headers = {'content-type': 'application/json'}
         data = dict(group=group,
                     device=device,

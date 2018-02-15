@@ -5,9 +5,6 @@ from ansible.plugins.action import ActionBase
 import requests
 import json
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -31,7 +28,7 @@ class ActionModule(ActionBase):
         topology = self._task.args.get('topology', None)
         inventory_id = self._task.args.get('inventory_id', None)
 
-        url = server + NETWORKING_API + API_VERSION + '/topologyinventory/'
+        url = server + '/api/v2/canvas/topologyinventory/'
         headers = {'content-type': 'application/json'}
         response = requests.post(url, data=json.dumps(dict(topology=topology,
                                                            inventory_id=inventory_id,

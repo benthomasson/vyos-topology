@@ -4,9 +4,6 @@ from ansible.plugins.action import ActionBase
 
 import requests
 
-NETWORKING_API = '/network_ui/api/'
-API_VERSION = 'v1'
-
 
 class ActionModule(ActionBase):
 
@@ -35,7 +32,7 @@ class ActionModule(ActionBase):
                            )
         filter_data = {x: y for x, y in filter_data.iteritems() if y is not None}
 
-        url = NETWORKING_API + API_VERSION + '/topologyinventory/'
+        url = '/api/v2/canvas/topologyinventory/'
         results = []
         while url is not None:
             url = server + url
