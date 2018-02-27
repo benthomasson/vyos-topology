@@ -1,0 +1,7 @@
+---
+- name: Create Topology Using Vagrant
+  hosts: localhost
+  gather_facts: false
+  roles:
+      - hypervisor
+

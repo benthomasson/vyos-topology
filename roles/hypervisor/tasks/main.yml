@@ -1,0 +1,23 @@
+---
+- ping:
+- name: Start VMs
+  shell: /home/ben/env/vyos-topology/bin/ansible-playbook up_role.yml
+  args:
+    chdir: /home/ben/git/vyos-topology
+- name: Install SSH Credentials
+  shell: /home/ben/env/vyos-topology/bin/ansible-playbook -i hosts playbook/key.yml
+  args:
+    chdir: /home/ben/git/vyos-topology
+- fetch:
+  src: /home/ben/git/vyos-topology/nat_hosts
+  dest: nat_hosts
+- synchronize:
+  mode: pull
+  src: /home/ben/git/vyos-topology/host_vars
+  dest: host_vars
+- synchronize:
+  mode: pull
+  src: /home/ben/git/vyos-topology/group_vars
+  dest: group_vars
+- local_shell:
+  command: tower-manage inventory_import --source=./playbook/nat_hosts/Hypervisor/home/ben/git/vyos-topology/nat_hosts --inventory-id=2

@@ -1,0 +1,4 @@
+---
+dependencies:
+    - { role: tower_network }
+
