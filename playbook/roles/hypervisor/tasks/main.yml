@@ -5,7 +5,7 @@
 - name: whoami
   shell: whoami
 - name: Start VMs
-  shell: /home/ben/env/vyos-topology/bin/ansible-playbook up_role.yml
+  shell: /home/ben/env/vyos-topology/bin/ansible-playbook playbook/up_role.yml
   args:
     chdir: /home/ben/git/vyos-topology
 - name: Install SSH Credentials
