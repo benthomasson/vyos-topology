@@ -1,747 +1,137 @@
 devices:
-- cli:
-    host: 10.17.161.200
-    port: 10100
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - Receivers
-  - Hosts
-  id: 45
+- groups:
+  - Group1
+  id: 1
   interfaces:
   - id: 1
-    ip_address: 192.168.0.46
-    local_port: 9123
     name: eth1
-    netmask: 255.255.255.252
-    network: 390
-    remote_device_name: Leaf1
-    remote_interface_name: eth3
-    remote_ip_address: 192.168.0.45
-    remote_port: 9122
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.119
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10100
-  mgmt_port: 22
-  name: Host1
-  nats:
-  - ip: 192.168.121.74
-    nat_ip: 10.17.161.200
-    nat_port: 10100
-    port: 22
-  - ip: 192.168.121.74
-    nat_ip: 10.17.161.200
-    nat_port: 8080
-    port: 8080
-  - ip: 192.168.121.119
-    nat_ip: 10.17.161.200
-    nat_port: 10100
-    port: 22
-  - ip: 192.168.121.119
-    nat_ip: 10.17.161.200
-    nat_port: 8080
-    port: 8080
-  router_id: 1.1.1.1
-  type: host
-  x: 332
-  y: 666
-- cli:
-    host: 10.17.161.200
-    port: 10101
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - Processors
-  - Hosts
-  id: 46
-  interfaces:
-  - id: 1
-    ip_address: 192.168.0.34
-    local_port: 9117
-    name: eth1
-    netmask: 255.255.255.252
-    network: 391
-    remote_device_name: Leaf2
-    remote_interface_name: eth3
-    remote_ip_address: 192.168.0.33
-    remote_port: 9116
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.50
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10101
-  mgmt_port: 22
-  name: Host2
-  nats:
-  - ip: 192.168.121.229
-    nat_ip: 10.17.161.200
-    nat_port: 10101
-    port: 22
-  - ip: 192.168.121.50
-    nat_ip: 10.17.161.200
-    nat_port: 10101
-    port: 22
-  router_id: 1.1.1.2
-  type: host
-  x: 603
-  y: 663
-- cli:
-    host: 10.17.161.200
-    port: 10102
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - Generators
-  - Hosts
-  id: 47
-  interfaces:
-  - id: 1
-    ip_address: 192.168.0.38
-    local_port: 9119
-    name: eth1
-    netmask: 255.255.255.252
-    network: 392
-    remote_device_name: Leaf3
-    remote_interface_name: eth3
-    remote_ip_address: 192.168.0.37
-    remote_port: 9118
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.71
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10102
-  mgmt_port: 22
-  name: Host3
-  nats:
-  - ip: 192.168.121.153
-    nat_ip: 10.17.161.200
-    nat_port: 10102
-    port: 22
-  - ip: 192.168.121.71
-    nat_ip: 10.17.161.200
-    nat_port: 10102
-    port: 22
-  router_id: 1.1.1.3
-  type: host
-  x: 874
-  y: 669
-- cli:
-    host: 10.17.161.200
-    port: 10103
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - Switches
-  - OSPF_0
-  id: 42
-  interfaces:
-  - id: 1
-    ip_address: 192.168.0.6
-    local_port: 9103
-    name: eth1
-    netmask: 255.255.255.252
-    network: 383
-    remote_device_name: Spine1
-    remote_interface_name: eth1
-    remote_ip_address: 192.168.0.5
-    remote_port: 9102
-    subnet_prefixlen: 30
-  - id: 2
-    ip_address: 192.168.0.18
-    local_port: 9109
-    name: eth2
-    netmask: 255.255.255.252
-    network: 386
-    remote_device_name: Spine2
-    remote_interface_name: eth1
-    remote_ip_address: 192.168.0.17
-    remote_port: 9108
-    subnet_prefixlen: 30
-  - id: 3
-    ip_address: 192.168.0.45
-    local_port: 9122
-    name: eth3
-    netmask: 255.255.255.252
-    network: 390
-    remote_device_name: Host1
-    remote_interface_name: eth1
-    remote_ip_address: 192.168.0.46
-    remote_port: 9123
-    subnet_prefixlen: 30
-  - id: 4
-    ip_address: 192.168.0.42
-    local_port: 9121
-    name: eth4
-    netmask: 255.255.255.252
-    network: 393
-    remote_device_name: Leaf1
-    remote_interface_name: eth5
-    remote_ip_address: 192.168.0.41
-    remote_port: 9120
-    subnet_prefixlen: 30
-  - id: 5
-    ip_address: 192.168.0.41
-    local_port: 9120
-    name: eth5
-    netmask: 255.255.255.252
-    network: 393
-    remote_device_name: Leaf1
-    remote_interface_name: eth4
-    remote_ip_address: 192.168.0.42
-    remote_port: 9121
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.143
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10103
-  mgmt_port: 22
-  name: Leaf1
-  nats:
-  - ip: 192.168.121.31
-    nat_ip: 10.17.161.200
-    nat_port: 10103
-    port: 22
-  - ip: 192.168.121.143
-    nat_ip: 10.17.161.200
-    nat_port: 10103
-    port: 22
-  router_id: 1.1.1.4
-  type: switch
-  x: 336
-  y: 410
-- cli:
-    host: 10.17.161.200
-    port: 10104
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - Switches
-  - OSPF_0
-  id: 43
-  interfaces:
-  - id: 1
-    ip_address: 192.168.0.10
-    local_port: 9105
-    name: eth1
-    netmask: 255.255.255.252
-    network: 384
-    remote_device_name: Spine1
+    network: 4
+    remote_device_name: Switch4
     remote_interface_name: eth2
-    remote_ip_address: 192.168.0.9
-    remote_port: 9104
-    subnet_prefixlen: 30
   - id: 2
-    ip_address: 192.168.0.22
-    local_port: 9111
     name: eth2
-    netmask: 255.255.255.252
-    network: 387
-    remote_device_name: Spine2
+    network: 5
+    remote_device_name: Switch3
     remote_interface_name: eth2
-    remote_ip_address: 192.168.0.21
-    remote_port: 9110
-    subnet_prefixlen: 30
-  - id: 3
-    ip_address: 192.168.0.33
-    local_port: 9116
-    name: eth3
-    netmask: 255.255.255.252
-    network: 391
-    remote_device_name: Host2
-    remote_interface_name: eth1
-    remote_ip_address: 192.168.0.34
-    remote_port: 9117
-    subnet_prefixlen: 30
-  - id: 4
-    ip_address: 192.168.0.2
-    local_port: 9101
-    name: eth4
-    netmask: 255.255.255.252
-    network: 394
-    remote_device_name: Leaf2
-    remote_interface_name: eth5
-    remote_ip_address: 192.168.0.1
-    remote_port: 9100
-    subnet_prefixlen: 30
-  - id: 5
-    ip_address: 192.168.0.1
-    local_port: 9100
-    name: eth5
-    netmask: 255.255.255.252
-    network: 394
-    remote_device_name: Leaf2
-    remote_interface_name: eth4
-    remote_ip_address: 192.168.0.2
-    remote_port: 9101
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.10
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10104
-  mgmt_port: 22
-  name: Leaf2
-  nats:
-  - ip: 192.168.121.166
-    nat_ip: 10.17.161.200
-    nat_port: 10104
-    port: 22
-  - ip: 192.168.121.10
-    nat_ip: 10.17.161.200
-    nat_port: 10104
-    port: 22
-  router_id: 1.1.1.5
+  name: Switch1
+  processes: []
   type: switch
-  x: 603
-  y: 409
-- cli:
-    host: 10.17.161.200
-    port: 10105
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - Switches
-  - OSPF_0
-  id: 44
+  x: 709
+  y: 429
+- groups:
+  - Group1
+  id: 2
   interfaces:
   - id: 1
-    ip_address: 192.168.0.14
-    local_port: 9107
     name: eth1
-    netmask: 255.255.255.252
-    network: 385
-    remote_device_name: Spine1
-    remote_interface_name: eth3
-    remote_ip_address: 192.168.0.13
-    remote_port: 9106
-    subnet_prefixlen: 30
-  - id: 2
-    ip_address: 192.168.0.26
-    local_port: 9113
-    name: eth2
-    netmask: 255.255.255.252
-    network: 388
-    remote_device_name: Spine2
-    remote_interface_name: eth3
-    remote_ip_address: 192.168.0.25
-    remote_port: 9112
-    subnet_prefixlen: 30
-  - id: 3
-    ip_address: 192.168.0.37
-    local_port: 9118
-    name: eth3
-    netmask: 255.255.255.252
-    network: 392
-    remote_device_name: Host3
+    network: 2
+    remote_device_name: Switch4
     remote_interface_name: eth1
-    remote_ip_address: 192.168.0.38
-    remote_port: 9119
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.186
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10105
-  mgmt_port: 22
-  name: Leaf3
-  nats:
-  - ip: 192.168.121.165
-    nat_ip: 10.17.161.200
-    nat_port: 10105
-    port: 22
-  - ip: 192.168.121.186
-    nat_ip: 10.17.161.200
-    nat_port: 10105
-    port: 22
-  router_id: 1.1.1.6
+  - id: 2
+    name: eth2
+    network: 3
+    remote_device_name: Switch3
+    remote_interface_name: eth1
+  name: Switch2
+  processes: []
   type: switch
-  x: 880
+  x: 992
   y: 425
-- cli:
-    host: 10.17.161.200
-    port: 10106
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - OSPF_0
-  - Switches
-  id: 40
+- groups:
+  - Group1
+  id: 3
   interfaces:
   - id: 1
-    ip_address: 192.168.0.5
-    local_port: 9102
     name: eth1
-    netmask: 255.255.255.252
-    network: 383
-    remote_device_name: Leaf1
-    remote_interface_name: eth1
-    remote_ip_address: 192.168.0.6
-    remote_port: 9103
-    subnet_prefixlen: 30
+    network: 3
+    remote_device_name: Switch2
+    remote_interface_name: eth2
   - id: 2
-    ip_address: 192.168.0.9
-    local_port: 9104
     name: eth2
-    netmask: 255.255.255.252
-    network: 384
-    remote_device_name: Leaf2
-    remote_interface_name: eth1
-    remote_ip_address: 192.168.0.10
-    remote_port: 9105
-    subnet_prefixlen: 30
-  - id: 3
-    ip_address: 192.168.0.13
-    local_port: 9106
-    name: eth3
-    netmask: 255.255.255.252
-    network: 385
-    remote_device_name: Leaf3
-    remote_interface_name: eth1
-    remote_ip_address: 192.168.0.14
-    remote_port: 9107
-    subnet_prefixlen: 30
-  - id: 4
-    ip_address: 192.168.0.29
-    local_port: 9114
-    name: eth4
-    netmask: 255.255.255.252
-    network: 389
-    remote_device_name: Spine2
-    remote_interface_name: eth4
-    remote_ip_address: 192.168.0.30
-    remote_port: 9115
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.185
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10106
-  mgmt_port: 22
-  name: Spine1
-  nats:
-  - ip: 192.168.121.176
-    nat_ip: 10.17.161.200
-    nat_port: 10106
-    port: 22
-  - ip: 192.168.121.185
-    nat_ip: 10.17.161.200
-    nat_port: 10106
-    port: 22
-  router_id: 1.1.1.7
+    network: 5
+    remote_device_name: Switch1
+    remote_interface_name: eth2
+  name: Switch3
+  processes: []
   type: switch
-  x: 492
-  y: 204
-- cli:
-    host: 10.17.161.200
-    port: 10107
-    ssh_keyfile: key
-    transport: cli
-    username: vagrant
-  groups:
-  - Switches
-  - OSPF_0
-  id: 41
+  x: 713
+  y: 710
+- groups:
+  - Group1
+  id: 4
   interfaces:
   - id: 1
-    ip_address: 192.168.0.17
-    local_port: 9108
     name: eth1
-    netmask: 255.255.255.252
-    network: 386
-    remote_device_name: Leaf1
-    remote_interface_name: eth2
-    remote_ip_address: 192.168.0.18
-    remote_port: 9109
-    subnet_prefixlen: 30
+    network: 2
+    remote_device_name: Switch2
+    remote_interface_name: eth1
   - id: 2
-    ip_address: 192.168.0.21
-    local_port: 9110
     name: eth2
-    netmask: 255.255.255.252
-    network: 387
-    remote_device_name: Leaf2
-    remote_interface_name: eth2
-    remote_ip_address: 192.168.0.22
-    remote_port: 9111
-    subnet_prefixlen: 30
-  - id: 3
-    ip_address: 192.168.0.25
-    local_port: 9112
-    name: eth3
-    netmask: 255.255.255.252
-    network: 388
-    remote_device_name: Leaf3
-    remote_interface_name: eth2
-    remote_ip_address: 192.168.0.26
-    remote_port: 9113
-    subnet_prefixlen: 30
-  - id: 4
-    ip_address: 192.168.0.30
-    local_port: 9115
-    name: eth4
-    netmask: 255.255.255.252
-    network: 389
-    remote_device_name: Spine1
-    remote_interface_name: eth4
-    remote_ip_address: 192.168.0.29
-    remote_port: 9114
-    subnet_prefixlen: 30
-  mgmt_ip: 192.168.121.128
-  mgmt_nat_ip: 10.17.161.200
-  mgmt_nat_port: 10107
-  mgmt_port: 22
-  name: Spine2
-  nats:
-  - ip: 192.168.121.38
-    nat_ip: 10.17.161.200
-    nat_port: 10107
-    port: 22
-  - ip: 192.168.121.128
-    nat_ip: 10.17.161.200
-    nat_port: 10107
-    port: 22
-  router_id: 1.1.1.8
+    network: 4
+    remote_device_name: Switch1
+    remote_interface_name: eth1
+  name: Switch4
+  processes: []
   type: switch
-  x: 729
-  y: 203
+  x: 993
+  y: 708
 groups:
-- group_id: 79
-  id: 37
+- group_id: 2
+  id: 1
+  inventory_group_id: 2
   members:
-  - Host2
-  - Host3
-  - Host1
-  name: Hosts
-  topology_id: 144
-  x1: 175
-  x2: 1055
-  y1: 556
-  y2: 770
-- group_id: 77
-  id: 35
-  members:
-  - Leaf2
-  - Spine1
-  - Spine2
-  - Leaf3
-  - Leaf1
-  name: OSPF_0
-  topology_id: 144
-  x1: 221
-  x2: 993
-  y1: 140
-  y2: 520
-- group_id: 80
-  id: 38
-  members:
-  - Host1
-  name: Receivers
-  topology_id: 144
-  x1: 453
-  x2: 225
-  y1: 743
-  y2: 595
-- group_id: 82
-  id: 40
-  members:
-  - Host3
-  name: Generators
-  topology_id: 144
-  x1: 773
-  x2: 1003
-  y1: 589
-  y2: 745
-- group_id: 78
-  id: 36
-  members:
-  - Leaf2
-  - Spine1
-  - Spine2
-  - Leaf3
-  - Leaf1
-  name: Switches
-  topology_id: 144
-  x1: 175
-  x2: 1056
-  y1: 99
-  y2: 550
-- group_id: 81
-  id: 39
-  members:
-  - Host2
-  name: Processors
-  topology_id: 144
-  x1: 507
-  x2: 718
-  y1: 589
-  y2: 739
+  - Switch3
+  - Switch1
+  - Switch2
+  - Switch4
+  name: Group1
+  topology_id: 2
+  type: group
+  x1: 610
+  x2: 1099
+  y1: 344
+  y2: 830
 links:
-- from_device: Leaf2
-  from_device_id: 43
-  from_interface: eth5
-  from_interface_id: 5
-  from_port: 9100
-  name: ''
-  network: 394
-  subnet: 192.168.0.0
-  subnet_prefixlen: 30
-  to_device: Leaf2
-  to_device_id: 43
-  to_interface: eth4
-  to_interface_id: 4
-  to_port: 9101
-- from_device: Spine1
-  from_device_id: 40
+- from_device: Switch4
+  from_device_id: 4
   from_interface: eth1
   from_interface_id: 1
-  from_port: 9102
   name: ''
-  network: 383
-  subnet: 192.168.0.4
-  subnet_prefixlen: 30
-  to_device: Leaf1
-  to_device_id: 42
+  network: 2
+  to_device: Switch2
+  to_device_id: 2
   to_interface: eth1
   to_interface_id: 1
-  to_port: 9103
-- from_device: Spine1
-  from_device_id: 40
-  from_interface: eth2
-  from_interface_id: 2
-  from_port: 9104
-  name: ''
-  network: 384
-  subnet: 192.168.0.8
-  subnet_prefixlen: 30
-  to_device: Leaf2
-  to_device_id: 43
-  to_interface: eth1
-  to_interface_id: 1
-  to_port: 9105
-- from_device: Spine1
-  from_device_id: 40
-  from_interface: eth3
-  from_interface_id: 3
-  from_port: 9106
-  name: ''
-  network: 385
-  subnet: 192.168.0.12
-  subnet_prefixlen: 30
-  to_device: Leaf3
-  to_device_id: 44
-  to_interface: eth1
-  to_interface_id: 1
-  to_port: 9107
-- from_device: Spine2
-  from_device_id: 41
+- from_device: Switch3
+  from_device_id: 3
   from_interface: eth1
   from_interface_id: 1
-  from_port: 9108
   name: ''
-  network: 386
-  subnet: 192.168.0.16
-  subnet_prefixlen: 30
-  to_device: Leaf1
-  to_device_id: 42
+  network: 3
+  to_device: Switch2
+  to_device_id: 2
   to_interface: eth2
   to_interface_id: 2
-  to_port: 9109
-- from_device: Spine2
-  from_device_id: 41
+- from_device: Switch4
+  from_device_id: 4
   from_interface: eth2
   from_interface_id: 2
-  from_port: 9110
   name: ''
-  network: 387
-  subnet: 192.168.0.20
-  subnet_prefixlen: 30
-  to_device: Leaf2
-  to_device_id: 43
+  network: 4
+  to_device: Switch1
+  to_device_id: 1
+  to_interface: eth1
+  to_interface_id: 1
+- from_device: Switch1
+  from_device_id: 1
+  from_interface: eth2
+  from_interface_id: 2
+  name: ''
+  network: 5
+  to_device: Switch3
+  to_device_id: 3
   to_interface: eth2
   to_interface_id: 2
-  to_port: 9111
-- from_device: Spine2
-  from_device_id: 41
-  from_interface: eth3
-  from_interface_id: 3
-  from_port: 9112
-  name: ''
-  network: 388
-  subnet: 192.168.0.24
-  subnet_prefixlen: 30
-  to_device: Leaf3
-  to_device_id: 44
-  to_interface: eth2
-  to_interface_id: 2
-  to_port: 9113
-- from_device: Spine1
-  from_device_id: 40
-  from_interface: eth4
-  from_interface_id: 4
-  from_port: 9114
-  name: ''
-  network: 389
-  subnet: 192.168.0.28
-  subnet_prefixlen: 30
-  to_device: Spine2
-  to_device_id: 41
-  to_interface: eth4
-  to_interface_id: 4
-  to_port: 9115
-- from_device: Leaf2
-  from_device_id: 43
-  from_interface: eth3
-  from_interface_id: 3
-  from_port: 9116
-  name: ''
-  network: 391
-  subnet: 192.168.0.32
-  subnet_prefixlen: 30
-  to_device: Host2
-  to_device_id: 46
-  to_interface: eth1
-  to_interface_id: 1
-  to_port: 9117
-- from_device: Leaf3
-  from_device_id: 44
-  from_interface: eth3
-  from_interface_id: 3
-  from_port: 9118
-  name: ''
-  network: 392
-  subnet: 192.168.0.36
-  subnet_prefixlen: 30
-  to_device: Host3
-  to_device_id: 47
-  to_interface: eth1
-  to_interface_id: 1
-  to_port: 9119
-- from_device: Leaf1
-  from_device_id: 42
-  from_interface: eth5
-  from_interface_id: 5
-  from_port: 9120
-  name: ''
-  network: 393
-  subnet: 192.168.0.40
-  subnet_prefixlen: 30
-  to_device: Leaf1
-  to_device_id: 42
-  to_interface: eth4
-  to_interface_id: 4
-  to_port: 9121
-- from_device: Leaf1
-  from_device_id: 42
-  from_interface: eth3
-  from_interface_id: 3
-  from_port: 9122
-  name: ''
-  network: 390
-  subnet: 192.168.0.44
-  subnet_prefixlen: 30
-  to_device: Host1
-  to_device_id: 45
-  to_interface: eth1
-  to_interface_id: 1
-  to_port: 9123
 name: topology
-topology_id: 144
+streams: []
+topology_id: 2
