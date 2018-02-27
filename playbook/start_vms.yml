@@ -5,7 +5,7 @@
   tasks:
       - ping:
       - name: Start VMs
-        shell: /home/ben/env/vyos-topology/bin/ansible-playbook playbook/up.yml
+        shell: /home/ben/env/vyos-topology/bin/ansible-playbook up_role.yml
         args:
           chdir: /home/ben/git/vyos-topology
       - name: Install SSH Credentials
