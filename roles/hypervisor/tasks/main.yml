@@ -1,5 +1,9 @@
 ---
 - ping:
+- name: whereami
+  shell: hostname
+- name: whoami
+  shell: whoami
 - name: Start VMs
   shell: /home/ben/env/vyos-topology/bin/ansible-playbook up_role.yml
   args:
