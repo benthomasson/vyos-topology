@@ -1,9 +1,4 @@
 ---
-- ping:
-- name: whereami
-  shell: hostname
-- name: whoami
-  shell: whoami
 - name: Start VMs
   shell: /home/ben/env/vyos-topology/bin/ansible-playbook playbook/up_role.yml
   args:
@@ -23,5 +18,3 @@
     mode: pull
     src: /home/ben/git/vyos-topology/group_vars
     dest: group_vars
-- local_shell:
-    command: awx-manage inventory_import --source=./playbook/nat_hosts/Hypervisor/home/ben/git/vyos-topology/nat_hosts --inventory-id=2
