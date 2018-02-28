@@ -1,9 +1,0 @@
----
-- name: Update the inventory from the generated nat_hosts file
-  hosts: localhost
-  gather_facts: false
-  tasks:
-      - local_shell:
-            command: tower-manage inventory_import --source=nat_hosts --inventory-id=1
-        run_once: true
-

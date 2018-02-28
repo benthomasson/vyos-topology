@@ -1,0 +1,9 @@
+---
+- name: Update host vars from files on disk through the API
+  hosts: tower
+  gather_facts: false
+  roles:
+      - tower_network
+  tasks:
+      - update_host_vars:
+          inventory_id: 2
