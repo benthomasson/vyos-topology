@@ -7,3 +7,4 @@
   tasks:
       - update_host_vars:
           inventory_id: 2
+          host_vars: playbook/host_vars/host_vars
