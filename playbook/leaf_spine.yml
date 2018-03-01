@@ -39,7 +39,7 @@
         x: "{{item.1}}"
         y: 1000
         id: "{{item.0}}"
-        type: switch
+        device_type: switch
         var: new_device
       with_items:
           - "{{leaf_range}}"
@@ -50,7 +50,7 @@
         x: "{{item.1}}"
         y: 500
         id: "{{item.0}}"
-        type: switch
+        device_type: switch
         var: new_device
       with_items:
           - "{{spine_range}}"
