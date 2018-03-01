@@ -28,6 +28,19 @@ def unpaginate(server, url, verify, auth, filter_data):
     return results
 
 
+def create_interface(server, verify, auth, device, id, name):
+        url = server + '/api/v2/canvas/interface/'
+        headers = {'content-type': 'application/json'}
+        response = requests.post(url, data=json.dumps(dict(device=device,
+                                                           name=name,
+                                                           id=id,
+                                                           )),
+                                 verify=verify,
+                                 auth=auth,
+                                 headers=headers)
+        return response.json()
+
+
 def create_link(server, verify, auth, from_device, to_device, from_interface, to_interface, id, name):
         url = server + '/api/v2/canvas/link/'
         headers = {'content-type': 'application/json'}
@@ -41,8 +54,6 @@ def create_link(server, verify, auth, from_device, to_device, from_interface, to
                                  verify=verify,
                                  auth=auth,
                                  headers=headers)
-        print (response)
-        print (response.text)
         return response.json()
 
 
@@ -93,6 +104,10 @@ class ActionModule(ActionBase):
             device['interfaces'] = interfaces
             device['interfaces_map_by_name'] = {x['name']: x for x in interfaces}
             device['interfaces_map_by_id'] = {x['interface_id']: x for x in interfaces}
+            if not interfaces:
+                device['interface_id_seq'] = itertools.count(1)
+            else:
+                device['interface_id_seq'] = itertools.count(max([interface['interface_id'] for interface in interfaces]))
             print (interfaces)
 
         pprint(device_map_by_name)
@@ -125,7 +140,14 @@ class ActionModule(ActionBase):
                     for interface_name, neighbor_details in host_facts.get('ansible_net_neighbors', []).iteritems():
                         print interface_name, neighbor_details
                         if interface_name not in local_device['interfaces_map_by_name']:
-                            raise Exception("TODO: Create interface")
+                            new_interface = create_interface(server,
+                                                             False,
+                                                             (user, password),
+                                                             local_device['device_id'],
+                                                             next(local_device['interface_id_seq']),
+                                                             interface_name)
+                            local_device['interfaces_map_by_id'][new_interface['interface_id']] = new_interface
+                            local_device['interfaces_map_by_name'][new_interface['name']] = new_interface
                         local_interface = local_device['interfaces_map_by_name'][interface_name]
                         print(local_interface)
                         for remote_neighbor in neighbor_details:
@@ -137,7 +159,14 @@ class ActionModule(ActionBase):
                                 if remote_neighbor['host'] in device_map_by_name:
                                     remote_device = device_map_by_name[remote_neighbor['host']]
                                     if not remote_neighbor['port'] in remote_device['interfaces_map_by_name']:
-                                        raise Exception("TODO: Create interface")
+                                        new_interface = create_interface(server,
+                                                                         False,
+                                                                         (user, password),
+                                                                         remote_device['device_id'],
+                                                                         next(remote_device['interface_id_seq']),
+                                                                         remote_neighbor['port'])
+                                        remote_device['interfaces_map_by_id'][new_interface['interface_id']] = new_interface
+                                        remote_device['interfaces_map_by_name'][new_interface['name']] = new_interface
                                     remote_interface = remote_device['interfaces_map_by_name'][remote_neighbor['port']]
                                     new_link = create_link(server,
                                                            False,
