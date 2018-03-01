@@ -1,0 +1,9 @@
+---
+- name: Update network neighbor relationships vars from files on disk through the API
+  hosts: tower
+  gather_facts: false
+  roles:
+      - tower_network
+  tasks:
+      - update_neighbors:
+          inventory_id: 2
