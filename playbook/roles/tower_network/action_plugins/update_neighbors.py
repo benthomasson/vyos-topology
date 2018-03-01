@@ -80,14 +80,14 @@ class ActionModule(ActionBase):
         filter_data = dict(inventory_id=inventory_id)
         topology_results = requests.get(url, verify=False, auth=(user, password), params=filter_data).json()
 
-        print (topology_results)
+        # print (topology_results)
 
         if len(topology_results['results']) == 1:
             topology_id = (topology_results['results'][0]['topology'])
         else:
             raise Exception("{0} topologies found".format(len(topology_results['results'])))
 
-        print (topology_id)
+        # print (topology_id)
 
         url = '/api/v2/canvas/device/'
         filter_data = dict(topology_id=topology_id)
@@ -95,7 +95,7 @@ class ActionModule(ActionBase):
         device_map_by_name = {x['name']: x for x in devices}
         device_map_by_id = {x['device_id']: x for x in devices}
 
-        print (devices)
+        # print (devices)
 
         for device in devices:
             url = '/api/v2/canvas/interface/'
@@ -108,10 +108,10 @@ class ActionModule(ActionBase):
                 device['interface_id_seq'] = itertools.count(1)
             else:
                 device['interface_id_seq'] = itertools.count(max([interface['interface_id'] for interface in interfaces]))
-            print (interfaces)
+            # print (interfaces)
 
-        pprint(device_map_by_name)
-        pprint(device_map_by_id)
+        # pprint(device_map_by_name)
+        # pprint(device_map_by_id)
         links = set()
 
         for device in devices:
@@ -119,7 +119,7 @@ class ActionModule(ActionBase):
             filter_data = dict(from_device=device['device_id'])
             links.update([Link(**x) for x in unpaginate(server, url, verify=False, auth=(user, password), filter_data=filter_data)])
 
-        print (links)
+        # print (links)
         links_map_by_from_device_id_interface_id = {(x.from_device, x.from_interface): x for x in links}
         links_map_by_to_device_id_interface_id = {(x.to_device, x.to_interface): x for x in links}
         if not links:
@@ -130,15 +130,15 @@ class ActionModule(ActionBase):
         for host in hosts:
             if os.path.exists(os.path.join(host_facts_dir, host['name'])):
                 with open(os.path.join(host_facts_dir, host['name'])) as f:
-                    print host['name']
+                    # print host['name']
                     if not host['name'] in device_map_by_name:
-                        print ("Did not find {0} on canvas".format(host['name']))
+                        # print ("Did not find {0} on canvas".format(host['name']))
                         continue
                     host_facts = yaml.load(f.read())
                     local_device = device_map_by_name[host['name']]
-                    print host_facts
+                    # print host_facts
                     for interface_name, neighbor_details in host_facts.get('ansible_net_neighbors', []).iteritems():
-                        print interface_name, neighbor_details
+                        # print interface_name, neighbor_details
                         if interface_name not in local_device['interfaces_map_by_name']:
                             new_interface = create_interface(server,
                                                              False,
@@ -149,12 +149,14 @@ class ActionModule(ActionBase):
                             local_device['interfaces_map_by_id'][new_interface['interface_id']] = new_interface
                             local_device['interfaces_map_by_name'][new_interface['name']] = new_interface
                         local_interface = local_device['interfaces_map_by_name'][interface_name]
-                        print(local_interface)
+                        # print(local_interface)
                         for remote_neighbor in neighbor_details:
                             if (local_device['device_id'], local_interface['interface_id']) in links_map_by_from_device_id_interface_id:
-                                print ("Found link!")
+                                pass
+                                # print ("Found link!")
                             elif (local_device['device_id'], local_interface['interface_id']) in links_map_by_to_device_id_interface_id:
-                                print ("Found link!")
+                                pass
+                                # print ("Found link!")
                             else:
                                 if remote_neighbor['host'] in device_map_by_name:
                                     remote_device = device_map_by_name[remote_neighbor['host']]
