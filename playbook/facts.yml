@@ -10,9 +10,3 @@
   tasks:
     - vyos_facts:
         gather_subset: all
-    - debug:
-        msg: "{{ansible_net_neighbors}}"
-    - save_facts:
-        facts:
-            - ansible_net_neighbors
-

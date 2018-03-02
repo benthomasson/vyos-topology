@@ -128,13 +128,11 @@ class ActionModule(ActionBase):
             link_id_seq = itertools.count(max([link.id for link in links]))
 
         for host in hosts:
-            if os.path.exists(os.path.join(host_facts_dir, host['name'])):
-                with open(os.path.join(host_facts_dir, host['name'])) as f:
-                    # print host['name']
                     if not host['name'] in device_map_by_name:
-                        # print ("Did not find {0} on canvas".format(host['name']))
                         continue
-                    host_facts = yaml.load(f.read())
+                    url = server + '/api/v2/hosts/{0}/ansible_facts'.format(host['id'])
+                    host_facts = requests.get(url, verify=False, auth=(user, password)).json()
+                    print (host_facts)
                     local_device = device_map_by_name[host['name']]
                     # print host_facts
                     for interface_name, neighbor_details in host_facts.get('ansible_net_neighbors', []).iteritems():
