@@ -178,7 +178,7 @@ class ActionModule(ActionBase):
                                                            local_interface['interface_id'],
                                                            remote_interface['interface_id'],
                                                            next(link_id_seq),
-                                                           "x")
+                                                           "")
                                     new_link = Link(**new_link)
                                     links.add(new_link)
                                     links_map_by_from_device_id_interface_id[(local_device['device_id'], local_interface['interface_id'])] = new_link
