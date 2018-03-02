@@ -9,6 +9,9 @@ from collections import namedtuple
 from pprint import pprint
 import itertools
 
+from ansible.utils.display import Display
+display = Display()
+
 Link = namedtuple('Link', ['to_device',
                            'from_device',
                            'to_interface',
@@ -140,10 +143,10 @@ class ActionModule(ActionBase):
 
         for host in hosts:
                     if not host['name'] in device_map_by_name:
+                        display.warning ('Did not find {0} on the canvas'.format(host['name']))
                         continue
                     url = server + '/api/v2/hosts/{0}/ansible_facts'.format(host['id'])
                     host_facts = requests.get(url, verify=False, auth=(user, password)).json()
-                    print (host_facts)
                     local_device = device_map_by_name[host['name']]
                     # print host_facts
                     for interface_name, neighbor_details in host_facts.get('ansible_net_neighbors', []).iteritems():
