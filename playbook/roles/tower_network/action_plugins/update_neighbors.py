@@ -72,6 +72,17 @@ class ActionModule(ActionBase):
 
         host_facts_dir = self._task.args.get('host_facts', 'host_facts')
         inventory_id = self._task.args.get('inventory_id', None)
+        inventory_name = self._task.args.get('inventory_name', None)
+
+
+        if inventory_id:
+            pass
+        elif not inventory_id and inventory_name:
+            url = server + '/api/v2/inventories/?name={0}'.format(inventory_name)
+            inventory_id = requests.get(url, verify=False, auth=(user, password)).json()['results'][0]['id']
+        else:
+            raise Exception("inventory_id or inventory_name is required")
+
 
         url = '/api/v2/inventories/' + str(inventory_id) + '/hosts'
         hosts = unpaginate(server, url, verify=False, auth=(user, password), filter_data={})

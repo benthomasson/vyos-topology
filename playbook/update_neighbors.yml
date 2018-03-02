@@ -6,4 +6,4 @@
       - tower_network
   tasks:
       - update_neighbors:
-          inventory_id: 2
+          inventory_name: Brownfield
