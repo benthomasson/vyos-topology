@@ -34,7 +34,7 @@
         q: "{{spine_range}}"
         var: spine_range
     - create_device:
-        topology: 4
+        topology: 6
         name: "Leaf{{item.0}}"
         x: "{{item.1}}"
         y: 1000
@@ -45,7 +45,7 @@
           - "{{leaf_range}}"
       register: leaves
     - create_device:
-        topology: 4
+        topology: 6
         name: "Spine{{item.0}}"
         x: "{{item.1}}"
         y: 500
