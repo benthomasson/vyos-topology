@@ -2,6 +2,7 @@ from ansible.plugins.action import ActionBase
 
 import dpath
 
+
 class ActionModule(ActionBase):
 
     BYPASS_HOST_LOOP = True
@@ -14,6 +15,6 @@ class ActionModule(ActionBase):
         attribute = self._task.args.get('attribute', None)
         var = self._task.args.get('var', None)
         attribute = attribute.replace('.', '/')
-        result['ansible_facts'] = {var: [dpath.util.get(x, attribute) for x in the_list]}
+        result['ansible_facts'] = {
+            var: [dpath.util.get(x, attribute) for x in the_list]}
         return result
-

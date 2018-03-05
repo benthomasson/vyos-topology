@@ -23,7 +23,8 @@ class ActionModule(ActionBase):
         for device in data['devices']:
             for interface in device['interfaces']:
                 if interface.get('ip_address', False):
-                    reachable['devices'].append(dict(device=device['name'], ip_address=interface['ip_address']))
+                    reachable['devices'].append(
+                        dict(device=device['name'], ip_address=interface['ip_address']))
 
         with open(output_file, 'w') as f:
             f.write(yaml.dump(reachable, default_flow_style=False))

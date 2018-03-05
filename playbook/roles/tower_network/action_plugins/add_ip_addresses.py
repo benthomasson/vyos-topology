@@ -34,14 +34,22 @@ class ActionModule(ActionBase):
             subnet = next(subnets)
             link['subnet'] = str(subnet.network)
             link['subnet_prefixlen'] = subnet.prefixlen
-            device_interfaces[(link['from_device_id'], link['from_interface_id'])]['ip_address'] = str(subnet[1])
-            device_interfaces[(link['from_device_id'], link['from_interface_id'])]['netmask'] = str(subnet.netmask)
-            device_interfaces[(link['from_device_id'], link['from_interface_id'])]['subnet_prefixlen'] = subnet_size
-            device_interfaces[(link['from_device_id'], link['from_interface_id'])]['remote_ip_address'] = str(subnet[2])
-            device_interfaces[(link['to_device_id'], link['to_interface_id'])]['ip_address'] = str(subnet[2])
-            device_interfaces[(link['to_device_id'], link['to_interface_id'])]['netmask'] = str(subnet.netmask)
-            device_interfaces[(link['to_device_id'], link['to_interface_id'])]['remote_ip_address'] = str(subnet[1])
-            device_interfaces[(link['to_device_id'], link['to_interface_id'])]['subnet_prefixlen'] = subnet_size
+            device_interfaces[(
+                link['from_device_id'], link['from_interface_id'])]['ip_address'] = str(subnet[1])
+            device_interfaces[(link['from_device_id'], link['from_interface_id'])]['netmask'] = str(
+                subnet.netmask)
+            device_interfaces[(
+                link['from_device_id'], link['from_interface_id'])]['subnet_prefixlen'] = subnet_size
+            device_interfaces[(link['from_device_id'], link['from_interface_id'])
+                              ]['remote_ip_address'] = str(subnet[2])
+            device_interfaces[(
+                link['to_device_id'], link['to_interface_id'])]['ip_address'] = str(subnet[2])
+            device_interfaces[(link['to_device_id'], link['to_interface_id'])]['netmask'] = str(
+                subnet.netmask)
+            device_interfaces[(link['to_device_id'], link['to_interface_id'])
+                              ]['remote_ip_address'] = str(subnet[1])
+            device_interfaces[(
+                link['to_device_id'], link['to_interface_id'])]['subnet_prefixlen'] = subnet_size
 
         with open(output_file, 'w') as f:
             f.write(yaml.safe_dump(data, default_flow_style=False))

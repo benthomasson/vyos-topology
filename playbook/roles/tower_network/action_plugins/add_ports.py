@@ -27,8 +27,10 @@ class ActionModule(ActionBase):
         for link in data['links']:
             link['from_port'] = next(port_range)
             link['to_port'] = next(port_range)
-            from_interface_map[(link['from_device'], link['from_interface'])] = (link['from_port'], link['to_port'])
-            to_interface_map[(link['to_device'], link['to_interface'])] = (link['to_port'], link['from_port'])
+            from_interface_map[(link['from_device'], link['from_interface'])] = (
+                link['from_port'], link['to_port'])
+            to_interface_map[(link['to_device'], link['to_interface'])] = (
+                link['to_port'], link['from_port'])
 
         for device in data['devices']:
             for interface in device['interfaces']:

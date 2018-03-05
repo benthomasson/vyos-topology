@@ -13,4 +13,3 @@ class ActionModule(ActionBase):
         result = super(ActionModule, self).run(tmp, task_vars)
         subprocess.check_call('vagrant up', shell=True)
         return result
-

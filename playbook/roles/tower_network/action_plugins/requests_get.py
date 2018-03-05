@@ -16,4 +16,3 @@ class ActionModule(ActionBase):
         with open(output, 'w') as f:
             f.write(requests.get(url).text)
         return result
-

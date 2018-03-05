@@ -1,5 +1,6 @@
 from ansible.plugins.action import ActionBase
 
+
 class ActionModule(ActionBase):
 
     BYPASS_HOST_LOOP = True
@@ -13,4 +14,3 @@ class ActionModule(ActionBase):
         var = self._task.args.get('var', None)
         result['ansible_facts'] = {var: zip(p, q)}
         return result
-

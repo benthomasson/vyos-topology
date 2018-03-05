@@ -30,21 +30,21 @@ class ActionModule(ActionBase):
         host_id = self._task.args.get('host_id', None)
         url = server + NETWORKING_API + API_VERSION + '/device/'
         headers = {'content-type': 'application/json'}
-	data = dict(topology=topology,
-		    name=name,
-		    x=x,
-		    y=y,
-		    id=id,
-		    type=type,
-		    interface_id_seq=interface_id_seq,
-		    process_id_seq=process_id_seq,
-		    host_id=host_id,
-		    )
-	data = {x: y for x, y in data.iteritems() if y is not None}
-	response = requests.patch(util.get_url() + "/device/" + str(device_id) + "/",
-				  data=json.dumps(data),
-				  verify=False,
-				  auth=(user, password),
-				  headers=headers)
+        data = dict(topology=topology,
+                    name=name,
+                    x=x,
+                    y=y,
+                    id=id,
+                    type=type,
+                    interface_id_seq=interface_id_seq,
+                    process_id_seq=process_id_seq,
+                    host_id=host_id,
+                    )
+        data = {x: y for x, y in data.iteritems() if y is not None}
+        response = requests.patch(util.get_url() + "/device/" + str(device_id) + "/",
+                                  data=json.dumps(data),
+                                  verify=False,
+                                  auth=(user, password),
+                                  headers=headers)
         result['ansible_facts'] = {var: response.json()}
         return result

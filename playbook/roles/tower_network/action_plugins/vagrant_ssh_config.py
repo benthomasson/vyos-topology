@@ -15,4 +15,3 @@ class ActionModule(ActionBase):
         with open(output_file, 'w') as f:
             f.write(subprocess.check_output('vagrant ssh-config', shell=True))
         return result
-

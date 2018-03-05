@@ -38,7 +38,8 @@ class ActionModule(ActionBase):
                 device['cli'] = dict(host=host_data['hostname'],
                                      port=int(host_data['port']),
                                      username=host_data['user'],
-                                     ssh_keyfile=str(ssh_key) or host_data['identityfile'][0],
+                                     ssh_keyfile=str(
+                                         ssh_key) or host_data['identityfile'][0],
                                      transport='cli')
 
         with open(output_file, 'w') as f:

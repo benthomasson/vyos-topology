@@ -29,7 +29,8 @@ class ActionModule(ActionBase):
         hosts = []
         while url is not None:
             url = server + url
-            data = requests.get(url, verify=False, auth=(user, password)).json()
+            data = requests.get(url, verify=False,
+                                auth=(user, password)).json()
             hosts.extend(data.get('results', []))
             url = data.get('next', None)
         print ([x['name'] for x in hosts])
@@ -38,7 +39,8 @@ class ActionModule(ActionBase):
             print(host, os.path.exists(os.path.join(host_vars_dir, host)))
         for host in hosts:
             if os.path.exists(os.path.join(host_vars_dir, host['name'])):
-                url = server + '/api/v2/hosts/' + str(host['id']) + '/variable_data'
+                url = server + '/api/v2/hosts/' + \
+                    str(host['id']) + '/variable_data'
                 with open(os.path.join(host_vars_dir, host['name'])) as f:
                     data = yaml.load(f)
                 headers = {'content-type': 'application/json'}
@@ -48,7 +50,6 @@ class ActionModule(ActionBase):
                                      auth=(user, password),
                                      headers=headers).json()
                 print (data)
-
 
         result['ansible_facts'] = {'hosts': hosts}
         return result

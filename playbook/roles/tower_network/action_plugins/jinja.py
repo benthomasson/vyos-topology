@@ -22,4 +22,3 @@ class ActionModule(ActionBase):
         with open(output, 'w') as f:
             f.write(jinja2.Template(template).render(**context))
         return result
-

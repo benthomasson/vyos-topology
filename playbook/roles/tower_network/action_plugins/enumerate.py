@@ -14,4 +14,3 @@ class ActionModule(ActionBase):
         var = self._task.args.get('var', None)
         result['ansible_facts'] = {var: list(enumerate(the_list))}
         return result
-

@@ -2,6 +2,7 @@ from ansible.plugins.action import ActionBase
 
 import itertools
 
+
 class ActionModule(ActionBase):
 
     BYPASS_HOST_LOOP = True
@@ -15,4 +16,3 @@ class ActionModule(ActionBase):
         var = self._task.args.get('var', None)
         result['ansible_facts'] = {var: list(itertools.product(p, q))}
         return result
-

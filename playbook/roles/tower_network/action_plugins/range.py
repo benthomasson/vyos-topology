@@ -14,6 +14,6 @@ class ActionModule(ActionBase):
         end = self._task.args.get('end', None)
         increment = self._task.args.get('increment', 1)
         var = self._task.args.get('var', None)
-        result['ansible_facts'] = {var: range(int(start), int(end), int(increment))}
+        result['ansible_facts'] = {var: range(
+            int(start), int(end), int(increment))}
         return result
-

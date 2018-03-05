@@ -16,9 +16,10 @@ class ActionModule(ActionBase):
 
         server = self._task.args.get('server',
                                      "{0}:{1}".format(self._play_context.remote_addr,
-                                                      self._play_context.port))
+                                                              self._play_context.port))
         user = self._task.args.get('user', self._play_context.remote_user)
         password = self._task.args.get('password', self._play_context.password)
+
 
         topology_id = self._task.args.get('topology_id', None)
 
@@ -27,3 +28,8 @@ class ActionModule(ActionBase):
                         verify=False,
                         auth=(user, password))
         return result
+
+
+
+
+

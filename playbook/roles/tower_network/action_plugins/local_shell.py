@@ -14,5 +14,3 @@ class ActionModule(ActionBase):
         command = self._task.args.get('command', None)
         subprocess.check_call(command, shell=True)
         return result
-
-
