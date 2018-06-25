@@ -1,0 +1,11 @@
+---
+- name: Enable LLDP
+  hosts: Group1
+  become: false
+  become_method: sudo
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - vyos_config:
+        lines:
+            - set service lldp

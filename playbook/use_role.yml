@@ -6,7 +6,7 @@
       - tower_network
   tasks:
     - get_device:
-        device_id: 307
+        device_id: 6
         var: device1
     - debug:
         msg: "device1 {{device1}}"
@@ -15,11 +15,11 @@
     - list_device:
         var: devices
         name: api_created
-        topology: 21
+        topology: 2
     - debug:
         msg: "devices {{devices}}"
     - create_device:
-        topology: 21
+        topology: 2
         name: playbook_created
         x: 0
         y: 0
@@ -36,7 +36,7 @@
     - debug:
         msg: "new_device2 {{new_device2}}"
     - create_device:
-        topology: 21
+        topology: 2
         name: should_be_deleted
         x: 0
         y: 0

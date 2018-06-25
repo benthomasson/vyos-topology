@@ -1,88 +1,44 @@
-Host Host1
-  HostName 192.168.121.119
+Host Switch1
+  HostName 192.168.121.238
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
   StrictHostKeyChecking no
   PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Host1/libvirt/private_key
+  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Switch1/libvirt/private_key
   IdentitiesOnly yes
   LogLevel FATAL
 
-Host Host2
-  HostName 192.168.121.50
+Host Switch2
+  HostName 192.168.121.139
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
   StrictHostKeyChecking no
   PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Host2/libvirt/private_key
+  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Switch2/libvirt/private_key
   IdentitiesOnly yes
   LogLevel FATAL
 
-Host Host3
-  HostName 192.168.121.71
+Host Switch3
+  HostName 192.168.121.45
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
   StrictHostKeyChecking no
   PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Host3/libvirt/private_key
+  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Switch3/libvirt/private_key
   IdentitiesOnly yes
   LogLevel FATAL
 
-Host Leaf1
-  HostName 192.168.121.143
+Host Switch4
+  HostName 192.168.121.58
   User vagrant
   Port 22
   UserKnownHostsFile /dev/null
   StrictHostKeyChecking no
   PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Leaf1/libvirt/private_key
-  IdentitiesOnly yes
-  LogLevel FATAL
-
-Host Leaf2
-  HostName 192.168.121.10
-  User vagrant
-  Port 22
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Leaf2/libvirt/private_key
-  IdentitiesOnly yes
-  LogLevel FATAL
-
-Host Leaf3
-  HostName 192.168.121.186
-  User vagrant
-  Port 22
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Leaf3/libvirt/private_key
-  IdentitiesOnly yes
-  LogLevel FATAL
-
-Host Spine1
-  HostName 192.168.121.185
-  User vagrant
-  Port 22
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Spine1/libvirt/private_key
-  IdentitiesOnly yes
-  LogLevel FATAL
-
-Host Spine2
-  HostName 192.168.121.128
-  User vagrant
-  Port 22
-  UserKnownHostsFile /dev/null
-  StrictHostKeyChecking no
-  PasswordAuthentication no
-  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Spine2/libvirt/private_key
+  IdentityFile /home/ben/git/vyos-topology/.vagrant/machines/Switch4/libvirt/private_key
   IdentitiesOnly yes
   LogLevel FATAL
 

@@ -4,7 +4,7 @@
   become: false
   become_method: sudo
   gather_facts: false
-  connection: local
+  connection: network_cli
   tasks:
     - vyos_config:
         lines:

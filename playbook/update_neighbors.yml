@@ -1,5 +1,5 @@
 ---
-- name: Update network neighbor relationships vars from files on disk through the API
+- name: Update network neighbor relationships from previously gathered facts
   hosts: tower
   gather_facts: false
   roles:

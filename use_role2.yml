@@ -1,0 +1,16 @@
+---
+- name: Get a device using the tower network ui api
+  hosts: localhost
+  gather_facts: false
+  roles:
+      - network_demo
+  tasks:
+    - include_vars: tower.yml
+    - list_device:
+        server: "{{server}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        topology: 23
+        var: devices
+    - debug:
+        msg: "devices {{devices}}"

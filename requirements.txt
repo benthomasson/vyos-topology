@@ -6,3 +6,5 @@ websocket-client
 ansible>=2.3
 requests
 netaddr
+dpath
+ansible-tower-cli
