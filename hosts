@@ -1,5 +1,7 @@
-[Group1]
-Switch3 ansible_host=192.168.121.45 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/Switch3/libvirt/private_key
-Switch2 ansible_host=192.168.121.139 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/Switch2/libvirt/private_key
-Switch1 ansible_host=192.168.121.238 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/Switch1/libvirt/private_key
-Switch4 ansible_host=192.168.121.58 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/Switch4/libvirt/private_key
+[all]
+leaf00 ansible_host=192.168.121.98 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/leaf00/libvirt/private_key
+leaf01 ansible_host=192.168.121.33 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/leaf01/libvirt/private_key
+spine00 ansible_host=192.168.121.207 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/spine00/libvirt/private_key
+spine01 ansible_host=192.168.121.245 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/spine01/libvirt/private_key
+server01 ansible_host=192.168.121.15 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/server01/libvirt/private_key
+server00 ansible_host=192.168.121.232 ansible_port=22 ansible_user=vagrant ansible_ssh_private_key_file=/home/ben/git/vyos-topology/.vagrant/machines/server00/libvirt/private_key

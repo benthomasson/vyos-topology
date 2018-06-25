@@ -1,11 +1,14 @@
+[all]
 
-[Group1]
+leaf00 ansible_host=10.17.161.200 ansible_port=10100 ansible_user=vagrant
 
-Switch1 ansible_host=10.17.161.200 ansible_port=10100 ansible_user=vagrant
+leaf01 ansible_host=10.17.161.200 ansible_port=10101 ansible_user=vagrant
 
-Switch2 ansible_host=10.17.161.200 ansible_port=10101 ansible_user=vagrant
+server00 ansible_host=10.17.161.200 ansible_port=10102 ansible_user=vagrant
 
-Switch3 ansible_host=10.17.161.200 ansible_port=10102 ansible_user=vagrant
+server01 ansible_host=10.17.161.200 ansible_port=10103 ansible_user=vagrant
 
-Switch4 ansible_host=10.17.161.200 ansible_port=10103 ansible_user=vagrant
+spine00 ansible_host=10.17.161.200 ansible_port=10104 ansible_user=vagrant
+
+spine01 ansible_host=10.17.161.200 ansible_port=10105 ansible_user=vagrant
 

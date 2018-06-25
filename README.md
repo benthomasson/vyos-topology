@@ -26,7 +26,7 @@ Remote Destroy
 Start
 -----
 
-    ansible-playbook playbook/up.yml
+    ansible-playbook playbook/up_role.yml
 
 
 Configure
