@@ -1,0 +1,360 @@
+devices:
+- id: 1
+  interfaces:
+  - id: 1
+    name: eth0
+    network: 29
+    remote_device_name: spine00
+    remote_interface_name: eth0
+  - id: 1
+    name: eth0
+    network: 27
+    remote_device_name: spine00
+    remote_interface_name: eth0
+  - id: 2
+    name: eth1
+    network: 33
+    remote_device_name: spine01
+    remote_interface_name: eth0
+  - id: 2
+    name: eth1
+    network: 31
+    remote_device_name: spine01
+    remote_interface_name: eth0
+  - id: 3
+    name: eth2
+    network: 21
+    remote_device_name: server00
+    remote_interface_name: eth0
+  - id: 3
+    name: eth2
+    network: 19
+    remote_device_name: server00
+    remote_interface_name: eth0
+  - id: 4
+    name: eth3
+    network: 25
+    remote_device_name: server01
+    remote_interface_name: eth0
+  - id: 4
+    name: eth3
+    network: 23
+    remote_device_name: server01
+    remote_interface_name: eth0
+  name: leaf00
+  type: switch
+  x: 912
+  y: 465
+- id: 2
+  interfaces:
+  - id: 1
+    name: eth0
+    network: 30
+    remote_device_name: spine00
+    remote_interface_name: eth1
+  - id: 1
+    name: eth0
+    network: 28
+    remote_device_name: spine00
+    remote_interface_name: eth1
+  - id: 2
+    name: eth1
+    network: 34
+    remote_device_name: spine01
+    remote_interface_name: eth1
+  - id: 2
+    name: eth1
+    network: 32
+    remote_device_name: spine01
+    remote_interface_name: eth1
+  - id: 3
+    name: eth2
+    network: 22
+    remote_device_name: server00
+    remote_interface_name: eth1
+  - id: 3
+    name: eth2
+    network: 20
+    remote_device_name: server00
+    remote_interface_name: eth1
+  - id: 4
+    name: eth3
+    network: 26
+    remote_device_name: server01
+    remote_interface_name: eth1
+  - id: 4
+    name: eth3
+    network: 24
+    remote_device_name: server01
+    remote_interface_name: eth1
+  name: leaf01
+  type: switch
+  x: 1227
+  y: 464
+- id: 3
+  interfaces:
+  - id: 1
+    name: eth0
+    network: 21
+    remote_device_name: leaf00
+    remote_interface_name: eth2
+  - id: 1
+    name: eth0
+    network: 19
+    remote_device_name: leaf00
+    remote_interface_name: eth2
+  - id: 2
+    name: eth1
+    network: 22
+    remote_device_name: leaf01
+    remote_interface_name: eth2
+  - id: 2
+    name: eth1
+    network: 20
+    remote_device_name: leaf01
+    remote_interface_name: eth2
+  name: server00
+  type: host
+  x: 914
+  y: 698
+- id: 4
+  interfaces:
+  - id: 1
+    name: eth0
+    network: 25
+    remote_device_name: leaf00
+    remote_interface_name: eth3
+  - id: 1
+    name: eth0
+    network: 23
+    remote_device_name: leaf00
+    remote_interface_name: eth3
+  - id: 2
+    name: eth1
+    network: 26
+    remote_device_name: leaf01
+    remote_interface_name: eth3
+  - id: 2
+    name: eth1
+    network: 24
+    remote_device_name: leaf01
+    remote_interface_name: eth3
+  name: server01
+  type: host
+  x: 1221
+  y: 701
+- id: 5
+  interfaces:
+  - id: 1
+    name: eth0
+    network: 29
+    remote_device_name: leaf00
+    remote_interface_name: eth0
+  - id: 1
+    name: eth0
+    network: 27
+    remote_device_name: leaf00
+    remote_interface_name: eth0
+  - id: 2
+    name: eth1
+    network: 30
+    remote_device_name: leaf01
+    remote_interface_name: eth0
+  - id: 2
+    name: eth1
+    network: 28
+    remote_device_name: leaf01
+    remote_interface_name: eth0
+  name: spine00
+  type: switch
+  x: 913
+  y: 210
+- id: 6
+  interfaces:
+  - id: 1
+    name: eth0
+    network: 33
+    remote_device_name: leaf00
+    remote_interface_name: eth1
+  - id: 1
+    name: eth0
+    network: 31
+    remote_device_name: leaf00
+    remote_interface_name: eth1
+  - id: 2
+    name: eth1
+    network: 34
+    remote_device_name: leaf01
+    remote_interface_name: eth1
+  - id: 2
+    name: eth1
+    network: 32
+    remote_device_name: leaf01
+    remote_interface_name: eth1
+  name: spine01
+  type: switch
+  x: 1228
+  y: 203
+links:
+- from_device: server00
+  from_device_id: 3
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 22
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth2
+  to_interface_id: 3
+- from_device: server00
+  from_device_id: 3
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 20
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth2
+  to_interface_id: 3
+- from_device: server00
+  from_device_id: 3
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 21
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth2
+  to_interface_id: 3
+- from_device: server00
+  from_device_id: 3
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 19
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth2
+  to_interface_id: 3
+- from_device: spine00
+  from_device_id: 5
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 30
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth0
+  to_interface_id: 1
+- from_device: spine00
+  from_device_id: 5
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 28
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth0
+  to_interface_id: 1
+- from_device: spine00
+  from_device_id: 5
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 29
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth0
+  to_interface_id: 1
+- from_device: spine00
+  from_device_id: 5
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 27
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth0
+  to_interface_id: 1
+- from_device: spine01
+  from_device_id: 6
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 34
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth1
+  to_interface_id: 2
+- from_device: spine01
+  from_device_id: 6
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 32
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth1
+  to_interface_id: 2
+- from_device: spine01
+  from_device_id: 6
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 33
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth1
+  to_interface_id: 2
+- from_device: spine01
+  from_device_id: 6
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 31
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth1
+  to_interface_id: 2
+- from_device: server01
+  from_device_id: 4
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 26
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth3
+  to_interface_id: 4
+- from_device: server01
+  from_device_id: 4
+  from_interface: eth1
+  from_interface_id: 2
+  name: ''
+  network: 24
+  to_device: leaf01
+  to_device_id: 2
+  to_interface: eth3
+  to_interface_id: 4
+- from_device: server01
+  from_device_id: 4
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 25
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth3
+  to_interface_id: 4
+- from_device: server01
+  from_device_id: 4
+  from_interface: eth0
+  from_interface_id: 1
+  name: ''
+  network: 23
+  to_device: leaf00
+  to_device_id: 1
+  to_interface: eth3
+  to_interface_id: 4
+name: topology
+topology_id: 4
