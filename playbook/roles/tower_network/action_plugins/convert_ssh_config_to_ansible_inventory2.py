@@ -23,11 +23,18 @@ class ActionModule(ActionBase):
         with open(data_file) as f:
             data = yaml.load(f.read())
 
-        devices = {device.get(
-            'name'): device for device in data.get('devices', [])}
+        devices = {device.get('name'): device for device in data.get('devices', [])}
         groups = data.get('groups', [])
 
         with open(output_file, 'w') as f:
+            f.write("[all]\n")
+            for name in ssh_config.get_hostnames():
+                if name == '*':
+                    continue
+                if name not in devices:
+                    continue
+                data = ssh_config.lookup(name)
+                add_host(data, name, f)
             for group in groups:
                 f.write("[{0}]\n".format(group['name']))
                 for name in ssh_config.get_hostnames():
@@ -38,15 +45,16 @@ class ActionModule(ActionBase):
                     if name not in group['members']:
                         continue
                     data = ssh_config.lookup(name)
-                    f.write(" ".join([name] +
-                                     ["=".join(x) for x in [["ansible_host", data['hostname']],
-                                                            ["ansible_port",
-                                                                data['port']],
-                                                            ["ansible_user",
-                                                                data['user']],
-                                                            ["ansible_ssh_private_key_file",
-                                                                data['identityfile'][0]],
-                                                            ]]))
-                    f.write("\n")
-
+                    add_host(data, name, f)
         return result
+
+
+def add_host(data, name, f):
+    f.write(" ".join([name] +
+                     ["=".join(x) for x in [["ansible_host", data['hostname']],
+                                            ["ansible_port", data['port']],
+                                            ["ansible_user", data['user']],
+                                            ["ansible_ssh_private_key_file",
+                                                data['identityfile'][0]],
+                                            ]]))
+    f.write("\n")
